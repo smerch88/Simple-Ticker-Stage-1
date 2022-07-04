@@ -21,5 +21,5 @@ def date(request):
     return HttpResponse(f"This page was served at {str(datetime.now())}")
 
 
-def about(requset):
-    return HttpResponse("This is a page where you can buy a btc ticker and manage it. Also some other cool crypto stuff included.")
+def about(request):
+    return render(request, 'website/about.html', {"button_text": "Я с Вами!"})
