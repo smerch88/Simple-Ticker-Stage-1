@@ -1,0 +1,15 @@
+header {
+	@include box;
+	width: 1920px;
+	height: 207px;
+	background-color: rgba(63, 50, 50, 0.171);
+}
+ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin-top: 72px;
+	li {
+		margin-left: 5px;
+	}
+}
