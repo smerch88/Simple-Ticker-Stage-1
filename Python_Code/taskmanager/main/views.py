@@ -54,7 +54,7 @@ def registerPage(request):
 			
 
 		context = {'form':form}
-		return render(request, 'accounts/register.html', context)
+		return render(request, 'main/register.html', context)
 
 
 def loginPage(request):
