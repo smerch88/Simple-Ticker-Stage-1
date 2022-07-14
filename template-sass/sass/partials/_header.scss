@@ -6,6 +6,11 @@ header {
 	left: 70px;
 	top: 60px;
 	background-color: #1f1414;
+	div.logo {
+		box-sizing: border-box;
+		width: 229px;
+		height: 72px;
+	}
 	img {
 		box-sizing: border-box;
 		position: absolute;
