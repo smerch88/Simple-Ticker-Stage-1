@@ -184,6 +184,13 @@ header p {
   line-height: 150%;
   color: #FFFFFF;
 }
+header a {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+}
 
 main {
   display: block;
