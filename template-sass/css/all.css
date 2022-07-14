@@ -24,6 +24,10 @@ time, mark, audio, video {
   outline: none;
 }
 
+* {
+  font-family: 'Rubik', sans-serif;
+}
+
 body {
   line-height: 1;
 }
