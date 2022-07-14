@@ -191,7 +191,7 @@ header a {
   font-size: 18px;
   line-height: 28px;
 }
-header.Reg {
+header .Reg {
   display: flex;
   flex-direction: row;
   justify-content: center;
