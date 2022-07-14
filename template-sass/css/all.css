@@ -228,6 +228,9 @@ main {
   background-color: aqua;
 }
 
+.promo {
+  position: relative;
+}
 .promo__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -264,6 +267,26 @@ main {
   width: 45px;
   height: 36.5px;
   margin-left: 38px;
+}
+.promo .nav-page {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 40px;
+}
+.promo .nav-page__item {
+  width: 23px;
+  height: 23px;
+  margin-bottom: 21px;
+  background: #FFFFFF;
+  border-radius: 100%;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+.promo .nav-page__item:hover {
+  background: gray;
 }
 
 footer {
