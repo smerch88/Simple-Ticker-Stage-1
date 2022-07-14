@@ -1,5 +1,4 @@
-/* SCSS Compiled */
-/***************************************************              GENERAL RESET STYLES             ***************************************************/
+/* SCSS Compiled */ /***************************************************              GENERAL RESET STYLES             ***************************************************/
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -109,16 +108,16 @@ input:focus::-webkit-input-placeholder {
 @media (max-width: 767px) {} */
 /*@media end*/
 /*usage  @include font-size(13);*/
-/* Brand Colors ------------------------------------------------*/
-/* wrapper */
-/* #wrapper {
+/* Brand Colors ------------------------------------------------*/ /* wrapper */
+#wrapper {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
-} */
+}
 
 .layout {
   margin: 0 auto;
@@ -130,7 +129,8 @@ main {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
 }
@@ -139,7 +139,8 @@ main {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
 }
@@ -148,7 +149,8 @@ main {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
 }
@@ -157,7 +159,8 @@ aside {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
 }
@@ -166,28 +169,18 @@ header {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
-  position: absolute;
-  width: 1780px;
-  height: 72px;
-  left: 70px;
-  top: 60px;
   background-color: #1f1414;
-}
-header div.logo {
-  box-sizing: border-box;
-  width: 229px;
-  height: 72px;
+  height: 1120px;
 }
 header img {
-  box-sizing: border-box;
-  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 62.5px;
   height: 72px;
-  left: 70px;
-  top: 60px;
 }
 header p {
   position: absolute;
@@ -207,17 +200,40 @@ main {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
   background-color: aqua;
+}
+
+.promo {
+  padding-top: 254px;
+}
+.promo__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.promo__header {
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 150%;
+  color: #FFFFFF;
 }
 
 footer {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
 }
