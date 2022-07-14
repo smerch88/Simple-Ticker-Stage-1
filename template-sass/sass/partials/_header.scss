@@ -20,4 +20,26 @@ header {
 		color: #FFFFFF;
 
 	}
+	a {
+		font-family: 'Rubik';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 28px;
+	}
+	& .Reg {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 23px 42px;
+		gap: 10px;
+
+		width: 192px;
+		height: 70px;
+
+		background: #1C37CE;
+		border-radius: 15px;
+
+	}
 }
