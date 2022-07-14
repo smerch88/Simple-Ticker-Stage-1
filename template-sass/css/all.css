@@ -111,14 +111,14 @@ input:focus::-webkit-input-placeholder {
 /*usage  @include font-size(13);*/
 /* Brand Colors ------------------------------------------------*/
 /* wrapper */
-/* #wrapper {
+#wrapper {
   display: block;
   overflow: hidden;
   position: relative;
   box-sizing: border-box;
   width: 100%;
   height: auto;
-} */
+}
 
 .layout {
   margin: 0 auto;
@@ -163,31 +163,12 @@ aside {
 }
 
 header {
-  display: block;
-  overflow: hidden;
-  position: relative;
-  box-sizing: border-box;
-  width: 100%;
-  height: auto;
-  position: absolute;
-  width: 1780px;
-  height: 72px;
-  left: 70px;
-  top: 60px;
   background-color: #1f1414;
-}
-header div.logo {
-  box-sizing: border-box;
-  width: 229px;
-  height: 72px;
 }
 header img {
   box-sizing: border-box;
-  position: absolute;
   width: 62.5px;
   height: 72px;
-  left: 70px;
-  top: 60px;
 }
 header p {
   position: absolute;
