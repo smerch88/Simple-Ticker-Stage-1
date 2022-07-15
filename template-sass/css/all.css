@@ -1,5 +1,4 @@
-/* SCSS Compiled */
-/***************************************************              GENERAL RESET STYLES             ***************************************************/
+/* SCSS Compiled */ /***************************************************              GENERAL RESET STYLES             ***************************************************/
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -109,13 +108,13 @@ input:focus::-webkit-input-placeholder {
 @media (max-width: 767px) {} */
 /*@media end*/
 /*usage  @include font-size(13);*/
-/* Brand Colors ------------------------------------------------*/
-/* wrapper */
+/* Brand Colors ------------------------------------------------*/ /* wrapper */
 #wrapper {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
 }
@@ -123,14 +122,15 @@ input:focus::-webkit-input-placeholder {
 .layout {
   margin: 0 auto;
   position: relative;
-  width: 1170px;
+  width: 1670px;
 }
 
 main {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
 }
@@ -139,7 +139,8 @@ main {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
 }
@@ -148,7 +149,8 @@ main {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
 }
@@ -157,28 +159,163 @@ aside {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
 }
 
 header {
+  background-color: #050A27;
+  height: 1120px;
+}
+header img {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 62.5px;
+  height: 72px;
+}
+header p {
+  position: absolute;
+  width: 144px;
+  height: 48px;
+  left: 155px;
+  top: 72px;
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 150%;
+  color: #FFFFFF;
+}
+header a {
+  font-family: "Rubik";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+}
+header .Reg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 23px 42px;
+  gap: 10px;
+  width: 192px;
+  height: 70px;
+  background: #1C37CE;
+  border-radius: 15px;
+}
+
+main {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
-  width: 100%;
-  height: 150px;
-  background-color: rgba(133, 126, 126, 0.4);
+  background-color: aqua;
 }
 
+.promo {
+  position: relative;
+}
+.promo__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.promo__header {
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 150%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  color: #FFFFFF;
+}
+.promo__image {
+  width: 808px;
+  height: 778px;
+}
+.promo__image img {
+  width: 100%;
+  height: 100%;
+}
+.promo-social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.promo-social__link {
+  width: 45px;
+  height: 36.5px;
+  margin-left: 38px;
+}
+.promo .nav-page {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 40px;
+}
+.promo .nav-page__item {
+  width: 23px;
+  height: 23px;
+  margin-bottom: 21px;
+  background: #FFFFFF;
+  border-radius: 100%;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+.promo .nav-page__item:hover {
+  background: gray;
+}
+.promo .coin__inner {
+  width: 500px;
+  height: 200px;
+  position: relative;
+}
+.promo .coin__item {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+}
+.promo .coin__pic {
+  width: 100%;
+  height: 100%;
+}
+
+@-webkit-keyframes coin__item {}
+
+@keyframes coin__item {}
 footer {
   display: block;
   overflow: hidden;
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: auto;
+}
+
+* {
+  font-family: "Rubik", sans-serif;
 }
