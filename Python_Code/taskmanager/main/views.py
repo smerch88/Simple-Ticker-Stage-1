@@ -9,6 +9,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.http import HttpResponse
+from django.shortcuts import render
+import json
 
 
 def index(request):
@@ -170,3 +173,11 @@ def track(request):
       "message_5":"My Test : "
    }
 })
+
+def index(request):
+    try:
+        with open('track.json', 'w') as file:
+            file.write(str(request.headers))
+        return HttpResponse('Запрос сохранён в файл track.json')
+    except:
+        return HttpResponse('Ошибка при работе с файлом')

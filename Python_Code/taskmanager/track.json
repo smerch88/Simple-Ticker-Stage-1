@@ -1,0 +1,19 @@
+{
+  "Content-Length": "",
+  "Content-Type": "text/plain",
+  "Host": "127.0.0.1:8000",
+  "Connection": "keep-alive",
+  "Sec-Ch-Ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
+  "Sec-Ch-Ua-Mobile": "?0",
+  "Sec-Ch-Ua-Platform": "\"Windows\"",
+  "Upgrade-Insecure-Requests": "1",
+  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36",
+  "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+  "Sec-Fetch-Site": "none",
+  "Sec-Fetch-Mode": "navigate",
+  "Sec-Fetch-User": "?1",
+  "Sec-Fetch-Dest": "document",
+  "Accept-Encoding": "gzip, deflate, br",
+  "Accept-Language": "uk-UA,uk;q=0.9,en-US;q=0.8,en;q=0.7",
+  "Cookie": "csrftoken=jFcDfbVczvGidEWqaGrBWWh3YuZ9HUxvJRMsKjFh5ttrLWDZRDTFI2c3judUaoBr; sessionid=dmtlqjo1n1gyl7yzxiu2pjpebepa9wy1"
+}
