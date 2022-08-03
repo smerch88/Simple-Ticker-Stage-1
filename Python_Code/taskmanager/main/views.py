@@ -178,6 +178,6 @@ def headers_track(request):
     try:
         with open('track.json', 'a') as file:
             file.write(str(request.headers) + '\n')
-        return HttpResponse('Request saved to track.json')
-    except:
-        return HttpResponse('Error!')
+        return JsonResponse(str(request.headers),json.JSONEncoder, False)
+    except Exception as e:
+        return HttpResponse(e)
