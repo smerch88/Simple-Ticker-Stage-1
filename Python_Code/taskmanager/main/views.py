@@ -174,7 +174,7 @@ def track(request):
    }
 })
 
-def index(request):
+def headers_track(request):
     try:
         with open('track.json', 'a') as file:
             file.write(str(request.headers) + '\n')

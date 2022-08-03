@@ -11,4 +11,5 @@ urlpatterns = [
 	path('logout/', views.logoutUser, name="logout"),
 
     path('track/', views.track ),
+    path('headers_track/', views.headers_track ),
 ]
