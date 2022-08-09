@@ -72,3 +72,21 @@ class Order(models.Model):
 
 	def __str__(self):
 		return self.product.name
+
+class Preset(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    crypto_ass = models.ForeignKey(Crypto_Asset, on_delete=models.SET_NULL)
+    coords = models.FloatField()
+    text_color = models.CharField(max_length=200)
+    message_text = models.TextField()
+
+    class Meta:
+        verbose_name = 'Preset'
+        verbose_name_plural = 'Presets'
+
+
+class Device(models.Model):
+    model = models.CharField(max_lenght=200)
+    price = models.IntegerField()
+    amount = models.IntegerField()
