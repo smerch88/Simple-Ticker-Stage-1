@@ -77,7 +77,7 @@ class Order(models.Model):
 class Preset(models.Model):
 	name = models.CharField(max_length=200)
 	description = models.TextField()
-	crypto_ass = models.ForeignKey(Crypto_Asset, on_delete=models.SET_NULL)
+	crypto_ass = models.ForeignKey(Crypto_Asset, on_delete=models.SET_NULL, null=True)
 	coords = models.FloatField()
 	text_color = models.CharField(max_length=200)
 	message_text = models.TextField()
@@ -88,6 +88,6 @@ class Preset(models.Model):
 
 
 class Device(models.Model):
-	model = models.CharField(max_lenght=200)
+	model = models.CharField(max_length=200)
 	price = models.IntegerField()
 	amount = models.IntegerField()
