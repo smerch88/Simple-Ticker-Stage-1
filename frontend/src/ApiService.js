@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1/backend';
+const API_URL = 'https://www.simpleticker.online/backend';
 
 export default class ApiService {
 
