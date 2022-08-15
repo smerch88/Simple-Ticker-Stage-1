@@ -25,8 +25,7 @@ SECRET_KEY = 'cz=&%f*9(d*zo$_55p=(p)(eki#p$pb^0159-)8k^6$9c3l&_b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', '0.0.0.0', 'simpleticker.online', 'www.simpleticker.online']
 
 # Application definition
 
@@ -134,7 +133,7 @@ STATICFILES_DIRS = [
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
-    'https://www.simpleticker.online/',
+    'https://www.simpleticker.online',
 
     'http://localhost:8080',
     'http://localhost:8000',
