@@ -1,3 +1,5 @@
+@import '../../styles/scss/_mixins.scss';
+
 .header {
     margin-top: 36px;
     width: 100%;
@@ -6,8 +8,114 @@
     backdrop-filter: blur(60px);
 
     &__wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        height: 117px;
+        @include FlexBetween;
     }
+
+    .logo {
+        a {
+            @include FlexBetween;
+            justify-content: center;
+            @include Quantico;
+            font-size: 32px;
+            text-decoration: none;
+
+            img {
+                margin-right: 17.5px;
+            }
+        }
+
+    }
+
+    .nav {
+        @include FlexBetween;
+
+        &__list {
+            @include FlexBetween;
+            margin-right: 44px;
+
+        }
+
+        &__item {
+            margin-right: 49px;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+
+        &__link {
+            @include Quantico;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+        }
+    }
+
+    .reg {
+
+        &__sign-in,
+        &__sign-up {
+            @include Quantico;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        &__sign-up {
+            position: relative;
+            margin-left: 55px;
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: -25px;
+                transform: translateY(-50%);
+                content: '';
+                display: block;
+                width: 1px;
+                height: 40px;
+                background: #FFFFFF;
+            }
+        }
+    }
+
+    &__search {
+        @include FlexBetween;
+        justify-content: center;
+        margin: 0 40px 0 60px;
+    }
+
+    .burger {
+        span {
+            position: relative;
+            display: block;
+            width: 28.78px;
+            height: 3px;
+            background: #FFFFFF;
+
+            &::before {
+                position: absolute;
+                bottom: 9px;
+                right: 0;
+                content: '';
+                display: block;
+                width: 37px;
+                height: 3px;
+                background: #FFFFFF;
+            }
+
+            &::after {
+                position: absolute;
+                top: 9px;
+                right: 0;
+                content: '';
+                display: block;
+                width: 20.56px;
+                height: 3px;
+                background: #FFFFFF;
+            }
+        }
+    }
+
 }
