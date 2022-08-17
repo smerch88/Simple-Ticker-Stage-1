@@ -15,7 +15,7 @@ const HeaderMenu = () => {
                     <nav className="nav">
                         <ul className="nav__list">
                             <li className="nav__item"><a href="#" className="nav__link">About the product</a></li>
-                            <li className="nav__item"><a href="#" className="nav__link">Catalog</a></li>
+                            <li className="nav__item"><a href="" className="nav__link">Catalog</a></li>
                             <li className="nav__item"><a href="#" className="nav__link">About us</a></li>
                             <li className="nav__item"><a href="#" className="nav__link">News</a></li>
                         </ul>
