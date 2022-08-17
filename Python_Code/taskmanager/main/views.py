@@ -12,6 +12,7 @@ from django.http import JsonResponse
 from django.http import HttpResponse
 from django.shortcuts import render
 import json
+import requests
 
 
 def index(request):
@@ -85,15 +86,21 @@ def logoutUser(request):
 
 def track(request):
     print('works!')
+
+    response = requests.get('https://api.coindesk.com/v1/bpi/currentprice.json')
+    data = response.json()
+    print(data["bpi"]["USD"]["rate"])
+    btc_price = float(data["bpi"]["USD"]["rate"].replace(",",""))
+
     return JsonResponse({
    "crypto_section":{
       "profit_change":"10",
       "profit":"11",
       "fiat":"USD",
       "crypto_list":[
-         "XRP",
-         "DOGE",
          "BTC",
+         "DOGE",
+         "XRP",
          "ETH",
          "ETC",
          "LUNA",
@@ -104,9 +111,9 @@ def track(request):
       ],
       "number_to_display":10,
       "crypto_price":[
-         0.343970,
+         btc_price,
          0.067,
-         20000,
+         0.343970,
          1400,
          22.73,
          0.000104,
