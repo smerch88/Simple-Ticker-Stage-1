@@ -6,9 +6,7 @@ import {
   Link
 } from "react-router-dom";
 
-import ApiService from './ApiService';
-import './App.css';
-import './App.scss';
+import ApiService from '../../services/ApiService';
 
 export default function App() {
   useEffect(() => {
