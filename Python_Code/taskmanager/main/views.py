@@ -1,7 +1,7 @@
 from email import message
 from multiprocessing import context
 from django.shortcuts import render, redirect
-import models
+from . import models
 from .forms import OrderForm, CreateUserForm, Crypto_AssetForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -87,7 +87,7 @@ def refresh_prices(request):
     crypto_c = ['ETHBTC', 'LTCBTC', 'BNBBTC', 'NEOBTC', 'QTUMETH', 'EOSETH', 'SNTETH', 'BNTETH']
     crypto_dict = {i: client.get_avg_price(symbol=i)['price'] for i in crypto_c}
     try:
-        for k, v in crypto_dict:
+        for k, v in crypto_dict.items():
             models.Crypto_Asset.objects.create(symbol=k, avg_price=v)
         return HttpResponse('Data refreshed successfully')
     except:
