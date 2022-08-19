@@ -1,0 +1,25 @@
+.btn {
+    width: 200px;
+    height: 54px;
+    background: linear-gradient(267.45deg, #F6F4FA -53.69%, #442B84 35%, #442B84 72%, #F6F4FA 157.12%);
+    background-position: 0 0;
+    border: none;
+    border-radius: 27px;
+    outline: 3px solid #442B84;
+    outline-offset: 2px;
+    @include WorkSans;
+    font-weight: 600;
+    font-size: 30px;
+    background-size: 200% auto;
+    transition: .5s all ease;
+
+    &:hover {
+        background-position: right center;
+    }
+
+    &:active {
+        outline-color: #F6F4FA;
+        background: #F6F4FA;
+        color: #0F182A;
+    }
+}

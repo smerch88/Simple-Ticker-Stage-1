@@ -69,6 +69,7 @@
 
             
             &:active{
+                transition: .1s all;
                 color: #0F182A;
                 &:before{
                     background: #0F182A; 

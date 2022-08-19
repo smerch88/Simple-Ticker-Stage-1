@@ -8,12 +8,17 @@ import {
 
 import ApiService from '../../services/ApiService';
 import Header from '../header/HeaderMenu';
+import Promo from '../promo/Promo';
 
 export default function App() {
 
   return (
     <>
-      <Header/>
+      <header className='header'>
+        <Header/>
+        <Promo/>
+      </header>
+      
     </>
     
   )

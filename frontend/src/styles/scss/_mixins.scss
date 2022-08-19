@@ -1,5 +1,12 @@
 @mixin Quantico {
-    font-family: 'Quantico';
+    font-family: 'Quantico', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+@mixin WorkSans {
+    font-family: 'Work Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     color: #FFFFFF;
