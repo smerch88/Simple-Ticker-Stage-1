@@ -13,8 +13,7 @@ const Promo = () => {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus diam parturient metus eget eu massa amet. Fermentum nam eu ut nibh elit elit in dolor. 
                         </div>
                         <div className="promo__btns">
-                            <button className="btn
-                            ">More</button>
+                            <button className="btn">More</button>
                             <button className="btn">Buy</button>
                         </div>
                     </div>

@@ -9,16 +9,19 @@ import {
 import ApiService from '../../services/ApiService';
 import Header from '../header/HeaderMenu';
 import Promo from '../promo/Promo';
+import AboutProduct from '../aboutProduct/AboutProduct';
 
 export default function App() {
 
   return (
     <>
-      <header className='header'>
+      <header>
         <Header/>
         <Promo/>
       </header>
-      
+      <main>
+        <AboutProduct/>
+      </main>
     </>
     
   )
