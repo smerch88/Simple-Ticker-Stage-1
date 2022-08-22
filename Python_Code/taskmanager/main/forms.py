@@ -14,7 +14,7 @@ class Crypto_AssetForm(ModelForm):
             "symblol": TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'Custom Asset'
-            }), 
+            }),
             "avg_price": Textarea(attrs={
             'class': 'form-control',
             'placeholder': 'It is my awesome setup!'
