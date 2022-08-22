@@ -7,7 +7,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from binance.client import Client
 from django.http import HttpResponse
 import requests
 
@@ -81,14 +80,18 @@ def logoutUser(request):
 
 
 def refresh_prices(request):
-    # api_key = "vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A"
-    # api_secret = "NhqPtmdSJYdKjVHjA7PZj4Mge3R5YNiP1e3UZjInClVN65XAbvqqM6A7H5fATj0j"
-    #
-    # client = Client(api_key, api_secret)
-    # crypto_c = ['ETHBTC', 'LTCBTC', 'BNBBTC', 'NEOBTC', 'QTUMETH', 'EOSETH', 'SNTETH', 'BNTETH']
-    # crypto_dict = {i: client.get_avg_price(symbol=i)['price'] for i in crypto_c}
+    result = requests.request(
+        'GET',
+        'https://api.binance.com/api/v3/ticker/price'
+    )
+    list_of_values = result.json()
+    try:
+        for i in range(len(list_of_values)):
+            if list_of_values[i]['symbol'][-4:] == 'USDT':
+                models.Crypto_Asset.objects.update_or_create(symbol=list_of_values[i]['symbol'],
+                                                  avg_price=list_of_values[i]['price'])
+        return HttpResponse('Prices refreshed successfully')
+    except:
+        return HttpResponse('An error occured')
 
-    for k, v in models.Crypto_Asset.objects.all():
-        models.Crypto_Asset.objects.update(symbol=k, avg_price=v)
-    return HttpResponse('Data refreshed successfully')
 
