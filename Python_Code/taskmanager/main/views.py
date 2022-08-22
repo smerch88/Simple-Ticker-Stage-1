@@ -9,10 +9,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 import requests
+import schedule
+import time
 
 
 def index(request):
-    crypto_asset = models.Crypto_Asset.objects.order_by('-id')
+    crypto_asset = models.Crypto_Asset.objects.order_by('id')
     return render(request, 'main/index.html', {'title': 'Website main page', 'assets': crypto_asset})
 
 
@@ -80,18 +82,12 @@ def logoutUser(request):
 
 
 def refresh_prices(request):
-    result = requests.request(
-        'GET',
-        'https://api.binance.com/api/v3/ticker/price'
-    )
-    list_of_values = result.json()
+    result = requests.get('https://api.binance.com/api/v3/ticker/price')
+    api_lst = sorted([x for x in result.json() if x['symbol'][-4:] == 'USDT'], key=lambda x: x['symbol'])
+    db_lst = sorted([*models.Crypto_Asset.objects.all().values('id', 'symbol')], key=lambda x: x['symbol'])
     try:
-        for i in range(len(list_of_values)):
-            if list_of_values[i]['symbol'][-4:] == 'USDT':
-                models.Crypto_Asset.objects.update_or_create(symbol=list_of_values[i]['symbol'],
-                                                  avg_price=list_of_values[i]['price'])
-        return HttpResponse('Prices refreshed successfully')
+        for db_c, api_c in zip(db_lst, api_lst):
+            models.Crypto_Asset.objects.filter(id=db_c['id'], symbol=db_c['symbol']).update(avg_price=api_c['price'])
+        return index(request)
     except:
         return HttpResponse('An error occured')
-
-
