@@ -1,4 +1,3 @@
-NAME = 'models'
 from django.db import models
 
 

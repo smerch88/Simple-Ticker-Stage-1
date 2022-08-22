@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'main',
-
+    'taskmanager',
     'django_filters',
 ]
 
