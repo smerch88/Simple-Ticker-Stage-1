@@ -9,17 +9,8 @@
     {% if assets %}
         {% for el in assets %}
             <div class="alert alert-warning mt-2">
-                <h3>{{ el.title}}</h3>
-                <p> {{ el.crypto_value_1 }}
-                    {{ el.crypto_value_2 }}
-                    {{ el.crypto_value_3 }}
-                    {{ el.crypto_value_4 }}
-                    {{ el.crypto_value_5 }}
-                    {{ el.crypto_value_6 }}
-                    {{ el.crypto_value_7 }}
-                    {{ el.crypto_value_8 }}
-                    {{ el.crypto_value_9 }}
-                    {{ el.crypto_value_10 }}</p>
+                <h3>{{ el.symbol}}</h3>
+                <p> {{ el.avg_price }}</p>
             </div>
         {% endfor%}
     {% else %}

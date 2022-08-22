@@ -1,5 +1,7 @@
 from email import message
 from multiprocessing import context
+
+import requests
 from django.shortcuts import render, redirect
 from . import models
 from .forms import OrderForm, CreateUserForm, Crypto_AssetForm
@@ -9,6 +11,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from binance.client import Client
 from django.http import HttpResponse
+import requests
 
 
 def index(request):
@@ -86,9 +89,8 @@ def refresh_prices(request):
     client = Client(api_key, api_secret)
     crypto_c = ['ETHBTC', 'LTCBTC', 'BNBBTC', 'NEOBTC', 'QTUMETH', 'EOSETH', 'SNTETH', 'BNTETH']
     crypto_dict = {i: client.get_avg_price(symbol=i)['price'] for i in crypto_c}
-    try:
-        for k, v in crypto_dict.items():
-            models.Crypto_Asset.objects.create(symbol=k, avg_price=v)
-        return HttpResponse('Data refreshed successfully')
-    except:
-        return HttpResponse('An error occurred')
+
+    for k, v in models.Crypto_Asset.objects.all():
+        models.Crypto_Asset.objects.update(symbol=k, avg_price=v)
+    return HttpResponse('Data refreshed successfully')
+

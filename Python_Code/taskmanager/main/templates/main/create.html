@@ -8,18 +8,8 @@ Create Crypto Asset
 <h1>Create Crypto Asset</h1>
 <form method="post">
     {% csrf_token %}
-    {{ form.title }}<br>
-    {{ form.description }}<br>
-    {{ form.crypto_value_1 }}<br>
-    {{ form.crypto_value_2 }}<br>
-    {{ form.crypto_value_3 }}<br>
-    {{ form.crypto_value_4 }}<br>
-    {{ form.crypto_value_5 }}<br>
-    {{ form.crypto_value_6 }}<br>
-    {{ form.crypto_value_7 }}<br>
-    {{ form.crypto_value_8 }}<br>
-    {{ form.crypto_value_9 }}<br>
-    {{ form.crypto_value_10 }}<br>
+    {{ form.symbol }}<br>
+
     <button type="submit" class="btn-success">Add</button>
     <span>{{error}}</span>
 </form>
