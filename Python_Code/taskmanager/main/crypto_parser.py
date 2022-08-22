@@ -1,4 +1,4 @@
-import models
+from .models import Crypto_Asset
 import requests
 
 result = requests.request(
@@ -10,5 +10,5 @@ list_of_values = result.json()
 
 for i in range(len(list_of_values)):
     if list_of_values[i]['symbol'][-4:]=='USDT':
-        models.Crypto_Asset.objects.create(symbol=list_of_values[i]['symbol'], avg_price=list_of_values[i]['price'])
+        Crypto_Asset.objects.create(symbol=list_of_values[i]['symbol'], avg_price=list_of_values[i]['price'])
 
