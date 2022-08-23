@@ -183,12 +183,11 @@ const Catalog = () => {
                     </div>
                 </div>
             </div>
-            <div className="banner">
-                <div className="infinite-line">
+            <div className="marquee">
+                <div className="marquee__inner">
                     BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN
                 </div>
             </div>
-            
         </div>
     )
 }
