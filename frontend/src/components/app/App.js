@@ -10,6 +10,10 @@ import ApiService from '../../services/ApiService';
 import Header from '../header/HeaderMenu';
 import Promo from '../promo/Promo';
 import AboutProduct from '../aboutProduct/AboutProduct';
+import Catalog from '../catalog/Catalog';
+import FeedBack from '../feedback/FeedBack';
+import News from '../news/News';
+import Footer from '../footer/Footer';
 
 export default function App() {
 
@@ -21,7 +25,13 @@ export default function App() {
       </header>
       <main>
         <AboutProduct/>
+        <Catalog/>
+        <FeedBack/>
+        <News/>
       </main>
+      <footer>
+        <Footer/>
+      </footer>
     </>
     
   )
