@@ -1,0 +1,171 @@
+
+.header {
+    margin-top: 36px;
+    width: 100%;
+    height: 117px;
+    background: linear-gradient(180deg, rgba(105, 64, 172, 0) 2.08%, #6940AC 47.4%, rgba(67, 22, 140, 0) 100%), linear-gradient(180deg, rgba(105, 64, 172, 0) 2.08%, #6940AC 47.4%, rgba(67, 22, 140, 0) 100%);
+    backdrop-filter: blur(60px);
+
+    &__wrapper {
+        height: 117px;
+        @include FlexBetween;
+    }
+
+    .logo {
+        a {
+            @include FlexBetween;
+            justify-content: center;
+            @include Quantico;
+            font-size: 32px;
+            text-decoration: none;
+
+            img {
+                margin-right: 17.5px;
+            }
+        }
+
+    }
+
+    .nav {
+        @include FlexBetween;
+
+        &__list {
+            @include FlexBetween;
+            margin-right: 44px;
+
+        }
+
+        &__item {
+            margin-right: 49px;
+
+            &:last-child {
+                margin: 0;
+            }
+        }
+
+        &__link {
+            position: relative;
+            @include Quantico;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+
+            &::before {
+                position: absolute;
+                bottom: -9px;
+                left: 50%;
+                transform: translateX(-50%);
+                content: '';
+                display: block;
+                width: 0%;
+                height: 1px;
+                background: $main-color;
+                transition: width .3s ease-in-out;
+            }
+
+            &:hover:before {
+                width: 80%;
+            }
+
+            
+            &:active{
+                transition: .1s all;
+                color: #0F182A;
+                &:before{
+                    background: #0F182A; 
+                }
+            }
+        }
+    }
+
+    .reg {
+
+        &__sign-in,
+        &__sign-up {
+            position: relative;
+            @include Quantico;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+
+            &::before {
+                position: absolute;
+                bottom: -9px;
+                left: 50%;
+                transform: translateX(-50%);
+                content: '';
+                display: block;
+                width: 0%;
+                height: 1px;
+                background: $main-color;
+                transition: width .3s ease-in-out;
+            }
+
+            &:hover:before {
+                width: 80%;
+            }
+
+            &:active{
+                color: #0F182A;
+                &:before{
+                    background: #0F182A; 
+                }
+            }
+        }
+
+        &__sign-up {
+            margin-left: 55px;
+
+            &::after {
+                position: absolute;
+                top: 50%;
+                left: -25px;
+                transform: translateY(-50%);
+                content: '';
+                display: block;
+                width: 1px;
+                height: 40px;
+                background: $main-color;
+            }
+        }
+    }
+
+    &__search {
+        @include FlexBetween;
+        justify-content: center;
+        margin: 0 40px 0 60px;
+    }
+
+    .burger {
+        span {
+            position: relative;
+            display: block;
+            width: 28.78px;
+            height: 3px;
+            background: $main-color;
+
+            &::before {
+                position: absolute;
+                bottom: 9px;
+                right: 0;
+                content: '';
+                display: block;
+                width: 37px;
+                height: 3px;
+                background: $main-color;
+            }
+
+            &::after {
+                position: absolute;
+                top: 9px;
+                right: 0;
+                content: '';
+                display: block;
+                width: 20.56px;
+                height: 3px;
+                background: $main-color;
+            }
+        }
+    }
+
+}

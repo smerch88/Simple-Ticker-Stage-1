@@ -1,0 +1,74 @@
+.product {
+    padding-top: 145px;
+
+    &__video {
+        position: relative;
+        margin-top: 60px;
+        width: 100%;
+        height: 648px;
+
+        video {
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+
+        }
+
+        &_dark {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90.31deg, rgba(0, 14, 49, 0.6) 6.01%, rgba(8, 8, 10, 0.6) 100.9%);
+
+        }
+    }
+
+    &__benefits {
+        @include FlexBetween;
+
+        position: absolute;
+        left: 0;
+        bottom: 150px;
+        width: 100%;
+
+
+        .benefit {
+            width: 250px;
+            height: 344px;
+
+            img {
+                margin: 0 auto;
+            }
+
+            &__title {
+                margin: 32px 0 6px 0;
+                @include WorkSans;
+                font-weight: 600;
+                font-size: 35px;
+                text-decoration: underline;
+                text-align: center;
+            }
+
+            &__descr {
+                @include WorkSans;
+                font-weight: 400;
+                font-size: 25px;
+                line-height: 150%;
+                text-align: center;
+            }
+        }
+    }
+
+    .benefits__wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    &__btn {
+        display: flex;
+        justify-content: center;
+        margin: 355px 0 130px 0;
+    }
+}
