@@ -10,7 +10,7 @@ import ApiService from '../../services/ApiService';
 import Header from '../header/HeaderMenu';
 import Promo from '../promo/Promo';
 import AboutProduct from '../aboutProduct/AboutProduct';
-import Catalog from '../catalog/Catalog';
+import CatalogList from '../catalogList/CatalogList';
 import FeedBack from '../feedback/FeedBack';
 import News from '../news/News';
 import Footer from '../footer/Footer';
@@ -25,7 +25,7 @@ export default function App() {
       </header>
       <main>
         <AboutProduct/>
-        <Catalog/>
+        <CatalogList/>
         <FeedBack/>
         <News/>
       </main>

@@ -17,7 +17,7 @@
                 background: rgba(114, 81, 174, 0.4);
             }
 
-            &__config {
+            &__options {
                 padding: 0 27px;
             }
 
@@ -27,7 +27,7 @@
                 border-radius: 14px;
             }
 
-            &__header {
+            &__name {
                 margin: 23px 0 26px;
                 @include Quantico;
                 font-weight: 700;
@@ -35,33 +35,115 @@
                 text-align: center;
             }
 
-            &__custom {
+            &__option {
                 position: relative;
                 margin-top: 17px;
                 padding-bottom: 8px;
                 border-bottom: 1px solid #FFFFFF;
+
+            }
+
+            &__config {
+                width: 100%;
+
+                display: flex;
+                position: relative;
+                overflow: hidden;
+                padding: 0;
+                padding-right: 19px;
+
+                &_active:not(.ticker__property-change) {
+                    overflow: visible;
+
+                    z-index: 10;
+                }
+            }
+
+            &__property-change {
+                position: absolute;
+                top: -12px;
+                /* left: -51%; */
+                transform: translateX(-49%);
+                width: 352px;
+                height: calc(100% + 23px);
+                background: linear-gradient(180deg, rgba(15, 24, 42, 0.65) 0%, rgba(15, 24, 42, 0.65) 100%);
+                backdrop-filter: blur(15px);
+                z-index: 1;
             }
 
             &__name-property {
+
                 margin-right: 9px;
                 @include WorkSans;
                 font-weight: 700;
                 font-size: 22px;
+                z-index: 5;
             }
 
             &__property {
+
                 @include WorkSans;
                 font-weight: 700;
                 font-size: 18px;
                 color: #C1B1DC;
+
+                .change {
+                    z-index: 5;
+                }
+
+                &>ul {
+                    position: absolute;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    margin: 4px 0 2px;
+                    list-style-type: none;
+                    transition: .3s all linear;
+
+
+
+                    .list-property {
+                        position: absolute;
+                        top: -70px;
+                        width: 100%;
+
+                        padding-right: 25px;
+                        margin-top: 8px;
+                        transition: .3s all linear;
+
+                        &>ul {
+                            width: 100%;
+                            position: relative;
+                            z-index: 5;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            grid-column-gap: 30px;
+                            transition: .3s all linear;
+
+                            .active {
+                                transition: .3s all linear;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+
+                    .active {
+
+
+                        top: 20px;
+                        transition: .3s all linear;
+                    }
+
+                }
             }
 
             &__arrow {
                 position: absolute;
-                top: 50%;
+                top: 19px;
                 transform: translateY(-50%);
                 right: 13px;
-
+                z-index: 5;
 
                 &:hover {
                     transition: .3s all;
