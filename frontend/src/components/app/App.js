@@ -14,6 +14,9 @@ import CatalogList from '../catalogList/CatalogList';
 import FeedBack from '../feedback/FeedBack';
 import News from '../news/News';
 import Footer from '../footer/Footer';
+import Reg from '../reg/Reg';
+import Login from '../login/Log';
+import Register from '../regin/registr';
 
 export default function App() {
 
@@ -32,6 +35,7 @@ export default function App() {
       <footer>
         <Footer/>
       </footer>
+      {/* <Register/> */}
     </>
     
   )

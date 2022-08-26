@@ -1,9 +1,22 @@
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Ticker from "../../resourses/img/thumbnail.jpg";
+import axios from 'axios';
+import useProductService from "../../services/ProductService";
 
 
 const Catalog = () => {
+
+    const {getAllProducts} = useProductService()
+
+   useEffect(() => {
+    request()
+   }, [])
+
+   const request = () => {
+    getAllProducts()
+    .then(prom => console.log(prom))
+   }
+    
 
     const [showProp, setShowProp] = useState(false)
 
@@ -22,7 +35,7 @@ const Catalog = () => {
                         <div className="ticker__options">
                             <div className="ticker__option ">
                                 <div 
-                                className={showProp ? "ticker__config ticker__config_active" : "ticker__config"}>
+                                className="ticker__config">
                                     <span className="ticker__name-property">
                                         Configuration:  
                                     </span>
@@ -33,9 +46,9 @@ const Catalog = () => {
                                             className={showProp ? "list-property active" : "list-property"}>
                                                 <ul>
                                                     <li className="active">Blue</li>
-                                                    <li className="">White</li>
-                                                    <li className="">Gold</li>
-                                                    <li className="">Red</li>
+                                                    <li>White</li>
+                                                    <li>Gold</li>
+                                                    <li>Red</li>
                                                     <li>Black</li>
                                                     <li>Purple</li>
                                                     <li>Green</li>  
@@ -53,10 +66,10 @@ const Catalog = () => {
                             </div>
                             <div className="ticker__custom">
                                 <span className="ticker__name-property">
-                                    Color:
+                                    Size:
                                 </span>
                                 <span className="ticker__property">
-                                    Blue
+                                    7x12x5
                                 </span>
                                 <span className="ticker__arrow">
                                     <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,10 +79,10 @@ const Catalog = () => {
                             </div>
                             <div className="ticker__custom">
                                 <span className="ticker__name-property">
-                                    Housing:
+                                    Size:
                                 </span>
                                 <span className="ticker__property">
-                                    Сustomized
+                                    7x12x5
                                 </span>
                                 <span className="ticker__arrow">
                                     <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
