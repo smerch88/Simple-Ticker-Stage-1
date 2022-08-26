@@ -27,7 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'django_filters',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
+
 ]
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -45,7 +47,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
+
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ORIGIN_WHITELIST = ('localhost:3000')
 
 ROOT_URLCONF = 'taskmanager.urls'
 
