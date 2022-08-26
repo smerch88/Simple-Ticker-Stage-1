@@ -18,7 +18,6 @@ class CryptoAssetsList(generics.ListAPIView):
     queryset = models.Crypto_Asset.objects.all()
     serializer_class = CryptoAssetsSerializer
 
-
 def index(request):
     refresh_prices()
     crypto_asset = models.Crypto_Asset.objects.order_by('id')
