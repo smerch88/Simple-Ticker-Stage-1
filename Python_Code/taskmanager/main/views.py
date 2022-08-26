@@ -9,6 +9,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 import requests
+from rest_framework import generics
+from .serializers import CryptoAssetsSerializer
+
+
+# this class is ment to be istead index view
+class CryptoAssetsList(generics.ListAPIView):
+    queryset = models.Crypto_Asset.objects.all()
+    serializer_class = CryptoAssetsSerializer
 
 
 def index(request):
