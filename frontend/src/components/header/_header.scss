@@ -1,3 +1,4 @@
+
 .header {
     margin-top: 36px;
     width: 100%;
@@ -66,13 +67,12 @@
                 width: 80%;
             }
 
-
-            &:active {
+            
+            &:active{
                 transition: .1s all;
                 color: #0F182A;
-
-                &:before {
-                    background: #0F182A;
+                &:before{
+                    background: #0F182A; 
                 }
             }
         }
@@ -105,11 +105,10 @@
                 width: 80%;
             }
 
-            &:active {
+            &:active{
                 color: #0F182A;
-
-                &:before {
-                    background: #0F182A;
+                &:before{
+                    background: #0F182A; 
                 }
             }
         }
@@ -133,72 +132,9 @@
 
     &__search {
         @include FlexBetween;
-        margin: 0 40px 0 60px;    
-        transition: .5s ease-in-out; 
-        width: 36px;
-
-        &__btn {
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-        }
-
-        &__field {
-           
-            padding: 5px 5px 3px;
-            width: 100%;
-            background: transparent;
-            border: none;
-            @include WorkSans;
-            font-weight: 400;
-            font-size: 18px;
-            
-            color: #C1B1DC;
-            outline:none;
-            
-        }
-
-        
-        
-        &_active,
-        &:hover {
-            margin-left: 16px; 
-            width: 210px;
-            border-bottom: 2px solid #FFFFFF;
-        }
-
+        justify-content: center;
+        margin: 0 40px 0 60px;
     }
-
-
-    // &__search {
-    //     @include FlexBetween;
-    //     justify-content: center;
-    //     margin: 0 40px 0 60px;
-    //     transition: .3s all linear;
-
-    //     &_active {
-    //         border-bottom: 1px solid #FFFFFF;
-    //         margin: 0 30px;
-    //     }
-
-    //     input {
-    //         display: none;
-    //         padding: 0 5px 7px;
-    //         width: 170px;
-    //         background: transparent;
-    //         border: none;
-    //         @include WorkSans;
-    //         font-weight: 400;
-    //         font-size: 18px;
-    //         color: #C1B1DC;
-    //         outline:none;
-    //         transition: .3s all;
-    //     }
-    // }
 
     .burger {
         span {

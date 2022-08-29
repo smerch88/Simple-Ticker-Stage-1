@@ -35,7 +35,7 @@ body {
 
 ul[class],
 ol[class] {
-  list-style-type: none;
+  list-style: none;
 }
 
 a:not([class]) {
