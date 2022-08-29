@@ -8,14 +8,7 @@ const Catalog = () => {
 
     const {getAllProducts} = useProductService()
 
-   useEffect(() => {
-    request()
-   }, [])
-
-   const request = () => {
-    getAllProducts()
-    .then(prom => console.log(prom))
-   }
+   
     
 
     const [showProp, setShowProp] = useState(false)
