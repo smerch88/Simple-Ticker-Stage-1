@@ -1,3 +1,4 @@
+import json
 from email import message
 from multiprocessing import context
 from django.shortcuts import render, redirect
@@ -88,40 +89,37 @@ def logoutUser(request):
     return redirect('login')
 
 
-def track(request):
-    print('works!')
-    return JsonResponse({
-        "crypto_section": {
-            "profit_change": "10",
-            "profit": "11",
-            "fiat": "USD",
-            "crypto_list": [
-                "XRP",
-                "DOGE",
-                "BTC",
-                "ETH",
-                "ETC",
-                "LUNA",
-                "BNB",
-                "SOL",
-                "RVN",
-                "DOT"
-            ],
-            "number_to_display": 10,
-            "crypto_price": [
-                0.343970,
-                0.067,
-                20000,
-                1400,
-                22.73,
-                0.000104,
-                260.73,
-                41.92,
-                0.02730,
-                7.59
-            ],
-            "crypto_price_round": [6, 4, 2, 2, 2, 2, 6, 2, 6, 2]
-        },
+def device_info():
+    return {"crypto_section": {"profit_change": "10",
+                               "profit": "11",
+                               "fiat": "USD",
+                               "crypto_list": [
+                                                "XRP",
+                                                "DOGE",
+                                                "BTC",
+                                                "ETH",
+                                                "ETC",
+                                                "LUNA",
+                                                "BNB",
+                                                "SOL",
+                                                "RVN",
+                                                "DOT"
+                                                ],
+                                "number_to_display": 10,
+                                "crypto_price": [
+                                                0.343970,
+                                                0.067,
+                                                20000,
+                                                1400,
+                                                22.73,
+                                                0.000104,
+                                                260.73,
+                                                41.92,
+                                                0.02730,
+                                                7.59
+                                            ],
+                                "crypto_price_round": [6, 4, 2, 2, 2, 2, 6, 2, 6, 2]
+                                },
         "display_section": {
             "position_x1": 0.5,
             "position_y1": 0.1,
@@ -167,7 +165,14 @@ def track(request):
             "message_4": "",
             "message_5": "My Test : "
         }
-    })
+    }
+
+
+def info_to_device(request):
+    currencies = device_info()['crypto_section']['crypto_list']
+    data = device_info()['crypto_section']['crypto_price'] = \
+        [models.Crypto_Asset.objects.filter(symbol__startswith=x) for x in currencies]
+    return JsonResponse(data)
 
 
 def refresh_prices():
