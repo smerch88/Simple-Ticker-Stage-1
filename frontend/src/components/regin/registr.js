@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import validator from 'validator';
-import CustomersService from '../Customer/CustomersService';
-
+import { DOMEN_SERVER, DOMEN_SITE } from './const';
 
 
 export default function Register () {
@@ -15,19 +14,6 @@ export default function Register () {
             password2: "",
         }
     })
-
-    const createCust = new CustomersService();
-
-    const Request = () => {
-        createCust.
-        createCustomer({
-            "username":  register.username,
-            "email":  register.email,
-            "password": register.password,
-            "password2": register.password2
-        })
-        
-    }
      
     const changeInputRegister = event => {
         event.persist()
@@ -38,14 +24,10 @@ export default function Register () {
             }
         })
     }
-
-
      
      
     const submitChackin = event => {
         event.preventDefault();
-        Request()
-
         // if(!validator.isEmail(register.email)) {
         //     alert("You did not enter email")
         // } else if(register.password !== register.password2) {
@@ -68,7 +50,28 @@ export default function Register () {
         //     })
         // }
 
-     
+
+        axios.post(DOMEN_SERVER + "/auth/registration/", {
+            username: register.username,
+            email: register.email,
+            password: register.password,
+        })
+
+        
+        // .then(res => {
+        //     if (res.data === true) {
+        //         window.location.href = DOMEN_SITE + "/auth"
+        //     } else {
+        //         alert("There is already a user with this email")
+        //     }
+        // })
+        .catch(() => {
+            alert("An error occurred on the server")
+        })
+
+
+
+        
     }
 
 
@@ -82,7 +85,7 @@ export default function Register () {
                     id='username'
                     type="text" 
                     placeholder="username" 
-                    value={register.username}
+                    value={register.usernamr}
                     onChange={changeInputRegister}/>
                 <input 
                     name="email"

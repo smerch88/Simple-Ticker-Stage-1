@@ -8,7 +8,7 @@ const useProductService = () => {
 
     const getAllProducts = async () => {
         const res = await request(_apiBase);
-        return res.data.product
+        return res.data.product.map(i => console.log(JSON.parse(i)))
     }
 
     const _transformProduct = (product) => {
