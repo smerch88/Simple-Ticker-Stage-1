@@ -1,0 +1,95 @@
+.news {
+    margin-bottom: 146px;
+
+    &__wrapper {
+        display: flex;
+        margin-bottom: 67px;
+    }
+
+    &__show-all {
+        margin: 79px 0 28px;
+        text-align: right;
+
+        a {
+            @include WorkSans;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 150%;
+            color: #C1B1DC;
+            text-decoration: none;
+        }
+    }
+
+    &__item {
+        padding: 8px 14px 8px 7px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 499px;
+        height: 217px;
+        background: transparent;
+        backdrop-filter: blur(15px);
+        border: 2px solid #7251AE;
+        border-radius: 9px;
+        transition: .3s linear;
+
+        &:hover {
+            
+            background: rgba(114, 81, 174, 0.4);
+            backdrop-filter: blur(15px);
+        }
+    }
+
+    &__text {
+        margin-left: 19px;
+    }
+
+    &__title {
+        @include WorkSans;
+        font-weight: 600;
+        font-size: 23px;
+    }
+
+    &__descr {
+        width: 278px;
+        @include WorkSans;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 150%;
+
+        a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 150%;
+            color: #C1B1DC;
+        }
+    }
+
+    .slider {
+        position: relative;
+
+        .line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 397px;
+            height: 1px;
+            background: #ADADAD;
+        }
+
+        .dot {
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 67px;
+            height: 8px;
+            background: linear-gradient(90.94deg, #AD97D1 -30.86%, #6840AB 83.14%);
+            border-radius: 11px;
+            z-index: 1;
+        }
+    }
+}
