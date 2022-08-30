@@ -6,15 +6,12 @@ import './styles/style.min.css';
 import './styles/index.css';
 import './styles/style-reset.css'
 import App from './components/app/App';
-import { BrowserRouter } from 'react-router-dom';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
-    
-        <App />
-
+    <App />
   
 );
 

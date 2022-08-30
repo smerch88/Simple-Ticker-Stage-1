@@ -23,29 +23,23 @@ import Custom from '../custom/Custom';
 export default function App() {
 
   return (
-    <Router>
-      <>
+    <>
       <header>
         <Header/>
-        
+        {/* <Promo/> */}
       </header>
       <main>
         {/* <AboutProduct/>
         <CatalogList/>
         <FeedBack/>
         <News/> */}
-       <Routes>
-        <Route path='/' element={<Promo/>}/>
-        <Route path='/reg' element={<Register/>}/>
-       </Routes>
-        {/* <Custom/> */}
+        <Custom/>
       </main>
       <footer>
         <Footer/>
       </footer>
-      
+      {/* <Register/> */}
     </>
-    </Router>
     
   )
 }

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import validator from 'validator';
 import { DOMEN_SERVER, DOMEN_SITE } from './const';
-import CustomersService from '../../services/CustomService';
 
 
 export default function Register () {
@@ -24,19 +23,6 @@ export default function Register () {
                 [event.target.name]: event.target.value,
             }
         })
-    }
-
-    const createCust = new CustomersService();
-
-    const Request = () => {
-        createCust.
-        createCustomer({
-            "username":  register.username,
-            "email":  register.email,
-            "password": register.password,
-            "password2": register.password2
-        })
-        
     }
      
      

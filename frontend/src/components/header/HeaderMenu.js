@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
 import Logo from '../../resourses/img/icons/logo.png'
 
 
@@ -29,10 +28,10 @@ const HeaderMenu = () => {
             <div className="container">
                 <div className="header__wrapper">
                     <div className="logo">
-                        <Link to='/'>
+                        <a href="#">
                             <img src={Logo} alt="Logo"/>
                             CoinTickr
-                        </Link>
+                        </a>
                     </div>
                     <nav className="nav">
                         <ul className="nav__list">
@@ -43,7 +42,7 @@ const HeaderMenu = () => {
                         </ul>
                         <div className="reg">
                             <a href="" className="reg__sign-in">Sign in</a>
-                            <Link to="/reg" className="reg__sign-up">Sign up</Link>
+                            <a href="" className="reg__sign-up">Sign up</a>
                         </div>
                         <form 
                         className={search ? 'header__search header__search_active' : 'header__search'}>
