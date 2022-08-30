@@ -10,15 +10,14 @@ import ApiService from '../../services/ApiService';
 import Header from '../header/HeaderMenu';
 import Promo from '../promo/Promo';
 import AboutProduct from '../aboutProduct/AboutProduct';
-import Catalog from '../catalog/Catalog';
+import CatalogList from '../catalogList/CatalogList';
 import FeedBack from '../feedback/FeedBack';
 import News from '../news/News';
 import Footer from '../footer/Footer';
-
-
+import Reg from '../reg/Reg';
+import Login from '../login/Log';
 import Register from '../regin/registr';
 import Custom from '../custom/Custom';
-
 
 
 export default function App() {
@@ -27,23 +26,19 @@ export default function App() {
     <>
       <header>
         <Header/>
-
-        
+        {/* <Promo/> */}
       </header>
       <main>
         {/* <AboutProduct/>
         <CatalogList/>
-
         <FeedBack/>
         <News/> */}
-        <Promo/>
         <Custom/>
       </main>
       <footer>
         <Footer/>
       </footer>
       {/* <Register/> */}
-
     </>
     
   )
