@@ -57,7 +57,16 @@ const Custom = () => {
                         <button onClick={submitConfig} className="btn">Apply</button>
                     </div>
                     <div className="custom__tags"></div>
-                    <div className="custom__functional"></div>
+                    <div className="custom__functional">
+                        <div className="functional__title">Functional</div>
+                        <div className="crypto-list">
+                            <div className="crypto-list__item">
+                                <div className="crypto-list__name-coin">
+                                    <input type="text" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
