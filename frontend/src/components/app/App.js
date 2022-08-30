@@ -14,8 +14,7 @@ import CatalogList from '../catalogList/CatalogList';
 import FeedBack from '../feedback/FeedBack';
 import News from '../news/News';
 import Footer from '../footer/Footer';
-import Reg from '../reg/Reg';
-import Login from '../login/Log';
+
 import Register from '../regin/registr';
 import Custom from '../custom/Custom';
 
@@ -24,21 +23,29 @@ export default function App() {
 
   return (
     <>
-      <header>
-        <Header/>
-        {/* <Promo/> */}
-      </header>
-      <main>
-        {/* <AboutProduct/>
-        <CatalogList/>
-        <FeedBack/>
-        <News/> */}
-        <Custom/>
-      </main>
-      <footer>
-        <Footer/>
-      </footer>
-      {/* <Register/> */}
+      <Router>
+        <header>
+          <Header/>
+          
+        </header>
+        <main>
+          {/* <Promo/>   */}
+          {/* <AboutProduct/>
+          <CatalogList/>
+          <FeedBack/>
+          <News/> */}
+          <Routes>
+            <Route path='/' element={<Custom/>}/>
+            <Route path='/reg' element={<Register/>}/>
+          </Routes>
+          
+         
+        </main>
+        <footer>
+          <Footer/>
+        </footer>
+        
+      </Router>
     </>
     
   )
