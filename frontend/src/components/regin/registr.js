@@ -27,6 +27,9 @@ export default function Register () {
             }
         })
     }
+
+    fetch('http://localhost:3000/api/crypto_assets')
+    .then(response => console.log(response.data))
      
      
     const submitChackin = event => {
