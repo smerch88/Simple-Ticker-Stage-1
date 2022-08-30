@@ -2,9 +2,6 @@ import Ticker from "../../resourses/img/thumbnail.jpg"
 
 
 const Catalog = () => {
-
-
-
     return (
         <div className="catalog">
             <h2 className="title">Catalog</h2>

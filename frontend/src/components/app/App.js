@@ -15,35 +15,23 @@ import FeedBack from '../feedback/FeedBack';
 import News from '../news/News';
 import Footer from '../footer/Footer';
 
-
-import Register from '../regin/registr';
-import Custom from '../custom/Custom';
-
-
-
 export default function App() {
 
   return (
     <>
       <header>
         <Header/>
-
-        
+        <Promo/>
       </header>
       <main>
-        {/* <AboutProduct/>
-        <CatalogList/>
-
+        <AboutProduct/>
+        <Catalog/>
         <FeedBack/>
-        <News/> */}
-        <Promo/>
-        <Custom/>
+        <News/>
       </main>
       <footer>
         <Footer/>
       </footer>
-      {/* <Register/> */}
-
     </>
     
   )
