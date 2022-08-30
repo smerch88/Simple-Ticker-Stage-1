@@ -1,10 +1,14 @@
 import json
 from email import message
 from multiprocessing import context
+
+from django.contrib.auth.models import User
+from django.db import IntegrityError
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
+
 from . import models
-from .forms import OrderForm, CreateUserForm, Crypto_AssetForm
-from django.contrib.auth.forms import UserCreationForm
+from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -12,6 +16,7 @@ from django.http import HttpResponse, JsonResponse
 import requests
 from rest_framework import generics
 from .serializers import CryptoAssetsSerializer
+from rest_framework.parsers import JSONParser
 
 
 # this class is ment to be istead index view
@@ -30,63 +35,32 @@ def about(request):
     return render(request, 'main/about.html')
 
 
-@login_required(login_url='login')
-def create(request):
-    error = ''
+@csrf_exempt
+def signupAPI(request):
     if request.method == 'POST':
-        form = Crypto_AssetForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-        else:
-            error = 'Invalid input'
-
-    form = Crypto_AssetForm()
-    context = {
-        'form': form,
-        'error': error
-    }
-    return render(request, 'main/create.html', context)
+        try:
+            data = JSONParser().parse(request)
+            user = User.objects.create_user(data['username'], password=data['password'])
+            user.save()
+            return JsonResponse({'token':'jsldkfjliowe'}, status=201)
+        except IntegrityError:
+            return JsonResponse({'error': 'That username has already been taken'}, status=200)
 
 
-def registerPage(request):
-    if request.user.is_authenticated:
-        return redirect('home')
+def signupuser(request):
+    if request.method == 'GET':
+        return render(request, 'main/register.html', {'form': CreateUserForm()})
     else:
-        form = CreateUserForm()
-        if request.method == 'POST':
-            form = CreateUserForm(request.POST)
-            if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                messages.success(request, 'Account was created for ' + user)
-
-                return redirect('login')
-
-        context = {'form': form}
-        return render(request, 'main/register.html', context)
-
-
-def loginPage(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('home')
+        if request.POST['password1'] == request.POST['password2']:
+            try:
+                user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
+                user.save()
+                login(request, user)
+                return redirect('home')
+            except IntegrityError:
+                return render(request, 'main/register.html', {'form': CreateUserForm(), 'error': 'That username has already been taken'})
         else:
-            messages.info(request, 'Username Or Password is incorrect')
-
-    context = {}
-    return render(request, 'main/login.html', context)
-
-
-def logoutUser(request):
-    logout(request)
-    return redirect('login')
+            return render(request, 'main/register.html', {'form': CreateUserForm(), 'error': 'Something went wrong -_-'})
 
 
 def device_info():

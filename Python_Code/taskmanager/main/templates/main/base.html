@@ -31,11 +31,8 @@
         <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
           <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'home' %}">Home</a>
           <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'about' %}">About Us</a>
-          <a class="me-3 py-2 text-dark text-decoration-none" href="{% url 'create' %}">Assets</a>
           
           <span class="me-3 py-2 text-dark text-decoration-none">Hello, {{request.user}}</span>
-          <span ><a  class="me-3 py-2 text-dark text-decoration-none" href="{% url 'logout' %}">Logout</a></span>
-
         </nav>
       </div>
       <div class="container">
