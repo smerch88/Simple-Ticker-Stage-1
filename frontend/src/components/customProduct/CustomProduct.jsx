@@ -35,6 +35,7 @@ export default function CustomProduct () {
 
     return (
         <div className="custom__product">
+            <h3 className="custom__title">Product</h3>
             <div className="custom__ticker" onClick={(e) => handler(e)}>
                 <div id="g" className="custom__ticker__field" >
                     <img 
@@ -43,6 +44,12 @@ export default function CustomProduct () {
                     <div className="data">21.08.2022</div>
                     <div className="data">33322</div>
                 </div>
+            </div>
+            <div className="custom__product__shadow"></div>
+            <div className="custom__product__descr">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus diam parturient metus eget eu massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+
+            Rhoncus diam parturient metus eget eu massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus diam parturient metus eget eu massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             </div>
             <button onClick={submitConfig} className="btn">Apply</button>
         </div>
