@@ -59,5 +59,13 @@
             box-shadow: 0px 0px 45px rgba(121, 84, 183, 0.59);
             border-radius: 30px;
         }
+
+        .suitable__coins {
+            display: none;
+        }
+
+        .coins_selected {
+            display: block;
+        }
     }
 }

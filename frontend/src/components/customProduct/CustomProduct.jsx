@@ -1,19 +1,7 @@
-import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
 import Icon from "../../resourses/img/ticker.png"
-import CustomFunctional from "../customFunctional/CustomFunctional";
-import CustomProduct from "../customProduct/CustomProduct";
 
-const Custom = () => {
+export default function CustomProduct () {
 
-    // const field = document.getElementsByClassName("custom__ticker__field").children;
-    // const f = document.querySelector("#g")
-
-    
-
-    
-    
     const handler = (e) => {
 
         let element = e.target;
@@ -44,21 +32,20 @@ const Custom = () => {
 
         
     }
-    
 
     return (
-        <>
-            <h2 className="title">The product's name</h2>
-
-            <div className="container">
-                <div className="custom">
-                    <CustomProduct/>
-                    <div className="custom__tags"></div>
-                    <CustomFunctional/>
+        <div className="custom__product">
+            <div className="custom__ticker" onClick={(e) => handler(e)}>
+                <div id="g" className="custom__ticker__field" >
+                    <img 
+                    
+                    src={Icon} alt="" />
+                    <div className="data">21.08.2022</div>
+                    <div className="data">33322</div>
                 </div>
             </div>
-        </>
+            <button onClick={submitConfig} className="btn">Apply</button>
+        </div>
     )
 }
 
-export default Custom;
