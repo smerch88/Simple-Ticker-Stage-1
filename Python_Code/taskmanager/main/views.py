@@ -1,28 +1,17 @@
-import json
-from email import message
-from multiprocessing import context
-
-from django.contrib.auth.models import User
-from django.db import IntegrityError
-from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render
 
 from . import models
-from .forms import CreateUserForm
-from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 import requests
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .serializers import CryptoAssetsSerializer
-from rest_framework.parsers import JSONParser
 
 
 # this class is ment to be istead index view
 class CryptoAssetsList(generics.ListAPIView):
     queryset = models.Crypto_Asset.objects.all()
     serializer_class = CryptoAssetsSerializer
+    permission_classes = (permissions.IsAuthenticated, )
 
 
 def index(request):
@@ -31,38 +20,6 @@ def index(request):
     refresh_prices()
     crypto_asset = models.Crypto_Asset.objects.order_by('id')
     return render(request, 'main/index.html', {'title': 'Website main page', 'assets': crypto_asset})
-
-
-def about(request):
-    return render(request, 'main/about.html')
-
-
-@csrf_exempt
-def signupAPI(request):
-    if request.method == 'POST':
-        try:
-            data = JSONParser().parse(request)
-            user = User.objects.create_user(data['username'], password=data['password'])
-            user.save()
-            return JsonResponse({'token':'jsldkfjliowe'}, status=201)
-        except IntegrityError:
-            return JsonResponse({'error': 'That username has already been taken'}, status=200)
-
-
-def signupuser(request):
-    if request.method == 'GET':
-        return render(request, 'main/register.html', {'form': CreateUserForm()})
-    else:
-        if request.POST['password1'] == request.POST['password2']:
-            try:
-                user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
-                user.save()
-                login(request, user)
-                return redirect('home')
-            except IntegrityError:
-                return render(request, 'main/register.html', {'form': CreateUserForm(), 'error': 'That username has already been taken'})
-        else:
-            return render(request, 'main/register.html', {'form': CreateUserForm(), 'error': 'Something went wrong -_-'})
 
 
 def device_info():

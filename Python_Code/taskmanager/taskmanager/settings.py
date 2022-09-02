@@ -28,7 +28,9 @@ INSTALLED_APPS = [
     'main',
     'django_filters',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'rest_framework.authtoken',
+    'djoser',
 
 ]
 REST_FRAMEWORK = {
@@ -36,7 +38,19 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
     ]
+}
+
+DJOSER = {
+    'PASSWORD_RESET_CONFIRM_URL': '#',
+    'USERNAME_RESET_CONFIRM_URL': '#',
+    'ACTIVATION_URL': '#/activate{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': False,
+    'SERIALIZERS': {},
+
 }
 
 MIDDLEWARE = [
