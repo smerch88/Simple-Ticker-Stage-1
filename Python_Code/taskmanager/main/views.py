@@ -26,6 +26,8 @@ class CryptoAssetsList(generics.ListAPIView):
 
 
 def index(request):
+    if models.Crypto_Asset.objects.all().count() < 1:
+        create_prices()
     refresh_prices()
     crypto_asset = models.Crypto_Asset.objects.order_by('id')
     return render(request, 'main/index.html', {'title': 'Website main page', 'assets': crypto_asset})
@@ -156,5 +158,16 @@ def refresh_prices():
     try:
         for db_c, api_c in zip(db_lst, api_lst):
             models.Crypto_Asset.objects.filter(id=db_c['id'], symbol=db_c['symbol']).update(avg_price=api_c['price'])
+    except:
+        return HttpResponse('An error occured')
+
+
+# If database is empty - use this function instead of refresh_prices
+def create_prices():
+    result = requests.get('https://api.binance.com/api/v3/ticker/price')
+    api_lst = sorted([x for x in result.json() if x['symbol'][-4:] == 'USDT'], key=lambda x: x['symbol'])
+    try:
+        for i in api_lst:
+            models.Crypto_Asset.objects.create(symbol=i['symbol'], avg_price=i['price'])
     except:
         return HttpResponse('An error occured')

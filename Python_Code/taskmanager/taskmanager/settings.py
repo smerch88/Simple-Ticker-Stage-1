@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'taskmanager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'main_schema',
+        'NAME': 'simple_ticker',
         'USER': 'root',
         'PASSWORD': 'the_coole$t=batadase',
         'HOST': 'localhost'}
