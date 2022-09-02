@@ -6,69 +6,82 @@ const CustomFunctional = () => {
     const [search, setSearch] = useState('');
     const [suitableCoins, setSuitableCoins] = useState([])
     const [amountCoins, setAmountCoins] = useState([])
-
+    const [visible, setVisible] = useState(true)
     const [allListCoins, setAllListCoins] = useState(() => {
-        return {
-           0: '',
-           1: '',
-           2: '',
-           3: '',
-           4: '',
-           5: '',
-           6: '',
-           7: '',
-           8: '',
-           9: '',
-        }
+        return [
+            
+        ]
     })
 
     
 
     useEffect(() => {
         Request();
-
-        document.addEventListener('click', () => {
-            myRefs.current.forEach(item => {
-                item.classList.remove('crypto-list__suitable_selected')
-            })
-        })
+        
         
     }, [search])
 
+
+
+    useEffect(() => {
+        document.addEventListener('click', visibleSuitable)
+        
+    }, [])
+
     const myRefs = useRef([]);
 
-    const onAddCoin = (i, value) => {
-        setAllListCoins(allList => {
-            return {
-                ...allList,
-                [i] : value
+    const visibleSuitable = () => {
+        console.log(myRefs.current)
+        myRefs.current.forEach(item => {
+            if (item !== null) {
+                item.classList.remove('crypto-list__suitable_selected')
             }
         })
     }
 
-    const onCreateCoin = () => {
-        setAmountCoins(e => {
+    const onAddCoin = (i, value) => {
+        setAllListCoins(allList => {
+
+            allList.splice(i, 1, value)
             return [
-                ...e,
-                e.length
+                ...allList
             ]
         })
 
     }
 
-    const onRemoveCoin = (i) => {
-        
-        // setAmountCoins(e => {
-        //     return e.filter((item) =>  item !== i)
-        // })
-        console.log(amountCoins)
-
+    const onCreateCoin = () => {
         setAllListCoins(e => {
-            return {
-                ...e, 
-                [i]: ''
-            }
+            return [
+                ...e,
+                ''
+            ]
         })
+    }
+
+    const onRemoveCoin = (i) => {
+
+        myRefs.current = []
+        console.log(myRefs.current)
+       
+        setAllListCoins(allList => {
+            
+            allList.splice(i, 1)
+            return [
+                ...allList
+            ]
+        })
+        console.log(allListCoins)
+        
+        
+        
+
+        
+    }
+
+    const refD = (i) => {
+        myRefs.current.splice(i, 1)
+        return myRefs.current
     }
 
     const req = async () => {
@@ -84,19 +97,24 @@ const CustomFunctional = () => {
         .then(response => {return response.json()})
         .then(res => res.cryptoList)
     
-        if (1) {
-           const suitableCoins = data.filter(elem => elem.includes(search))   
-           setSuitableCoins(suitableCoins)
-        }
-        console.log(suitableCoins)
+        
+        const suitableCoins = data.filter(elem => elem.includes(search))   
+        setSuitableCoins(suitableCoins)
+        
+        
 
     }
 
     const onFocusInput = (id, e) => {
         e.stopPropagation()
         setSearch('')
+        
+        console.log(myRefs.current)
+        // console.log(myRefs.current[id])
         myRefs.current.forEach(item => {
-            item.classList.remove('crypto-list__suitable_selected')
+            if (item !== null) {
+                item.classList.remove('crypto-list__suitable_selected')
+            }
         })
         myRefs.current[id].classList.add('crypto-list__suitable_selected')
 
@@ -106,7 +124,7 @@ const CustomFunctional = () => {
 
     const renderListCoins = (amount) => {
 
-        console.log(amount)
+        console.log(allListCoins)
 
         const listCoins = amount.map((elem, i) => {
 
@@ -128,7 +146,7 @@ const CustomFunctional = () => {
                     />
                     <span 
                     className="crypto-list__hide"
-                    onClick={() => onRemoveCoin(i)}
+                    onClick={() => {onRemoveCoin(i)}}
                     ></span>
                     <div 
                         className="crypto-list__suitable"
@@ -153,7 +171,7 @@ const CustomFunctional = () => {
     }
     
     
-    const coins = renderListCoins(amountCoins)
+    const coins = renderListCoins(allListCoins)
 
     return (
         <div className="custom__functional">
