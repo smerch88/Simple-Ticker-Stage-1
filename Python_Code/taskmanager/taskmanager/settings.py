@@ -28,7 +28,9 @@ INSTALLED_APPS = [
     'main',
     'django_filters',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'rest_framework.authtoken',
+    'djoser',
 
 ]
 REST_FRAMEWORK = {
@@ -36,7 +38,19 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
     ]
+}
+
+DJOSER = {
+    'PASSWORD_RESET_CONFIRM_URL': '#',
+    'USERNAME_RESET_CONFIRM_URL': '#',
+    'ACTIVATION_URL': '#/activate{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': False,
+    'SERIALIZERS': {},
+
 }
 
 MIDDLEWARE = [
@@ -85,7 +99,7 @@ WSGI_APPLICATION = 'taskmanager.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'main_schema',
+        'NAME': 'simple_ticker',
         'USER': 'root',
         'PASSWORD': 'the_coole$t=batadase',
         'HOST': 'localhost'}
@@ -127,10 +141,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/main/static/'
+STATIC_URL = '/static/'
 
 MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'main/static')
+    os.path.join(BASE_DIR, 'static/')
 ]
