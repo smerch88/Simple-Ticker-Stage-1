@@ -49,16 +49,26 @@
                 position: relative;
                 padding: 0;
                 padding-right: 19px;
+                
+                
+            }
+
+            .active {  
+                
+                .list-property {
+                    transform: scaleY(1); 
+                }
                 z-index: 10;
                 
+                    
             }
 
             &__property-change {
                 position: absolute;
                 top: -40px;
-                /* left: -51%; */
+                left: 0;
                 height: auto;
-                transform: translateX(-49%);
+                transform: translateX(0);
                 width: 352px;
                 height: calc(100% + 53px);
                 background: linear-gradient(180deg, rgba(15, 24, 42, 0.65) 0%, rgba(15, 24, 42, 0.65) 100%);
@@ -123,9 +133,7 @@
                         }
                     }
 
-                    .active {  
-                        transform: scaleY(1);     
-                    }
+                    
                     
                 }
             }

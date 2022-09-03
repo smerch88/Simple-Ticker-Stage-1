@@ -76,7 +76,9 @@ const ItemOption = (props) => {
             return (
                 <div key={i} className="ticker__option ">
                     <div 
-                    className="ticker__config">
+                    className="ticker__config"
+                    ref={e => myRefs.current[i] = e}
+                    >
                         <span className="ticker__name-property">
                             {name}:  
                         </span>
@@ -85,7 +87,7 @@ const ItemOption = (props) => {
                                 <li className='change'>{property[0]}</li>
                                 <li 
                                 className="list-property"
-                                ref={e => myRefs.current[i] = e}>
+                                >
                                     {listProperty}
                                     <div className="ticker__property-change"></div>
                                 </li>
