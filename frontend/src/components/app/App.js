@@ -30,14 +30,14 @@ export default function App() {
         </header>
         <main>
           {/* <Promo/>   */}
-          {/* <AboutProduct/>
+          <AboutProduct/>
           <CatalogList/>
           <FeedBack/>
-          <News/> */}
-          <Routes>
+          <News/>
+          {/* <Routes>
             <Route path='/' element={<Custom/>}/>
             <Route path='/reg' element={<Register/>}/>
-          </Routes>
+          </Routes> */}
           
          
         </main>
