@@ -5,4 +5,10 @@
 @import "global/styles.scss";
 
 @import "partials/header.scss";
+@import "partials/main.scss";
+@import "partials/promo";
 @import "partials/footer.scss";
+
+* {
+    font-family: 'Rubik', sans-serif;
+}

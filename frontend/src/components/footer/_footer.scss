@@ -1,0 +1,67 @@
+.footer {
+    width: 100%;
+    background: linear-gradient(180deg, rgba(105, 64, 172, 0) 2.08%, #6940AC 91.49%);
+    backdrop-filter: blur(60px);
+
+    &__wrapper {
+        padding: 93px 0 80px;
+        @include FlexBetween;
+    }
+
+    .logo {
+        align-self: start;
+        a {
+            @include FlexBetween;
+            justify-content: center;
+            @include Quantico;
+            font-size: 32px;
+            text-decoration: none;
+
+            img {
+                margin-right: 17.5px;
+            }
+        }
+
+    }
+
+    &__info {
+        margin-bottom: 11px;
+        display: block;
+
+        @include Quantico;
+        font-weight: 400;
+        font-size: 20px;
+        text-decoration: none;
+    }
+
+    &__links {
+        margin-top: 30px;
+        @include FlexBetween;
+
+
+        &__item {
+            display: block;
+            
+            &:hover {
+                transition: .3s all;
+                svg,
+                path {
+                    fill: #FFFFFF;
+                    
+                }
+                filter: drop-shadow(0px 0px 7px #E0D8EF);
+            }
+
+            &:active {
+                svg,
+                path {
+                    fill: #C1B1DC;
+                    
+                }
+                filter: none;
+            }
+
+
+        }
+    }
+}

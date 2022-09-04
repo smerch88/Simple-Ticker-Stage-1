@@ -1,0 +1,221 @@
+.catalog {
+
+
+
+    &__wrapper {
+        margin: 60px 0 125px;
+        @include FlexBetween;
+
+        .ticker {
+            width: 391px;
+            height: 796px;
+            border: 1px solid #FFFFFF;
+            border-radius: 20px;
+            transition: .3s all;
+
+            &:hover {
+                background: rgba(114, 81, 174, 0.4);
+            }
+
+            &__options {
+                padding: 0 27px;
+            }
+
+            &__thumbnail {
+                margin: 0 auto;
+                margin-top: 7px;
+                border-radius: 14px;
+            }
+
+            &__name {
+                margin: 23px 0 26px;
+                @include Quantico;
+                font-weight: 700;
+                font-size: 25px;
+                text-align: center;
+            }
+
+            &__option {
+                position: relative;
+                margin-top: 17px;
+                padding-bottom: 8px;
+                border-bottom: 1px solid #FFFFFF;
+
+            }
+
+            &__config {
+                width: 100%;
+                display: flex;
+                position: relative;
+                padding: 0;
+                padding-right: 19px;
+                
+                
+            }
+
+            .active {  
+                
+                .list-property {
+                    transform: scaleY(1); 
+                }
+                z-index: 10;
+                
+                    
+            }
+
+            &__property-change {
+                position: absolute;
+                top: -40px;
+                left: 0;
+                height: auto;
+                transform: translateX(0);
+                width: 352px;
+                height: calc(100% + 53px);
+                background: linear-gradient(180deg, rgba(15, 24, 42, 0.65) 0%, rgba(15, 24, 42, 0.65) 100%);
+                backdrop-filter: blur(15px);
+                z-index: 1;
+            }
+
+            &__name-property {
+
+                margin-right: 9px;
+                @include WorkSans;
+                font-weight: 700;
+                font-size: 22px;
+                z-index: 5;
+            }
+
+            &__property {
+
+                @include WorkSans;
+                font-weight: 700;
+                font-size: 18px;
+                color: #C1B1DC;
+
+                .change {
+                    z-index: 5;
+                }
+
+                &>ul {
+                    position: absolute;
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    margin: 4px 0 2px;
+                    list-style-type: none;              
+                    
+
+                    .list-property {
+                        position: absolute;
+                        top: 20px;
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                        padding-right: 25px;
+                        margin-top: 8px;
+                        transition: .2s all linear;
+                        height: auto;
+                        transform-origin: 0 0;
+                        transform: scaleY(0);
+
+                        &>ul {
+                            width: 100%;
+                            position: relative;
+                            z-index: 5;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            grid-column-gap: 30px;
+
+                            .active { 
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+
+                    
+                    
+                }
+            }
+
+            &__arrow {
+                position: absolute;
+                top: 19px;
+                transform: translateY(-50%);
+                right: 13px;
+                z-index: 5;
+
+                &:hover {
+                    transition: .3s all;
+
+                    svg,
+                    path {
+                        stroke: #C1B1DC;
+                    }
+
+                    filter: drop-shadow(0px 0px 3px #C1B1DC);
+                }
+
+                &:active {
+
+                    svg,
+                    path {
+                        stroke: #7251AE;
+                    }
+                }
+            }
+        }
+    }
+
+    .marquee {
+        position: relative;
+        width: 100%;
+        height: 94px;
+        border: 3px solid;
+        border-left: none;
+        border-right: none;
+        border-image: linear-gradient(268.54deg, #7954B7 21.31%, #AD97D0 115.35%) 1;
+
+        &__inner {
+            position: absolute;
+            left: 0;
+            padding: 20px 0;
+            max-width: 100%;
+            height: 94px;
+            // text-align: center;
+            font-family: 'Work Sans';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 40px;
+            line-height: 55px;
+            word-spacing: 114px;
+            white-space: nowrap;
+            color: transparent;
+            background-clip: text;
+            background-image: linear-gradient(268.54deg, #7954B7 21.31%, #AD97D0 115.35%);
+            overflow: hidden;
+
+            animation: animate 30s ease-out infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                text-indent: 0%;
+            }
+
+
+
+            50% {
+                text-indent: -100%;
+            }
+
+
+
+            100% {
+                text-indent: 0%;
+            }
+        }
+
+    }
+
+}

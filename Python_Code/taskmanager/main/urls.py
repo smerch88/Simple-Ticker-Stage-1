@@ -1,15 +1,10 @@
-from django.urls import path, include
+from django.urls import path
 from . import views
 
 urlpatterns = [
     path('', views.index, name='home'),
-    path('about/', views.about, name='about'),
-    path('create', views.create, name='create'),
+    # API
+    path('api/info_to_device', views.info_to_device),
+    path('api/crypto_assets', views.CryptoAssetsList.as_view())
 
-	path('register/', views.registerPage, name="register"),
-	path('login/', views.loginPage, name="login"),  
-	path('logout/', views.logoutUser, name="logout"),
-
-    path('track/', views.track ),
-    path('headers_track/', views.headers_track ),
 ]
