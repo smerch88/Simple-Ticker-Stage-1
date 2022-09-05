@@ -1,17 +1,8 @@
-import { useState } from "react"
 import Ticker from "../../resourses/img/thumbnail.jpg"
 import ItemOption from "./ItemOption"
 
-
-
 const CatalogItem = (props) => {
     
-    const [showProp, setShowProp] = useState(false)
-
-    const showProperty = () => {
-        setShowProp(showProp => !showProp)
-    }
-
     const renderItem = () => {
 
         const elements = props.data.map((element, i) => {
@@ -23,9 +14,11 @@ const CatalogItem = (props) => {
                     <img src={Ticker} alt={name} className="ticker__thumbnail" />
                     <h2 className="ticker__name">{name}</h2>
                     <ItemOption
-                        
                         options={options}
                     />
+                    <div className="ticker__btn">
+                        <button className="btn">Buy</button>
+                    </div>
                 </div>
             )
         });

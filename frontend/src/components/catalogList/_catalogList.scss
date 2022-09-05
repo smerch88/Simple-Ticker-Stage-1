@@ -1,8 +1,11 @@
 .catalog {
 
+
+
     &__wrapper {
         margin: 60px 0 125px;
         @include FlexBetween;
+        align-items: start;
     }
 
     .marquee {

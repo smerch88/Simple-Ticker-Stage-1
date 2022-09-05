@@ -7,10 +7,9 @@ const FeedBack = () => {
                 <div className="feedback__form">
                     <div className="feedback__header">Feedback form</div>
                     <form action="#" className="feed-form">
-                        <input type="text" placeholder="Name"/>
-                        <input type="number" placeholder="Surname"/>
-                        {/* <textarea name="" id="" cols="30" rows="10" placeholder="Comment"></textarea> */}
-                        <input type="text" placeholder="password"/>
+                        <input type="text" placeholder="Your name"/>
+                        <input type="number" placeholder="Telephone"/>
+                        <textarea name="" id="" cols="30" rows="10" placeholder="Comment"></textarea>
                         <button className="btn btn_long" type="submit">send</button>
                     </form>
                 </div>
