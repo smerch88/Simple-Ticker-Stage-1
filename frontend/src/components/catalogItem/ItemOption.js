@@ -12,6 +12,8 @@ const ItemOption = (props) => {
 
    
     const showProperty = (id) => {
+
+        
         
         myRefs.current.forEach((item, i) => {
             if (id !== i) {
@@ -79,6 +81,7 @@ const ItemOption = (props) => {
                     className="ticker__config"
                     ref={e => myRefs.current[i] = e}
                     >
+                        <div className="ticker__property-change"></div>
                         <span className="ticker__name-property">
                             {name}:  
                         </span>
@@ -89,7 +92,7 @@ const ItemOption = (props) => {
                                 className="list-property"
                                 >
                                     {listProperty}
-                                    <div className="ticker__property-change"></div>
+                                    
                                 </li>
                             </ul>
                         </span>

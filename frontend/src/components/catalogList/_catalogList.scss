@@ -57,23 +57,28 @@
                 
                 .list-property {
                     transform: scaleY(1); 
+                    height: 100%;
                 }
                 z-index: 10;
                 
-                    
+                .ticker__property-change {
+                    transform: scaleY(1);
+                }    
             }
 
             &__property-change {
                 position: absolute;
-                top: -40px;
-                left: 0;
-                height: auto;
-                transform: translateX(0);
+                top: -7px;
+                left: -9px;
+                height: calc(100% + 14px);
+                
                 width: 352px;
-                height: calc(100% + 53px);
+                
                 background: linear-gradient(180deg, rgba(15, 24, 42, 0.65) 0%, rgba(15, 24, 42, 0.65) 100%);
                 backdrop-filter: blur(15px);
-                z-index: 1;
+                
+                transition: .2s all linear;
+                transform: scaleY(0);
             }
 
             &__name-property {
@@ -97,7 +102,7 @@
                 }
 
                 &>ul {
-                    position: absolute;
+                    
                     display: flex;
                     justify-content: space-between;
                     flex-direction: column;
@@ -107,7 +112,7 @@
                     
 
                     .list-property {
-                        position: absolute;
+                        
                         top: 20px;
                         width: 100%;
                         height: auto;
@@ -115,17 +120,15 @@
                         padding-right: 25px;
                         margin-top: 8px;
                         transition: .2s all linear;
-                        height: auto;
+                        height: 0;
                         transform-origin: 0 0;
                         transform: scaleY(0);
 
                         &>ul {
                             width: 100%;
-                            position: relative;
+                           
                             z-index: 5;
-                            display: grid;
-                            grid-template-columns: 1fr 1fr;
-                            grid-column-gap: 30px;
+                            
 
                             .active { 
                                 text-decoration: underline;
