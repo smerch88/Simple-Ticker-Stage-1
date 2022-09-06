@@ -11,11 +11,9 @@ const useHttp = () => {
         setLoading(true);
 
         try {
-            const response = await axios(url,{ method, body, headers});
+            const response = await axios(url,{ method, body, headers});    
 
-            
-
-            const data = await response
+            const data = response;
 
             setLoading(false)
             return data
