@@ -39,36 +39,12 @@
         justify-content: space-between;
     }
 
-    &__links {
-        margin-top: 178px;
-        display: flex;
+    .social-links {
+        justify-self: center;
         flex-direction: column;
 
         &__item {
-            display: block;
             margin-bottom: 50px;
-            
-            
-            &:hover {
-                transition: .3s all;
-                svg,
-                path {
-                    fill: #FFFFFF;
-                    
-                }
-                filter: drop-shadow(0px 0px 7px #E0D8EF);
-            }
-
-            &:active {
-                svg,
-                path {
-                    fill: #C1B1DC;
-                    
-                }
-                filter: none;
-            }
-
-
         }
     }
 }

@@ -136,6 +136,7 @@
         margin: 0 40px 0 60px;    
         transition: .5s ease-in-out; 
         width: 36px;
+        border-color: #C1B1DC;
 
         &__btn {
             padding: 0;
@@ -160,9 +161,7 @@
             color: #C1B1DC;
             outline:none;
             
-        }
-
-        
+        }  
         
         &_active,
         &:hover {
@@ -173,40 +172,22 @@
 
     }
 
-
-    // &__search {
-    //     @include FlexBetween;
-    //     justify-content: center;
-    //     margin: 0 40px 0 60px;
-    //     transition: .3s all linear;
-
-    //     &_active {
-    //         border-bottom: 1px solid #FFFFFF;
-    //         margin: 0 30px;
-    //     }
-
-    //     input {
-    //         display: none;
-    //         padding: 0 5px 7px;
-    //         width: 170px;
-    //         background: transparent;
-    //         border: none;
-    //         @include WorkSans;
-    //         font-weight: 400;
-    //         font-size: 18px;
-    //         color: #C1B1DC;
-    //         outline:none;
-    //         transition: .3s all;
-    //     }
-    // }
-
     .burger {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+
         span {
             position: relative;
+            position: absolute;
+            top: 50%;
+            left: 0;
             display: block;
             width: 28.78px;
             height: 3px;
             background: $main-color;
+            transition: background .3s ease;
 
             &::before {
                 position: absolute;
@@ -216,7 +197,7 @@
                 display: block;
                 width: 37px;
                 height: 3px;
-                background: $main-color;
+                background: inherit;
             }
 
             &::after {
@@ -227,8 +208,12 @@
                 display: block;
                 width: 20.56px;
                 height: 3px;
-                background: $main-color;
+                background: inherit;
             }
+        }
+
+        &:hover span {
+            background: #0F182A;
         }
     }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,15 +13,26 @@ import Footer from '../footer/Footer';
 import Register from '../regin/registr';
 import Custom from '../custom/Custom';
 import MainPage from '../pages/MainPage';
+import Modal from '../modal/Modal';
 
 
 export default function App() {
+
+  const [showModal, setShowModal] = useState(false)
+
+  const onShowModal = (value) => {
+      setShowModal(value)
+  }
+
+  const modal = showModal ? <Modal onShowModal = {onShowModal}/> : null
 
   return (
     <>
       <Router>
         <header>
-          <Header/>
+          <Header
+            onShowModal = {onShowModal}
+          />
         </header>
         <main>
           <Routes>
@@ -33,7 +44,7 @@ export default function App() {
         <footer>
           <Footer/>
         </footer>
-        
+        {modal}
       </Router>
     </>
     
