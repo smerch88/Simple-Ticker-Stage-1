@@ -1,0 +1,49 @@
+{
+    "product": [
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                {
+                    "name": "Configuratio",
+                    "property": [
+                        "Complete",
+                        "noComplete",
+                        "gaComplete"
+                    ]
+                },
+                {
+                    "name": "Color",
+                    "property": [
+                        "Black",
+                        "Red",
+                        "White",
+                        "Yellow",
+                        "Black",
+                        "Red",
+                        "White",
+                        "Yellow"
+                    ]
+                },
+                {
+                    "name": "Housing",
+                    "property": [
+                        "Сustomized",
+                        "noСustomized",
+                        "gaСustomized"
+                    ]
+                },
+                {
+                    "name": "Size",
+                    "property": [
+                        "7x12x5",
+                        "17x34x8",
+                        "24x13x9"
+                    ]
+                }
+            ]
+        }
+
+   
+    ]
+}
