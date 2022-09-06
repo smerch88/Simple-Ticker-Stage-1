@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Main page</h1>
+    {% if assets %}
+        {% for el in assets %}
+            <div class="alert alert-warning mt-2">
+                <h3>{{ el.symbol}}</h3>
+                <p> {{ el.avg_price }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+    <p>No data saved!</p>
+    {% endif %}
+{% endblock %}
