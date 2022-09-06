@@ -3,6 +3,7 @@ import CustomizationIcon from "../../resourses/img/benefit/customization.png"
 import EcosystemIcon from "../../resourses/img/benefit/ecosystem.png"
 import PriceIcon from "../../resourses/img/benefit/price.png"
 import SupportIcon from "../../resourses/img/benefit/support.png"
+import SupportIconInner from "../../resourses/img/benefit/support2.png"
 
 const AboutProduct = () => {
     return (
@@ -31,7 +32,10 @@ const AboutProduct = () => {
                             <div className="benefit__descr">of all interface elements on the screen.</div>
                         </div>
                         <div className="benefit">
-                            <img src={SupportIcon} alt="Benefit" />
+                            <div className="benefit__pic">
+                                <img src={SupportIcon} alt="Benefit" />
+                                <img src={SupportIconInner} alt="Benefit" className="benefit__pic-inner"/>
+                            </div>
                             <div className="benefit__title">Support </div>
                             <div className="benefit__descr">for up to 10 cryptocurrencies.</div>
                         </div>

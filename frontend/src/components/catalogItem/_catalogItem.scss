@@ -3,14 +3,9 @@
     height: 796px;
     border: 1px solid #FFFFFF;
     border-radius: 20px;
-    transition: .3s all;
 
     &:hover {
         background: rgba(114, 81, 174, 0.4);
-    }
-
-    &__config {
-        padding: 0 27px;
     }
 
     &__thumbnail {
@@ -19,12 +14,38 @@
         border-radius: 14px;
     }
 
-    &__header {
-        margin: 23px 0 26px;
+    &__name {
+        margin-top: 23px;
         @include Quantico;
         font-weight: 700;
         font-size: 25px;
         text-align: center;
+    }
+
+    &__option {
+        margin-top: 15px;
+        position: relative;
+        padding: 0 27px;
+
+        &_active {
+            .ticker__config {
+                z-index: 15;
+            }
+            
+
+            .ticker__list-property {
+                max-height: 250px;
+                transition: max-height 1s ease-out;
+                z-index: 14;
+            }
+        }
+    }
+
+    &__config {
+        position: relative;
+        display: flex;
+        align-items: center;
+        z-index: 12;
     }
 
     &__custom {
@@ -41,12 +62,43 @@
         font-size: 22px;
     }
 
-    &__property {
+    &__selected-property {
         @include WorkSans;
         font-weight: 700;
         font-size: 18px;
         color: #C1B1DC;
     }
+
+    &__list-property {
+
+        position: absolute;
+        top: -10px;
+        left: 17px;
+        overflow: hidden;
+        max-height: 0;
+        width: 355px;
+        transition: max-height .45s linear;
+        background: linear-gradient(180deg, rgba(15, 24, 42, 0.65) 0%, rgba(15, 24, 42, 0.65) 100%);
+        backdrop-filter: blur(15px);
+        z-index: 10;
+
+        ul {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 25px 20px 0px;
+        }
+
+        li {
+            text-align: center;
+            @include WorkSans;
+            font-weight: 700;
+            font-size: 18px;
+            color: #C1B1DC;
+        }
+
+    }
+
+
 
     &__arrow {
         position: absolute;
@@ -73,5 +125,11 @@
                 stroke: #7251AE;
             }
         }
+    }
+
+    &__btn {
+        margin-top: 34px;
+        display: flex;
+        justify-content: center;
     }
 }

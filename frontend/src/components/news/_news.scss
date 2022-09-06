@@ -2,9 +2,12 @@
     margin-bottom: 146px;
 
     &__wrapper {
-        display: flex;
         margin-bottom: 67px;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
     }
+
 
     &__show-all {
         margin: 79px 0 28px;
@@ -21,6 +24,7 @@
     }
 
     &__item {
+        margin: 0 20px;
         padding: 8px 14px 8px 7px;
         display: flex;
         justify-content: space-between;
@@ -34,7 +38,7 @@
         transition: .3s linear;
 
         &:hover {
-            
+
             background: rgba(114, 81, 174, 0.4);
             backdrop-filter: blur(15px);
         }
@@ -66,30 +70,27 @@
         }
     }
 
-    .slider {
+    .swiper-wrapper {
+        display: flex;
+        min-width: 0;
+        margin-bottom: 67px;
+    }
+
+    .swiper-scrollbar {
         position: relative;
+        margin: 0 auto;
+        z-index: 50;
+        height: 5px;
+        width: 397px;
+        background: #ADADAD;
+    }
 
-        .line {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 397px;
-            height: 1px;
-            background: #ADADAD;
-        }
-
-        .dot {
-
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 67px;
-            height: 8px;
-            background: linear-gradient(90.94deg, #AD97D1 -30.86%, #6840AB 83.14%);
-            border-radius: 11px;
-            z-index: 1;
-        }
+    .swiper-scrollbar-drag {
+        position: absolute;
+        top: -40%;
+        height: 8px;
+        width: 80px;
+        background: linear-gradient(90.94deg, #AD97D1 -30.86%, #6840AB 83.14%);
+        border-radius: 11px;
     }
 }

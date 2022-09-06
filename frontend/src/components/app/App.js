@@ -8,15 +8,11 @@ import {
 
 import ApiService from '../../services/ApiService';
 import Header from '../header/HeaderMenu';
-import Promo from '../promo/Promo';
-import AboutProduct from '../aboutProduct/AboutProduct';
-import CatalogList from '../catalogList/CatalogList';
-import FeedBack from '../feedback/FeedBack';
-import News from '../news/News';
 import Footer from '../footer/Footer';
 
 import Register from '../regin/registr';
 import Custom from '../custom/Custom';
+import MainPage from '../pages/MainPage';
 
 
 export default function App() {
@@ -26,20 +22,13 @@ export default function App() {
       <Router>
         <header>
           <Header/>
-          
         </header>
         <main>
-          {/* <Promo/>   */}
-          <AboutProduct/>
-          <CatalogList/>
-          <FeedBack/>
-          <News/>
-          {/* <Routes>
-            <Route path='/' element={<Custom/>}/>
+          <Routes>
+            <Route path='/' element={<MainPage/>}/>
             <Route path='/reg' element={<Register/>}/>
-          </Routes> */}
-          
-         
+            <Route path='/custom' element={<Custom/>}/>
+          </Routes>
         </main>
         <footer>
           <Footer/>
