@@ -29,7 +29,7 @@ export default function App() {
   return (
     <>
       <Router>
-        <header>
+        <header className="header">
           <Header
             onShowModal = {onShowModal}
           />

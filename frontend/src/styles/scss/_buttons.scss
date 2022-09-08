@@ -34,4 +34,10 @@
         width: 644px;
         height: 76px;
     }
+
+    @media (max-width: 768px) {
+        width: 166px;
+        height: 55px;
+        font-size: 25px;
+    }
 }

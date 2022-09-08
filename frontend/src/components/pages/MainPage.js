@@ -9,10 +9,10 @@ const MainPage = () => {
     return (
         <>
             <Promo/>  
-            <AboutProduct/>
+            {/* <AboutProduct/>
             <CatalogList/>
             <FeedBack/>
-            <News/>
+            <News/> */}
         </>
     )
 }

@@ -1,6 +1,4 @@
 .promo {
-    display: block;
-    width: 100%;
     max-width: 1440px;
     margin: 0 auto;
     height: 636px;
@@ -11,9 +9,7 @@
 
 
     &__wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include FlexCenter
     }
 
     &-text {
@@ -31,6 +27,13 @@
             font-weight: 500;
             font-size: 25px;
             line-height: 150%;
+
+            a {
+                @include WorkSans;
+                font-weight: 500;
+                font-size: 16px;
+                color: #8A8A8A;
+            }
         }
     }
 
@@ -45,6 +48,39 @@
 
         &__item {
             margin-bottom: 50px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        height: 422px;
+
+        &-text {
+            margin-top: 24px;
+            width: 390px;
+            &__title {
+                width: 313px;
+                font-size: 35px;
+            }
+
+            &__descr {
+                width: 333px;
+                margin: 40px 0 34px;
+                font-size: 20px;
+            }
+        }
+
+        .social-links {
+            height: 150px;
+            width: 22px;
+
+            &__item {
+                margin: 12px;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
         }
     }
 }

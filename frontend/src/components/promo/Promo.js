@@ -1,6 +1,18 @@
 
 
 const Promo = () => {
+
+    let descr = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus diam parturient metus eget eu massa amet. Fermentum nam eu ut nibh elit elit in dolor. '
+    let showMore = null;
+
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        
+        if(descr.length > 50) {
+            showMore = <a>show more...</a>;
+            descr = `${descr.slice(0, 100)}... `
+        }
+    }
+
     return (
         <div className="promo">
             <div className="container">
@@ -9,9 +21,10 @@ const Promo = () => {
                         <div className="promo-text__title">
                             CRYPTO VALUES IN REAL TIME
                         </div>
-                        <div className="promo-text__descr">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhoncus diam parturient metus eget eu massa amet. Fermentum nam eu ut nibh elit elit in dolor. 
-                        </div>
+                        <p className="promo-text__descr">
+                            {descr}
+                            {showMore}
+                        </p>
                         <div className="promo__btns">
                             <button className="btn">More</button>
                             <button className="btn">Buy</button>
