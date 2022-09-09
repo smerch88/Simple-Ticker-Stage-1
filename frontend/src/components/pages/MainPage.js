@@ -3,15 +3,17 @@ import AboutProduct from '../aboutProduct/AboutProduct';
 import CatalogList from '../catalogList/CatalogList';
 import FeedBack from '../feedback/FeedBack';
 import News from '../news/News';
+import Marquee from '../marquee/Marquee';
 
 const MainPage = () => {
 
     return (
         <>
             <Promo/>  
-            {/* <AboutProduct/>
+            <AboutProduct/>
             <CatalogList/>
-            <FeedBack/>
+            <Marquee/>
+            {/* <FeedBack/>
             <News/> */}
         </>
     )

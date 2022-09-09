@@ -241,4 +241,13 @@
             background: $dark;
         }
     }
+
+    @media (max-width: 576px) {
+        height: 85px;
+
+        &__wrapper {
+            height: 85px;
+        }
+
+    }
 }

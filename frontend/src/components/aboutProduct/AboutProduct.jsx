@@ -3,7 +3,6 @@ import CustomizationIcon from "../../resourses/img/benefit/customization.png"
 import EcosystemIcon from "../../resourses/img/benefit/ecosystem.png"
 import PriceIcon from "../../resourses/img/benefit/price.png"
 import SupportIcon from "../../resourses/img/benefit/support.png"
-import SupportIconInner from "../../resourses/img/benefit/support2.png"
 
 const AboutProduct = () => {
     return (
@@ -19,25 +18,22 @@ const AboutProduct = () => {
                         <div className="benefit">
                             <img src={CustomizationIcon} alt="Benefit" />
                             <div className="benefit__title">Customization</div>
-                            <div className="benefit__descr">of all interface elements on the screen.</div>
+                            <p className="benefit__descr">of all interface elements on the screen.</p>
                         </div>
                         <div className="benefit">
                             <img src={EcosystemIcon} alt="Benefit" />
                             <div className="benefit__title">Ecosystem </div>
-                            <div className="benefit__descr">makes it possible to monitor rates and portfolio profits.</div>
+                            <p className="benefit__descr">makes it possible to monitor rates and portfolio profits.</p>
                         </div>
                         <div className="benefit">
                             <img src={PriceIcon} alt="Benefit" />
                             <div className="benefit__title">Price</div>
-                            <div className="benefit__descr">of all interface elements on the screen.</div>
+                            <p className="benefit__descr">of all interface elements on the screen.</p>
                         </div>
                         <div className="benefit">
-                            <div className="benefit__pic">
-                                <img src={SupportIcon} alt="Benefit" />
-                                <img src={SupportIconInner} alt="Benefit" className="benefit__pic-inner"/>
-                            </div>
+                            <img src={SupportIcon} alt="Benefit" />
                             <div className="benefit__title">Support </div>
-                            <div className="benefit__descr">for up to 10 cryptocurrencies.</div>
+                            <p className="benefit__descr">for up to 10 cryptocurrencies.</p>
                         </div>
                     </div>
                     <div className="product__btn">

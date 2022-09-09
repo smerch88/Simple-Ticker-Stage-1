@@ -9,12 +9,8 @@ import {
 import ApiService from '../../services/ApiService';
 import Header from '../header/HeaderMenu';
 import Footer from '../footer/Footer';
-
-import Register from '../regin/registr';
-import Custom from '../custom/Custom';
-import MainPage from '../pages/MainPage';
 import Modal from '../modal/Modal';
-
+import { MainPage, CustomPage, SignUpPage } from '../pages';
 
 export default function App() {
 
@@ -37,8 +33,8 @@ export default function App() {
         <main>
           <Routes>
             <Route path='/' element={<MainPage/>}/>
-            <Route path='/reg' element={<Register/>}/>
-            <Route path='/custom' element={<Custom/>}/>
+            <Route path='/reg' element={<SignUpPage/>}/>
+            <Route path='/custom' element={<CustomPage/>}/>
           </Routes>
         </main>
         <footer>
