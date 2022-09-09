@@ -147,7 +147,9 @@ const CustomFunctional = () => {
                     <span 
                     className="crypto-list__hide"
                     onClick={() => {onRemoveCoin(i)}}
-                    ></span>
+                    >
+                        &times;
+                    </span>
                     <div 
                         className="crypto-list__suitable"
                         ref={e => myRefs.current[i] = e}

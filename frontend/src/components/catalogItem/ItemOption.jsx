@@ -33,9 +33,7 @@ const ItemOption = (props) => {
                     }
 
                     return (
-                        <>
                             <li key={i}>{elem}</li>
-                        </>
                     )
                 })
 

@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
+
 import useProductService from "../../services/ProductService";
 import CatalogItem from "../catalogItem/CatalogItem";
 
 
 const Catalog = () => {
-
-    const [productList, setProductList] = useState([])
-
-    const {getAllProducts} = useProductService()
+    const [productList, setProductList] = useState([]);
+    const {getAllProducts} = useProductService();
     
     useEffect(() => {
         Request()
-        
     }, [])
 
     const Request = () => {
@@ -31,11 +29,6 @@ const Catalog = () => {
                     <CatalogItem
                         data={productList}
                     />
-                </div>
-            </div>
-            <div className="marquee">
-                <div className="marquee__inner">
-                    BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN BITCOIN ALTCOIN TOKEN
                 </div>
             </div>
         </div>

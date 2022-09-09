@@ -15,8 +15,6 @@ export default function Register () {
             password2: "",
         }
     })
-
-    const newCustom = new CustomersService()
      
     const changeInputRegister = event => {
         event.persist()
@@ -34,13 +32,20 @@ export default function Register () {
     const submitChackin = event => {
         event.preventDefault();
 
-        newCustom.
-        createCustomer({
-            "username":  register.username,
-            "email":  register.email,
-            "password": register.password,
-            "password2": register.password2
+        axios({
+            method: 'POST',
+            url: 'https://www.simpleticker.online/auth/users/',
+            params: {
+                "username":  register.username,
+                "email":  register.email,
+                "password": register.password
+            }
+        }).then((res) => {
+            console.log(res)
+        }).catch(error => {
+            console.log(error)
         })
+        
         
 
         // if(!validator.isEmail(register.email)) {
@@ -113,18 +118,12 @@ export default function Register () {
                 {/* <textarea name="" id="" cols="30" rows="10" placeholder="Comment"></textarea> */}
                 <input
                     name="password" 
-                    id='password1'
+                    id='password'
                     type="password" 
                     placeholder="password" 
                     onChange={changeInputRegister} 
                     value={register.password}/>
-                <input
-                    name="password2" 
-                    id='password2'
-                    type="password" 
-                    placeholder="password2" 
-                    onChange={changeInputRegister} 
-                    value={register.password2}/>
+
                 <button className="btn btn_long" type="submit">send</button>
             </form>
         </div>

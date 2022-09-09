@@ -96,6 +96,7 @@
             border-radius: 30px;
 
             &__name-coins {
+                position: relative;
                 padding-bottom: 8px;
                 border-bottom: 1px solid #fff;
                 margin-bottom: 24px;
@@ -172,6 +173,7 @@
                 margin: 0 auto;
                 width: 30px;
                 height: 30px;
+                
                 cursor: pointer;
 
                 &::before{
@@ -184,6 +186,7 @@
                     height: 30px;
                     width: 2px;
                     background: #C1B1DC;
+                    transition: background .3s ease;
                 }
 
                 &::after{
@@ -196,14 +199,31 @@
                     height: 2px;
                     width: 30px;
                     background: #C1B1DC;
+                    transition: background .3s ease;
+                }
+
+                &:hover:after,
+                &:hover:before {
+                   
+                    background: #FFFFFF;
                 }
             }
 
             &__hide {
+                position: absolute;
+                top: -13px;
+                right: 0;
                 display: inline-block;
-                width: 10px;
-                height: 10px;
-                background: #fff;
+                font-size: 40px;
+                color: #C1B1DC;
+                width: 30px;
+                height: 30px;
+                transition: color .3s ease;
+                cursor: pointer;    
+                
+                &:hover {
+                    color: #FFFFFF;
+                }
             }
         }
 
