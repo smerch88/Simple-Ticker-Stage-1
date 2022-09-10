@@ -29,7 +29,7 @@ export default function Register () {
    
      
      
-    const submitChackin = event => {
+    const submitCheckin = event => {
         event.preventDefault();
 
         axios({
@@ -99,7 +99,7 @@ export default function Register () {
     return (
         <div className="feedback__form">
             <div className="feedback__header">Registration</div>
-            <form action="#" className="feed-form" onSubmit={submitChackin}>
+            <form action="#" className="feed-form" onSubmit={submitCheckin}>
                 <input 
                     name="username"
                     id='username'

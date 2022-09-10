@@ -10,8 +10,7 @@
     .logo {
         align-self: start;
         a {
-            @include FlexBetween;
-            justify-content: center;
+            @include FlexCenter;
             @include Quantico;
             font-size: 32px;
             text-decoration: none;
@@ -25,15 +24,45 @@
 
     &__info {
         margin-bottom: 11px;
-        display: block;
+        display: flex;
+        flex-direction: column;
 
+        
+    }
+
+    &__link {
         @include Quantico;
-        font-weight: 400;
         font-size: 20px;
         text-decoration: none;
     }
 
     .social-links {
         margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+        
+        &__wrapper {
+            padding-top: 53px;
+            justify-content: center;
+            flex-direction: column;
+
+            .logo {
+                align-self: center;
+
+                a {
+                    font-size: 17px;
+                }
+
+                img {
+                    width: 37px;
+                    height: 41px;
+                }
+            }
+        }
+
+        &__info {
+            margin-top: 33px;
+        }
     }
 }

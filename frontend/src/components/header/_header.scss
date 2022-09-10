@@ -4,14 +4,16 @@
     height: 117px;
     background: linear-gradient(180deg, rgba(105, 64, 172, 0) 2.08%, #6940AC 47.4%, rgba(67, 22, 140, 0) 100%);
 
+    
+
     &__wrapper {
         height: 117px;
-        @include FlexCenter;
+        @include FlexBetween;
     }
 
     .logo {
         a {
-            @include FlexCenter;
+            @include FlexBetween;
             @include Quantico;
             font-size: 32px;
             text-decoration: none;
@@ -34,10 +36,10 @@
     }
 
     .nav {
-        @include FlexCenter;
+        @include FlexBetween;
 
         &__list {
-            @include FlexCenter;
+            @include FlexBetween;
             margin-right: 44px;
 
             @media (max-width: 1140px) {
@@ -150,10 +152,16 @@
                 }
             }
         }
+
+        @media (max-width: 428px) {
+            &__sign-up {
+                display: none;
+            }
+        }
     }
 
     &__search {
-        @include FlexCenter;
+        @include FlexBetween;
         margin: 0 40px 0 60px;
         transition: .5s ease-in-out;
         width: 36px;
@@ -243,10 +251,36 @@
     }
 
     @media (max-width: 576px) {
+        margin-top: 11px;
         height: 85px;
 
         &__wrapper {
             height: 85px;
+        }
+
+        &__search {
+            margin: 0px 8px 0 0px;
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .burger {
+            width: 33px;
+            height: 30px;
+
+            span {
+                width: 24px;
+
+                &::before {
+                    width: 31px;
+                }
+
+                &::after {
+                    width: 17px;
+                }
+            }
         }
 
     }

@@ -2,9 +2,6 @@ import NewsList from "./NewsList";
 
 const News = () => {
 
-
-
-
     return (
         <>
             <h2 className="title">News</h2>
@@ -13,8 +10,7 @@ const News = () => {
                     <div className="news__show-all"><a href="#">show all news</a></div>
                 </div>
                 <div className="news__wrapper">
-                            <NewsList/> 
- 
+                    <NewsList/> 
                 </div>
             </div>
         </>
