@@ -101,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'simple_ticker',
         'USER': 'root',
-        'PASSWORD': 'the_coole$t=batadase',
+        'PASSWORD': '--Q!Hh2U^mRop+',
         'HOST': 'localhost'}
 }
 
