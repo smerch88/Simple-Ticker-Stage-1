@@ -1,16 +1,9 @@
-import json
-from email import message
-from multiprocessing import context
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+
 from . import models
-from .forms import OrderForm, CreateUserForm, Crypto_AssetForm
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 import requests
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .serializers import CryptoAssetsSerializer
 
 
@@ -18,75 +11,15 @@ from .serializers import CryptoAssetsSerializer
 class CryptoAssetsList(generics.ListAPIView):
     queryset = models.Crypto_Asset.objects.all()
     serializer_class = CryptoAssetsSerializer
+    permission_classes = (permissions.IsAuthenticated, )
 
 
 def index(request):
+    if models.Crypto_Asset.objects.all().count() < 1:
+        create_prices()
     refresh_prices()
     crypto_asset = models.Crypto_Asset.objects.order_by('id')
     return render(request, 'main/index.html', {'title': 'Website main page', 'assets': crypto_asset})
-
-
-def about(request):
-    return render(request, 'main/about.html')
-
-
-@login_required(login_url='login')
-def create(request):
-    error = ''
-    if request.method == 'POST':
-        form = Crypto_AssetForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-        else:
-            error = 'Invalid input'
-
-    form = Crypto_AssetForm()
-    context = {
-        'form': form,
-        'error': error
-    }
-    return render(request, 'main/create.html', context)
-
-
-def registerPage(request):
-    if request.user.is_authenticated:
-        return redirect('home')
-    else:
-        form = CreateUserForm()
-        if request.method == 'POST':
-            form = CreateUserForm(request.POST)
-            if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                messages.success(request, 'Account was created for ' + user)
-
-                return redirect('login')
-
-        context = {'form': form}
-        return render(request, 'main/register.html', context)
-
-
-def loginPage(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            messages.info(request, 'Username Or Password is incorrect')
-
-    context = {}
-    return render(request, 'main/login.html', context)
-
-
-def logoutUser(request):
-    logout(request)
-    return redirect('login')
 
 
 def device_info():
@@ -182,5 +115,16 @@ def refresh_prices():
     try:
         for db_c, api_c in zip(db_lst, api_lst):
             models.Crypto_Asset.objects.filter(id=db_c['id'], symbol=db_c['symbol']).update(avg_price=api_c['price'])
+    except:
+        return HttpResponse('An error occured')
+
+
+# If database is empty - use this function instead of refresh_prices
+def create_prices():
+    result = requests.get('https://api.binance.com/api/v3/ticker/price')
+    api_lst = sorted([x for x in result.json() if x['symbol'][-4:] == 'USDT'], key=lambda x: x['symbol'])
+    try:
+        for i in api_lst:
+            models.Crypto_Asset.objects.create(symbol=i['symbol'], avg_price=i['price'])
     except:
         return HttpResponse('An error occured')

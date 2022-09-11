@@ -4,6 +4,7 @@ import axios from 'axios';
 import { DOMEN_SERVER, DOMEN_SITE } from './const';
 import AuthService from '../../services/AuthService';
 
+import Alert from '../alert/Alert';
 
 export default function Register () {
     
@@ -17,6 +18,8 @@ export default function Register () {
     })
 
     const {createPerson} = AuthService();
+
+    const [errorMessage, setErrorMessage] = useState(null);
      
     const changeInputRegister = event => {
         event.persist()
@@ -34,7 +37,26 @@ export default function Register () {
     const submitCheckin = event => {
         event.preventDefault();
 
+
         createPerson(register)
+
+        setErrorMessage(null);
+        axios({
+            method: 'POST',
+            url: 'https://www.simpleticker.online/auth/users/',
+            data: {
+                "username":  register.username,
+                "email":  register.email,
+                "password": register.password
+            }
+        }).then(res => {
+            console.log(res)
+        }).catch(error => {
+            setErrorMessage(error.response.data[Object.keys(error.response.data)[0]][0]);
+        })
+        
+        
+
 
         // if(!validator.isEmail(register.email)) {
         //     alert("You did not enter email")
@@ -85,35 +107,38 @@ export default function Register () {
 
 
     return (
-        <div className="feedback__form">
-            <div className="feedback__header">Registration</div>
-            <form action="#" className="feed-form" onSubmit={submitCheckin}>
-                <input 
-                    name="username"
-                    id='username'
-                    type="text" 
-                    placeholder="username" 
-                    value={register.username}
-                    onChange={changeInputRegister}/>
-                <input 
-                    name="email"
-                    id='email'
-                    type="text" 
-                    placeholder="email" 
-                    onChange={changeInputRegister}
-                    formNoValidate
-                    value={register.email}/>
-                {/* <textarea name="" id="" cols="30" rows="10" placeholder="Comment"></textarea> */}
-                <input
-                    name="password" 
-                    id='password'
-                    type="password" 
-                    placeholder="password" 
-                    onChange={changeInputRegister} 
-                    value={register.password}/>
+        <>
+            <div className="feedback__form">
+                <div className="feedback__header">Registration</div>
+                <form action="#" className="feed-form" onSubmit={submitChackin}>
+                    <input
+                        name="username"
+                        id='username'
+                        type="text"
+                        placeholder="username"
+                        value={register.usernamr}
+                        onChange={changeInputRegister}/>
+                    <input
+                        name="email"
+                        id='email'
+                        type="text"
+                        placeholder="email"
+                        onChange={changeInputRegister}
+                        formNoValidate
+                        value={register.email}/>
+                    {/* <textarea name="" id="" cols="30" rows="10" placeholder="Comment"></textarea> */}
+                    <input
+                        name="password"
+                        id='password'
+                        type="password"
+                        placeholder="password"
+                        onChange={changeInputRegister}
+                        value={register.password}/>
 
-                <button className="btn btn_long" type="submit">send</button>
-            </form>
-        </div>
+                    <button className="btn btn_long" type="submit">send</button>
+                </form>
+            </div>
+            { errorMessage && <Alert message={errorMessage}/> }
+        </>
     )
 }
