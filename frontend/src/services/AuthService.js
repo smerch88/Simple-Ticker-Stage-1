@@ -3,8 +3,8 @@ import axios from 'axios';
 export default function AuthService () {
 	
 	const API_URL = process.env.NODE_ENV === 'production' 
-				? 'http://www.simpleticker.online/backend' 
-				: 'http://localhost:8000/backend';
+				? 'http://www.simpleticker.online' 
+				: 'http://localhost:8000';
 				
 	const createPerson = (params) => {
 		const url = `${API_URL}/auth/users/`;
