@@ -4,6 +4,7 @@ import axios from 'axios';
 import AuthService from '../../services/AuthService';
 
 import Alert from '../alert/Alert';
+import { registration } from '../../http/userAPI';
 
 export default function Register () {
     
@@ -16,7 +17,6 @@ export default function Register () {
         }
     })
 
-    const {createPerson, errorMessage} = AuthService();
      
     const changeInputRegister = event => {
         event.persist()
@@ -28,13 +28,16 @@ export default function Register () {
         })
     }
 
-   
+    const signIn = async () => {
+        const response = await registration(register.username, register.email, register.password)
+        console.log(response)
+    }
      
      
     const submitCheckin = event => {
-        event.preventDefault();
+        
 
-        createPerson(register)
+        
 
         // if(!validator.isEmail(register.email)) {
         //     alert("You did not enter email")
@@ -88,13 +91,13 @@ export default function Register () {
         <>
             <div className="feedback__form">
                 <div className="feedback__header">Registration</div>
-                <form action="#" className="feed-form" onSubmit={submitCheckin}>
+                <form action="#" className="feed-form" >
                     <input
                         name="username"
                         id='username'
                         type="text"
                         placeholder="username"
-                        value={register.usernamr}
+                        value={register.username}
                         onChange={changeInputRegister}/>
                     <input
                         name="email"
@@ -112,10 +115,12 @@ export default function Register () {
                         onChange={changeInputRegister}
                         value={register.password}/>
 
-                    <button className="btn btn_long" type="submit">send</button>
+                    <button className="btn btn_long" type="submit"
+                    onClick={signIn}
+                    >send</button>
                 </form>
             </div>
-            { errorMessage && <Alert message={errorMessage}/> }
+            
         </>
     )
 }
