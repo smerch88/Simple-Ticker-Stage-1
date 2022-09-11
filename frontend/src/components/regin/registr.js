@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 
 import { DOMEN_SERVER, DOMEN_SITE } from './const';
-import CustomersService from '../../services/CustomService';
+import AuthService from '../../services/AuthService';
 
 
 export default function Register () {
@@ -15,6 +15,8 @@ export default function Register () {
             password2: "",
         }
     })
+
+    const {createPerson} = AuthService();
      
     const changeInputRegister = event => {
         event.persist()
@@ -32,21 +34,7 @@ export default function Register () {
     const submitCheckin = event => {
         event.preventDefault();
 
-        axios({
-            method: 'POST',
-            url: 'https://www.simpleticker.online/auth/users/',
-            params: {
-                "username":  register.username,
-                "email":  register.email,
-                "password": register.password
-            }
-        }).then((res) => {
-            console.log(res)
-        }).catch(error => {
-            console.log(error)
-        })
-        
-        
+        createPerson(register)
 
         // if(!validator.isEmail(register.email)) {
         //     alert("You did not enter email")
@@ -105,7 +93,7 @@ export default function Register () {
                     id='username'
                     type="text" 
                     placeholder="username" 
-                    value={register.usernamr}
+                    value={register.username}
                     onChange={changeInputRegister}/>
                 <input 
                     name="email"
