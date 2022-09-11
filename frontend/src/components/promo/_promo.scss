@@ -9,7 +9,7 @@
 
 
     &__wrapper {
-        @include FlexCenter
+        @include FlexBetween
     }
 
     &-text {
@@ -56,15 +56,17 @@
 
         &-text {
             margin-top: 24px;
-            width: 390px;
+            max-width: 390px;
+
             &__title {
-                width: 313px;
-                font-size: 35px;
+                max-width: 313px;
+                font-size: 31px;
+
             }
 
             &__descr {
-                width: 333px;
-                margin: 40px 0 34px;
+                max-width: 333px;
+                margin: 15px 10px 38px 0;
                 font-size: 20px;
             }
         }
@@ -80,6 +82,32 @@
                     width: 20px;
                     height: 20px;
                 }
+            }
+        }
+
+        .btn {
+            
+            width: 150px;
+            height: 65px;
+            font-size: 25px;
+        }
+    }
+
+    @media (max-width: 576px) {
+
+        .promo-text__descr {
+            margin-bottom: 30px;
+        }
+
+        &__btns {
+            position: absolute;
+            justify-content: center;
+
+            .btn {
+                
+                width: 150px;
+                height: 65px;
+                font-size: 25px;
             }
         }
     }

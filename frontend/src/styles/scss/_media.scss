@@ -14,6 +14,15 @@
 }
 
 @media (max-width: 576px) {
+
+    *:hover {
+        user-select: none;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
     .header {
         height: 85px;
 

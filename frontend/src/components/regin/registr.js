@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 
 import { DOMEN_SERVER, DOMEN_SITE } from './const';
-import CustomersService from '../../services/CustomService';
+import AuthService from '../../services/AuthService';
 
 import Alert from '../alert/Alert';
 
@@ -16,6 +16,8 @@ export default function Register () {
             password2: "",
         }
     })
+
+    const {createPerson} = AuthService();
 
     const [errorMessage, setErrorMessage] = useState(null);
      
@@ -32,8 +34,12 @@ export default function Register () {
    
      
      
-    const submitChackin = event => {
+    const submitCheckin = event => {
         event.preventDefault();
+
+
+        createPerson(register)
+
         setErrorMessage(null);
         axios({
             method: 'POST',
@@ -50,6 +56,7 @@ export default function Register () {
         })
         
         
+
 
         // if(!validator.isEmail(register.email)) {
         //     alert("You did not enter email")

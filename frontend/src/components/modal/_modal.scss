@@ -7,15 +7,16 @@
     height: 100%;
     transition: all .3s ease;
     backdrop-filter: blur(15px);
-    
+
 }
 
 .modal {
+    padding: 30px 54px;
     transition: all .3s ease;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 100px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     width: 378px;
     height: auto;
     background: linear-gradient(180deg, rgba(15, 24, 42, 0.65) 0%, rgba(15, 24, 42, 0.65) 100%);
@@ -23,30 +24,32 @@
     backdrop-filter: blur(15px);
 
     &__close {
-        margin: 29px 30px 52px 0;
+        margin-bottom: 52px;
         text-align: right;
         font-size: 60px;
         line-height: 30px;
-        color: #C1B1DC;
+        color: $wisteria;
         transition: color .3s ease;
         cursor: pointer;
-        
 
         &:hover {
-            color: #0F182A;
+            color: $dark;
         }
     }
 
     &__list {
-        padding: 0 51px 0 54px;
 
         &-item {
             margin-bottom: 27px;
-            @include WorkSans;
-            font-weight: 500;
-            font-size: 24px;
-            color: #FFFFFF;
-            border-bottom: 1px solid #FFFFFF;
+            border-bottom: 1px solid $main;
+
+            a {
+                @include WorkSans;
+                font-weight: 500;
+                font-size: 24px;
+                color: $main;
+                text-decoration: none;
+            }
         }
     }
 
@@ -64,21 +67,20 @@
             top: 46px;
             left: 50%;
             transform: translateX(-50%);
-            display: flex;
-            justify-content: center;
+            @include FlexCenter;
             padding: 10px 15px 11px;
             margin: 0 auto;
             width: 178px;
             height: 46px;
-            border: 0.5px solid #C1B1DC;
+            border: 0.5px solid $wisteria;
             border-radius: 15px;
             transition: top .3s ease-out;
 
             &__pic {
                 padding: 0 8px;
-                
+
                 &:not(:last-child) {
-                    border-right: 1px solid #C1B1DC;
+                    border-right: 1px solid $wisteria;
                 }
 
                 &:hover {
@@ -90,20 +92,45 @@
 
         &-selected {
             margin-top: 12px;
-           
+
             img {
+
+                height: 100%;
                 margin: 0 auto;
-            } 
+            }
         }
 
-        
+
     }
 
-    .modal__lang:hover  .modal__lang-list {
+    .modal__lang:hover .modal__lang-list {
         top: 0;
     }
 
     .social-links {
-        padding: 0 70px 70px;
+        padding: 0 25px 70px;
+    }
+
+    @media (max-width: 576px) {
+        width: 100%;
+        padding: 30px 20px;
+        top: 20px;
+
+        &__lang {
+
+            &-wrapper {
+                height: 60px;
+            }
+
+            &-list {
+                top: 61px;
+                width: 240px;
+                height: 59px;
+            }
+
+            &-selected {
+                height: 40px;
+            }
+        }
     }
 }

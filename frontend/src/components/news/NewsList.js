@@ -21,8 +21,10 @@ const NewsList = () => {
         getAllNews()
         .then(res => setNewsList([...res]))
     }
-    
 
+
+    
+    
     
     const renderNews = () => {
 
@@ -30,14 +32,25 @@ const NewsList = () => {
 
             const { title, thumbnail, description } = item
 
+            let descr = description
+
+            if (window.matchMedia('(max-width: 576px)').matches) { 
+        
+                if(descr.length > 50) {
+                    descr = `${descr.slice(0, 80)} `
+                }
+            }
+
             return (
                 <SwiperSlide key={i}>
                     <div  className="news__item">
-                        <img src={NewsIcon} alt="" className="news__thumbnail" />
+                        <div className="news__thumbnail">
+                            <img src={NewsIcon} alt=""/>
+                        </div>
                         <div className="news__text">
                             <h3 className="news__title">{title}</h3>
                             <div className="news__descr">
-                                {description} <a href="#">show more</a>
+                                {descr}<a href="#">...show more</a>
                                 </div>
                         </div>
                     </div>
@@ -50,14 +63,21 @@ const NewsList = () => {
             modules={[ Scrollbar, FreeMode, Mousewheel ]}
             scrollbar={{ draggable: true }}
             freeMode={true}
+            spaceBetween={40}
             slidesPerGroup={1}
             slidesPerView={'auto'}
             mousewheel={true}
+            centeredSlides={true}
+            breakpoints={{
+                1281: {
+                    centeredSlides: false,
+                    freeMode: false
+                }
+            }}
             >
                 {elements}
             </Swiper>
-        )
-        
+        ) 
     }
 
     const NewsItems = renderNews()

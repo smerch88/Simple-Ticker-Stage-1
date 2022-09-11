@@ -1,5 +1,5 @@
 .product {
-    padding-top: 145px;
+    padding-top: 50px;
 
     &__video {
         position: relative;
@@ -25,7 +25,7 @@
     }
 
     &__benefits {
-        @include FlexCenter;
+        @include FlexBetween;
         position: relative;
         width: 100%;
         top: -65px;
@@ -88,7 +88,11 @@
     }
 
     @media (max-width: 768px) {
-        padding-top: 63px;
+        padding-top: 25px;
+
+        &__video {
+            margin-top: 35px;
+        }
 
         .benefit {
             align-self: start;
