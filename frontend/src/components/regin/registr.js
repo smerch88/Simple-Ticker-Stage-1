@@ -114,11 +114,10 @@ export default function Register () {
                         placeholder="password"
                         onChange={changeInputRegister}
                         value={register.password}/>
-
-                    <button className="btn btn_long" type="submit"
+                </form>
+                <button className="btn btn_long"
                     onClick={signIn}
                     >send</button>
-                </form>
             </div>
             
         </>
