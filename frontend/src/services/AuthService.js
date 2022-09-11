@@ -1,12 +1,18 @@
+import { useState } from 'react';
+
 import axios from 'axios';
 
 export default function AuthService () {
+
+	const [errorMessage, setErrorMessage] = useState(null);
 	
 	const API_URL = process.env.NODE_ENV === 'production' 
 				? 'http://www.simpleticker.online' 
 				: 'http://localhost:8000';
 				
 	const createPerson = (params) => {
+		setErrorMessage(null);
+
 		const url = `${API_URL}/auth/users/`;
 		axios({
             method: 'POST',
@@ -19,7 +25,8 @@ export default function AuthService () {
         }).then((res) => {
             console.log(res)
         }).catch(error => {
-            console.log(error)
+            // setErrorMessage(error.response.data[Object.keys(error.response.data)[0]][0])
+            setErrorMessage("Error")
         })
 	}
 	// getCustomersByURL(link){
@@ -40,5 +47,5 @@ export default function AuthService () {
 	// 	return axios.put(url,customer);
 	// }
 
-	return {createPerson}
+	return {createPerson, errorMessage}
 }
