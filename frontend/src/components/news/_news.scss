@@ -4,7 +4,6 @@
     &__wrapper {
         margin-bottom: 67px;
         position: relative;
-        width: 100%;
         overflow: hidden;
     }
 
@@ -18,22 +17,19 @@
             font-weight: 500;
             font-size: 18px;
             line-height: 150%;
-            color: #C1B1DC;
+            color: $wisteria;
             text-decoration: none;
         }
     }
 
     &__item {
-        margin: 0 20px;
         padding: 8px 14px 8px 7px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include FlexBetween;
         width: 499px;
         height: 217px;
         background: transparent;
         backdrop-filter: blur(15px);
-        border: 2px solid #7251AE;
+        border: 2px solid $purple;
         border-radius: 9px;
         transition: .3s linear;
 
@@ -44,8 +40,21 @@
         }
     }
 
+    &__thumbnail {
+        width: 181px;
+        height: 203px;
+        @include FlexCenter;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
     &__text {
+        width: 278px;
         margin-left: 19px;
+        
     }
 
     &__title {
@@ -55,7 +64,7 @@
     }
 
     &__descr {
-        width: 278px;
+        
         @include WorkSans;
         font-weight: 400;
         font-size: 18px;
@@ -66,14 +75,17 @@
             font-weight: 500;
             font-size: 16px;
             line-height: 150%;
-            color: #C1B1DC;
+            color: #8A8A8A;
         }
     }
 
     .swiper-wrapper {
         display: flex;
-        min-width: 0;
         margin-bottom: 67px;
+    }
+
+    .swiper-slide {
+        flex-shrink: 0;
     }
 
     .swiper-scrollbar {
@@ -92,5 +104,39 @@
         width: 80px;
         background: linear-gradient(90.94deg, #AD97D1 -30.86%, #6840AB 83.14%);
         border-radius: 11px;
+    }
+
+    @media (max-width: 576px) {
+        margin-bottom: 60px;
+
+        &__item {
+            width: 300px;
+        }
+
+        &__thumbnail {
+            
+            width: 148px;
+            height: 197px;
+        }
+
+        &__text {
+            width: 183px;
+        }
+
+        &__title {
+            font-size: 20px;
+        }
+
+        &__descr {
+            font-size: 15px;
+        }
+
+        .swiper-wrapper {
+            margin-bottom: 50px;
+        }
+
+        .swiper-scrollbar {
+            width: 300px;
+        }
     }
 }

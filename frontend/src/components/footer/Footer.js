@@ -11,10 +11,10 @@ const Footer = () => {
                             CoinTickr
                         </a>
                     </div>
-                    <div>
-                        <a href="#" className="footer__info">Lorem ipsum dolor sit amet</a>
-                        <a href="#" className="footer__info">Lorem ipsum dolor sit amet</a>
-                        <a href="#" className="footer__info">Lorem ipsum dolor sit amet</a>
+                    <div className="footer__info">
+                        <a href="#" className="footer__link">Lorem ipsum dolor sit amet</a>
+                        <a href="#" className="footer__link">Lorem ipsum dolor sit amet</a>
+                        <a href="#" className="footer__link">Lorem ipsum dolor sit amet</a>
                         <div className="social-links">
                             <a href="#" className="social-links__item">
                                 <svg width="34" height="28" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg">

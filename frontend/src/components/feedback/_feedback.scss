@@ -1,9 +1,7 @@
 .feedback {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include FlexBetween;
+    flex-wrap: wrap;
     padding: 127px 0 134px;
-
 
     &__header {
         @include Quantico;
@@ -15,48 +13,47 @@
 
 
     &__form {
-        padding: 36px 70px 48px;
-        width: 776px;
+        padding: 36px 73px 48px;
+        max-width: 779px;
         height: 525px;
-        background: #0F182A;
+        background: $dark;
         box-shadow: 0px 0px 45px rgba(121, 84, 183, 0.59);
         border-radius: 30px;
     }
 
     .feed-form {
-        display: flex;
-        flex-direction: column;
 
         input {
             padding: 0 52px;
-            width: 633px;
+            width: 100%;
             height: 40px;
-            border: 2px solid #7251AE;
+            border: 2px solid $purple;
             background: transparent;
             margin-bottom: 15px;
             @include WorkSans;
             font-weight: 500;
             font-size: 18px;
-            color: #C1B1DC;
+            color: $wisteria;
         }
 
         textarea {
             padding: 11px 52px;
-            width: 633px;
+            width: 100%;
             height: 130px;
-            border: 2px solid #7251AE;
+            border: 2px solid $purple;
             background: transparent;
             margin-bottom: 15px;
             @include WorkSans;
             font-weight: 500;
             font-size: 18px;
-            color: #C1B1DC;
+            color: $wisteria;
             resize: none;
         }
     }
 
     &__text {
         width: 389px;
+        margin-left: 30px;
 
         p {
             margin-bottom: 34px;
@@ -65,7 +62,53 @@
             font-weight: 500;
             font-size: 25px;
             line-height: 140%;
-            color: #C1B1DC;
+            color: $wisteria;
+        }
+    }
+
+    @media (max-width: 1249px) {
+        padding: 60px 0;
+        justify-content: center;
+
+        &__form {
+            margin-bottom: 53px;
+        }
+
+        &__text {
+            text-align: center;
+
+            .btn {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        &__header {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        &__form {
+            height: 434px;
+            padding: 18px 20px 31px;
+
+            .feed-form {
+
+                input,
+                textarea {
+                    padding: 12px 24px;
+                }
+            }
+        }
+
+        .feedback__text {
+            margin-left: 0;
+        }
+
+        .btn {
+            width: 100%;
         }
     }
 }

@@ -1,7 +1,7 @@
 .ticker {
     width: 391px;
-    height: 796px;
-    border: 1px solid #FFFFFF;
+    min-height: 796px;
+    border: 1px solid $main;
     border-radius: 20px;
 
     &:hover {
@@ -14,7 +14,7 @@
         border-radius: 14px;
     }
 
-    &__name {
+    &__title {
         margin-top: 23px;
         @include Quantico;
         font-weight: 700;
@@ -26,12 +26,17 @@
         margin-top: 15px;
         position: relative;
         padding: 0 27px;
+        transition: rotateZ .3s ease;
 
         &_active {
             .ticker__config {
                 z-index: 15;
             }
             
+            .ticker__arrow {
+                transition: all .3s ease;
+                transform: rotateZ(180deg);
+            }
 
             .ticker__list-property {
                 max-height: 250px;
@@ -52,7 +57,7 @@
         position: relative;
         margin-top: 17px;
         padding-bottom: 8px;
-        border-bottom: 1px solid #FFFFFF;
+        border-bottom: 1px solid $main;
     }
 
     &__name-property {
@@ -66,17 +71,13 @@
         @include WorkSans;
         font-weight: 700;
         font-size: 18px;
-        color: #C1B1DC;
+        color: $wisteria;
     }
 
     &__list-property {
-
-        position: absolute;
-        top: -10px;
-        left: 17px;
         overflow: hidden;
         max-height: 0;
-        width: 355px;
+        width: 337px;
         transition: max-height .45s linear;
         background: linear-gradient(180deg, rgba(15, 24, 42, 0.65) 0%, rgba(15, 24, 42, 0.65) 100%);
         backdrop-filter: blur(15px);
@@ -85,7 +86,7 @@
         ul {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding: 25px 20px 0px;
+            padding: 0 20px;
         }
 
         li {
@@ -93,7 +94,7 @@
             @include WorkSans;
             font-weight: 700;
             font-size: 18px;
-            color: #C1B1DC;
+            color: $wisteria;
         }
 
     }
@@ -105,31 +106,69 @@
         top: 50%;
         transform: translateY(-50%);
         right: 13px;
-
+        transition: all .3s ease;
 
         &:hover {
             transition: .3s all;
+            filter: drop-shadow(0px 0px 3px $wisteria);
 
             svg,
             path {
-                stroke: #C1B1DC;
+                stroke: $wisteria;
             }
-
-            filter: drop-shadow(0px 0px 3px #C1B1DC);
         }
 
         &:active {
 
             svg,
             path {
-                stroke: #7251AE;
+                stroke: $purple;
             }
         }
     }
 
     &__btn {
-        margin-top: 34px;
-        display: flex;
+        margin: 34px 0 25px;
+        @include FlexBetween;
         justify-content: center;
+    }
+
+    @media (max-width: 576px) {
+        width: 300px;
+
+        &__thumbnail {
+            padding: 0 4px;
+        }
+
+        &__title {
+            max-width: 200px;
+            margin: 10px auto 0;
+        }
+
+        &__config {
+            display: block;
+        }
+
+        &__list-property {
+            width: 257px;
+
+            ul {
+                display: block;
+            }
+        }
+
+        &__name-property {
+            display: block;
+        }
+
+        &__btn {
+            margin: 10px 0;
+            padding: 0 20px;
+
+            .btn {
+                width: 100%;
+                
+            }
+        }
     }
 }

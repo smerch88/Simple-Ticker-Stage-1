@@ -13,8 +13,8 @@ const MainPage = () => {
             <AboutProduct/>
             <CatalogList/>
             <Marquee/>
-            {/* <FeedBack/>
-            <News/> */}
+            <FeedBack/>
+            <News/>
         </>
     )
 }
