@@ -1,7 +1,7 @@
 import { $authHost, $host } from ".";
 
 export const registration = async (username, email, password) => {
-    const response = await $host.post('/backend/auth/users/', {username, email, password})
+    const response = await $host.post('/auth/users/', {username, email, password})
     return response
 }
 export const login = async (username,  password) => {
