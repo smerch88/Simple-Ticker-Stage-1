@@ -7,8 +7,8 @@ export default function AuthService () {
 	const [errorMessage, setErrorMessage] = useState(null);
 	
 	const API_URL = process.env.NODE_ENV === 'production' 
-				? 'http://www.simpleticker.online' 
-				: 'http://localhost:8000';
+				? 'https://www.simpleticker.online' 
+				: 'https://localhost:8000';
 				
 	const createPerson = (params) => {
 		setErrorMessage(null);
