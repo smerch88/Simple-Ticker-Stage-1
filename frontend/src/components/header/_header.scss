@@ -2,18 +2,16 @@
     margin-top: 36px;
     width: 100%;
     height: 117px;
-    background: linear-gradient(180deg, rgba(105, 64, 172, 0) 2.08%, #6940AC 47.4%, rgba(67, 22, 140, 0) 100%), linear-gradient(180deg, rgba(105, 64, 172, 0) 2.08%, #6940AC 47.4%, rgba(67, 22, 140, 0) 100%);
-    backdrop-filter: blur(60px);
+    background: linear-gradient(180deg, rgba(105, 64, 172, 0) 2.08%, #6940AC 47.4%, rgba(67, 22, 140, 0) 100%);
 
     &__wrapper {
         height: 117px;
-        @include FlexBetween;
+        @include FlexCenter;
     }
 
     .logo {
         a {
-            @include FlexBetween;
-            justify-content: center;
+            @include FlexCenter;
             @include Quantico;
             font-size: 32px;
             text-decoration: none;
@@ -23,15 +21,28 @@
             }
         }
 
+        @media (max-width: 576px) {
+            a {
+                font-size: 17px;
+            }
+
+            img {
+                width: 37px;
+                height: 41px;
+            }
+        }
     }
 
     .nav {
-        @include FlexBetween;
+        @include FlexCenter;
 
         &__list {
-            @include FlexBetween;
+            @include FlexCenter;
             margin-right: 44px;
 
+            @media (max-width: 1140px) {
+                display: none;
+            }
         }
 
         &__item {
@@ -58,8 +69,8 @@
                 display: block;
                 width: 0%;
                 height: 1px;
-                background: $main-color;
-                transition: width .3s ease-in-out;
+                background: $main;
+                transition: all .3s ease-in-out;
             }
 
             &:hover:before {
@@ -68,17 +79,17 @@
 
 
             &:active {
-                transition: .1s all;
-                color: #0F182A;
+                transition: all .3s ease-in-out;
+                color: $dark;
 
                 &:before {
-                    background: #0F182A;
+                    background: $dark;
                 }
             }
         }
     }
 
-    .reg {
+    .log-reg {
 
         &__sign-in,
         &__sign-up {
@@ -97,7 +108,7 @@
                 display: block;
                 width: 0%;
                 height: 1px;
-                background: $main-color;
+                background: $main;
                 transition: width .3s ease-in-out;
             }
 
@@ -106,10 +117,10 @@
             }
 
             &:active {
-                color: #0F182A;
+                color: $dark;
 
                 &:before {
-                    background: #0F182A;
+                    background: $dark;
                 }
             }
         }
@@ -126,16 +137,27 @@
                 display: block;
                 width: 1px;
                 height: 40px;
-                background: $main-color;
+                background: $main;
+            }
+        }
+
+        @media (max-width: 576px) {
+            &__sign-up {
+                margin-left: 15px;
+
+                &::after {
+                    left: -8px;
+                }
             }
         }
     }
 
     &__search {
-        @include FlexBetween;
-        margin: 0 40px 0 60px;    
-        transition: .5s ease-in-out; 
+        @include FlexCenter;
+        margin: 0 40px 0 60px;
+        transition: .5s ease-in-out;
         width: 36px;
+        border-color: $wisteria;
 
         &__btn {
             padding: 0;
@@ -148,65 +170,49 @@
         }
 
         &__field {
-           
             padding: 5px 5px 3px;
             width: 100%;
             background: transparent;
             border: none;
             @include WorkSans;
-            font-weight: 400;
             font-size: 18px;
-            
-            color: #C1B1DC;
-            outline:none;
-            
+            color: $wisteria;
+            outline: none;
         }
 
-        
-        
         &_active,
         &:hover {
-            margin-left: 16px; 
+            margin-left: 16px;
             width: 210px;
-            border-bottom: 2px solid #FFFFFF;
+            border-bottom: 2px solid $main;
         }
 
+        @media (max-width: 768px) {
+            margin: 0px 12px 0 5px;
+
+            &_active,
+            &:hover {
+                width: 150px;
+            }
+        }
     }
 
-
-    // &__search {
-    //     @include FlexBetween;
-    //     justify-content: center;
-    //     margin: 0 40px 0 60px;
-    //     transition: .3s all linear;
-
-    //     &_active {
-    //         border-bottom: 1px solid #FFFFFF;
-    //         margin: 0 30px;
-    //     }
-
-    //     input {
-    //         display: none;
-    //         padding: 0 5px 7px;
-    //         width: 170px;
-    //         background: transparent;
-    //         border: none;
-    //         @include WorkSans;
-    //         font-weight: 400;
-    //         font-size: 18px;
-    //         color: #C1B1DC;
-    //         outline:none;
-    //         transition: .3s all;
-    //     }
-    // }
-
     .burger {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+
         span {
             position: relative;
+            position: absolute;
+            top: 50%;
+            right: 0;
             display: block;
             width: 28.78px;
             height: 3px;
-            background: $main-color;
+            background: $main;
+            transition: background .3s ease;
 
             &::before {
                 position: absolute;
@@ -216,7 +222,7 @@
                 display: block;
                 width: 37px;
                 height: 3px;
-                background: $main-color;
+                background: inherit;
             }
 
             &::after {
@@ -227,9 +233,21 @@
                 display: block;
                 width: 20.56px;
                 height: 3px;
-                background: $main-color;
+                background: inherit;
             }
+        }
+
+        &:hover span {
+            background: $dark;
         }
     }
 
+    @media (max-width: 576px) {
+        height: 85px;
+
+        &__wrapper {
+            height: 85px;
+        }
+
+    }
 }

@@ -3,6 +3,7 @@ import AboutProduct from '../aboutProduct/AboutProduct';
 import CatalogList from '../catalogList/CatalogList';
 import FeedBack from '../feedback/FeedBack';
 import News from '../news/News';
+import Marquee from '../marquee/Marquee';
 
 const MainPage = () => {
 
@@ -11,8 +12,9 @@ const MainPage = () => {
             <Promo/>  
             <AboutProduct/>
             <CatalogList/>
-            <FeedBack/>
-            <News/>
+            <Marquee/>
+            {/* <FeedBack/>
+            <News/> */}
         </>
     )
 }

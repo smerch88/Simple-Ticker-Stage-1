@@ -4,6 +4,7 @@ import axios from 'axios';
 import { DOMEN_SERVER, DOMEN_SITE } from './const';
 import CustomersService from '../../services/CustomService';
 
+import Alert from '../alert/Alert';
 
 export default function Register () {
     
@@ -16,7 +17,7 @@ export default function Register () {
         }
     })
 
-    const newCustom = new CustomersService()
+    const [errorMessage, setErrorMessage] = useState(null);
      
     const changeInputRegister = event => {
         event.persist()
@@ -33,14 +34,21 @@ export default function Register () {
      
     const submitChackin = event => {
         event.preventDefault();
-
-        newCustom.
-        createCustomer({
-            "username":  register.username,
-            "email":  register.email,
-            "password": register.password,
-            "password2": register.password2
+        setErrorMessage(null);
+        axios({
+            method: 'POST',
+            url: 'https://www.simpleticker.online/auth/users/',
+            data: {
+                "username":  register.username,
+                "email":  register.email,
+                "password": register.password
+            }
+        }).then(res => {
+            console.log(res)
+        }).catch(error => {
+            setErrorMessage(error.response.data[Object.keys(error.response.data)[0]][0]);
         })
+        
         
 
         // if(!validator.isEmail(register.email)) {
@@ -92,41 +100,38 @@ export default function Register () {
 
 
     return (
-        <div className="feedback__form">
-            <div className="feedback__header">Registration</div>
-            <form action="#" className="feed-form" onSubmit={submitChackin}>
-                <input 
-                    name="username"
-                    id='username'
-                    type="text" 
-                    placeholder="username" 
-                    value={register.usernamr}
-                    onChange={changeInputRegister}/>
-                <input 
-                    name="email"
-                    id='email'
-                    type="text" 
-                    placeholder="email" 
-                    onChange={changeInputRegister}
-                    formNoValidate
-                    value={register.email}/>
-                {/* <textarea name="" id="" cols="30" rows="10" placeholder="Comment"></textarea> */}
-                <input
-                    name="password" 
-                    id='password1'
-                    type="password" 
-                    placeholder="password" 
-                    onChange={changeInputRegister} 
-                    value={register.password}/>
-                <input
-                    name="password2" 
-                    id='password2'
-                    type="password" 
-                    placeholder="password2" 
-                    onChange={changeInputRegister} 
-                    value={register.password2}/>
-                <button className="btn btn_long" type="submit">send</button>
-            </form>
-        </div>
+        <>
+            <div className="feedback__form">
+                <div className="feedback__header">Registration</div>
+                <form action="#" className="feed-form" onSubmit={submitChackin}>
+                    <input
+                        name="username"
+                        id='username'
+                        type="text"
+                        placeholder="username"
+                        value={register.usernamr}
+                        onChange={changeInputRegister}/>
+                    <input
+                        name="email"
+                        id='email'
+                        type="text"
+                        placeholder="email"
+                        onChange={changeInputRegister}
+                        formNoValidate
+                        value={register.email}/>
+                    {/* <textarea name="" id="" cols="30" rows="10" placeholder="Comment"></textarea> */}
+                    <input
+                        name="password"
+                        id='password'
+                        type="password"
+                        placeholder="password"
+                        onChange={changeInputRegister}
+                        value={register.password}/>
+
+                    <button className="btn btn_long" type="submit">send</button>
+                </form>
+            </div>
+            { errorMessage && <Alert message={errorMessage}/> }
+        </>
     )
 }

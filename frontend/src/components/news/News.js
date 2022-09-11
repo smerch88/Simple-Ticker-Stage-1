@@ -9,7 +9,9 @@ const News = () => {
         <>
             <h2 className="title">News</h2>
             <div className="news">
-                <div className="news__show-all"><a href="#">show all news</a></div>
+                <div className="container">
+                    <div className="news__show-all"><a href="#">show all news</a></div>
+                </div>
                 <div className="news__wrapper">
                             <NewsList/> 
  

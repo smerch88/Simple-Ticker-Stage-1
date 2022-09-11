@@ -1,3 +1,5 @@
+//Fonts
+
 @mixin Quantico {
     font-family: 'Quantico', sans-serif;
     font-style: normal;
@@ -10,6 +12,14 @@
     font-style: normal;
     font-weight: 400;
     color: #FFFFFF;
+}
+
+//Position
+
+@mixin FlexCenter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @mixin FlexBetween {

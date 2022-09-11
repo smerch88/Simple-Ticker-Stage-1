@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,31 +9,38 @@ import {
 import ApiService from '../../services/ApiService';
 import Header from '../header/HeaderMenu';
 import Footer from '../footer/Footer';
-
-import Register from '../regin/registr';
-import Custom from '../custom/Custom';
-import MainPage from '../pages/MainPage';
-
+import Modal from '../modal/Modal';
+import { MainPage, CustomPage, SignUpPage } from '../pages';
 
 export default function App() {
+
+  const [showModal, setShowModal] = useState(false)
+
+  const onShowModal = (value) => {
+      setShowModal(value)
+  }
+
+  const modal = showModal ? <Modal onShowModal = {onShowModal}/> : null
 
   return (
     <>
       <Router>
-        <header>
-          <Header/>
+        <header className="header">
+          <Header
+            onShowModal = {onShowModal}
+          />
         </header>
         <main>
           <Routes>
             <Route path='/' element={<MainPage/>}/>
-            <Route path='/reg' element={<Register/>}/>
-            <Route path='/custom' element={<Custom/>}/>
+            <Route path='/reg' element={<SignUpPage/>}/>
+            <Route path='/custom' element={<CustomPage/>}/>
           </Routes>
         </main>
         <footer>
           <Footer/>
         </footer>
-        
+        {modal}
       </Router>
     </>
     
