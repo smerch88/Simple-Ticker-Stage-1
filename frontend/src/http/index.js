@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_URL = process.env.NODE_ENV === 'production' 
-  ? 'http://www.simpleticker.online' 
+  ? 'https://www.simpleticker.online' 
   : 'http://127.0.0.1:8000';
 
 const $host = axios.create({
