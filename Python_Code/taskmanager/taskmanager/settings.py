@@ -7,11 +7,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Initialize environment variables
-env = environ.Env()
+env = environ.Env(
+    DEBUG=(bool, False),
+)
 env.read_env(Path(BASE_DIR) / '.env')
 
 SECRET_KEY = env('SECRET_KEY')
-
 
 DEBUG = env('DEBUG')
 
@@ -19,6 +20,7 @@ ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', '0.0.0.0', 'simpleticker.on
 
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,6 +38,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -110,14 +113,21 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/images/'
 
+# https://docs.djangoproject.com/en/4.0/howto/static-files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/')
 ]
+
+# Whitenoise config
+
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
