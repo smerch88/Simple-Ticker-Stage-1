@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const BASE_URL = 'www.simpleticker.online'
+
 const $host = axios.create({
-    baseURL: process.env.REACT_APP_API_URL
+    baseURL: BASE_URL
 })
 
 const $authHost = axios.create({
