@@ -1,3 +1,4 @@
+from pathlib import Path
 import os
 import environ
 
@@ -7,12 +8,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Initialize environment variables
 env = environ.Env()
-environ.Env.read_env()
+env.read_env(Path(BASE_DIR) / '.env')
 
 SECRET_KEY = env('SECRET_KEY')
 
 
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', '0.0.0.0', 'simpleticker.online', 'www.simpleticker.online']
 
@@ -74,11 +75,13 @@ WSGI_APPLICATION = 'taskmanager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.' + env('DB_DRIVER'),
         'NAME': env('DB_NAME'),
         'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASS'),
-        'HOST': 'localhost'}
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),    
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [
