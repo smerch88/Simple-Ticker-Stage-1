@@ -1,0 +1,259 @@
+{
+    "product": [
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "Complete",
+                "Black",
+                "Сustomized",
+                "7x12x5"
+            ],
+
+            "price": "60"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "noComplete",
+                "Red",
+                "noСustomized",
+                "17x34x8"
+            ],
+
+            "price": "110"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "gaComplete",
+                "White",
+                "gaСustomized",
+                "24x13x9"
+            ],
+
+            "price": "180"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "noComplete",
+                "Yellow",
+                "peСustomized",
+                "17x34x8"
+            ],
+
+            "price": "130"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "Complete",
+                "Black",
+                "Сustomized",
+                "7x12x5"
+            ],
+
+            "price": "60"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "noComplete",
+                "Red",
+                "noСustomized",
+                "17x34x8"
+            ],
+
+            "price": "110"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "gaComplete",
+                "White",
+                "gaСustomized",
+                "24x13x9"
+            ],
+
+            "price": "180"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "noComplete",
+                "Yellow",
+                "peСustomized",
+                "17x34x8"
+            ],
+
+            "price": "130"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "Complete",
+                "Black",
+                "Сustomized",
+                "7x12x5"
+            ],
+
+            "price": "60"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "noComplete",
+                "Red",
+                "noСustomized",
+                "17x34x8"
+            ],
+
+            "price": "110"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "gaComplete",
+                "White",
+                "gaСustomized",
+                "24x13x9"
+            ],
+
+            "price": "180"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "noComplete",
+                "Yellow",
+                "peСustomized",
+                "17x34x8"
+            ],
+
+            "price": "130"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "Complete",
+                "Black",
+                "Сustomized",
+                "7x12x5"
+            ],
+
+            "price": "60"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "noComplete",
+                "Red",
+                "noСustomized",
+                "17x34x8"
+            ],
+
+            "price": "110"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "gaComplete",
+                "White",
+                "gaСustomized",
+                "24x13x9"
+            ],
+
+            "price": "180"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "noComplete",
+                "Yellow",
+                "peСustomized",
+                "17x34x8"
+            ],
+
+            "price": "130"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "Complete",
+                "Black",
+                "Сustomized",
+                "7x12x5"
+            ],
+
+            "price": "60"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "noComplete",
+                "Red",
+                "noСustomized",
+                "17x34x8"
+            ],
+
+            "price": "110"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "gaComplete",
+                "White",
+                "gaСustomized",
+                "24x13x9"
+            ],
+
+            "price": "180"
+        },
+
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "options": [
+                "noComplete",
+                "Yellow",
+                "peСustomized",
+                "17x34x8"
+            ],
+
+            "price": "130"
+        }  
+    ]
+}
