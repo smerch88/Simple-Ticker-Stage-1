@@ -83,7 +83,7 @@ DATABASES = {
         'USER': env('DB_USER'),
         'PASSWORD': env('DB_PASSWORD'),
         'HOST': env('DB_HOST'),
-        'PORT': env('DB_PORT'),    
+        'PORT': env('DB_PORT'),
     }
 }
 
@@ -113,7 +113,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL = '/static/'
+STATIC_URL = '/django-static/'
 
 MEDIA_URL = '/images/'
 
@@ -121,7 +121,7 @@ MEDIA_URL = '/images/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/')
+    os.path.join(BASE_DIR, 'django-static/')
 ]
 
 # Whitenoise config
