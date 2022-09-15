@@ -1,10 +1,10 @@
-import Register from "../regin/registr"
+import SignUp from "../sign/SignUp";
 
 
 const SignUpPage = () => {
     return (
         <>
-            <Register/>
+            <SignUp/>
         </>
     )
 }

@@ -1,0 +1,53 @@
+@import '../../styles/scss/mixins';
+@import '../../styles/scss/variables';
+
+.sign {
+    padding: 35px 50px;
+    max-width: 500px;
+    margin: 100px auto;
+    height: auto;
+    background: #0F182A;
+    box-shadow: 0px 0px 45px rgba(121, 84, 183, 0.59);
+    border-radius: 30px;
+
+    &__name {
+        @include Quantico;
+        font-weight: 700;
+        font-size: 40px;
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin: 25px 0 10px;
+        @include Quantico;
+        font-weight: 400;
+        font-size: 18px;
+    }
+
+    input {
+        display: block;
+        padding: 0 15px;
+        width: 100%;
+        height: 35px;
+        background: none;
+        border: 2px solid $purple;
+        @include WorkSans;
+        font-weight: 500;
+        font-size: 18px;
+        color: $wisteria;
+    }
+
+    &__error {
+        margin-top: 10px;
+        @include WorkSans;
+        font-weight: 500;
+        font-size: 16px;
+        color: #cf4444;
+    }
+
+    .btn {
+        margin: 30px auto 0;
+        height: 64px;
+    }
+}
