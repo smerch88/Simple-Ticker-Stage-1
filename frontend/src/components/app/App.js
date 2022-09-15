@@ -34,7 +34,7 @@ export default function App() {
         <main>
           <Routes>
             <Route path='/' element={<MainPage/>}/>
-            <Route path='/reg' element={<SignUpPage/>}/>
+            <Route path='/signup' element={<SignUpPage/>}/>
             <Route path='/custom' element={<CustomPage/>}/>
             <Route path='/catalog' element={<CatalogPage/>}/>
           </Routes>

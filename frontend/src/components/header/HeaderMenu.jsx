@@ -62,7 +62,7 @@ const HeaderMenu = (props) => {
                     </ul>
                     <div className="log-reg" style={{"display" : hideSign ? "none" : "flex"}}>
                         <a href="" className="log-reg__sign-in">Sign in</a>
-                        <Link to='/reg' className="log-reg__sign-up">Sign up</Link>
+                        <Link to='/signup' className="log-reg__sign-up">Sign up</Link>
                     </div>
                     <form 
                     className={search ? 'header__search header__search_active' : 'header__search'}>
