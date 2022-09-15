@@ -22,7 +22,7 @@ const Catalog = () => {
     }
 
     return (
-        <div className="catalog">
+        <>
             <h2 className="title">Catalog</h2>
             <div className="container">
                 <div className="catalog__wrapper">
@@ -31,7 +31,9 @@ const Catalog = () => {
                     />
                 </div>
             </div>
-        </div>
+        </>
+            
+        
     )
 }
 
