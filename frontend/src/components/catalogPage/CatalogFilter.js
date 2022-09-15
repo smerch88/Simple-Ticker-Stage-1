@@ -1,13 +1,5 @@
-import { useState } from "react";
 
 const CatalogFilter = (props) => {
-
-    const [check, setCheck] = useState(false)
-
-    const handler = (e) => {
-        const filter = e.currentTarget.getAttribute('name')
-        props.changeFilter(filter)
-    }
 
     function renderProperty() {
 
@@ -25,10 +17,10 @@ const CatalogFilter = (props) => {
                                     return(
                                         <div  key={i} className="catalog__filter-property">
                                             <input 
-                                                onClick={(e) => handler(e)}
                                                 type="checkbox" 
                                                 id={elem} 
                                                 name={elem} 
+                                                onChange={(e) => props.onChange(e, name)}
                                                 className="catalog__filter-property__checkbox"/>
                                             <label htmlFor={elem}className="catalog__filter-property__name">{elem}</label>
                                         </div> 

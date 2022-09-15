@@ -7,7 +7,7 @@ const CatalogPageList = (props) => {
 
         const items = props.data.map((item, i) => {
 
-            const {name, price} = item
+            const {name, price,configuratio, color, housing, size} = item
 
             return (
                 <div key={i} className="catalog__item">
@@ -16,6 +16,10 @@ const CatalogPageList = (props) => {
                     </div>
                     <div className="catalog__item__name">{name}</div>
                     <div className="catalog__item__price">${price}</div>
+                    <div className="catalog__item__price">{configuratio}</div>
+                    <div className="catalog__item__price">{color}</div>
+                    <div className="catalog__item__price">{housing}</div>
+                    <div className="catalog__item__price">{size}</div>
                     <div className="catalog__item__btn">
                         <button className="btn">Buy</button>
                     </div>
