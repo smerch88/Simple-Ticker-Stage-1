@@ -76,9 +76,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASS'),
-        'HOST': 'localhost'}
+        'USER': 'root',
+        'PASSWORD': 'NewPassword',
+        'HOST': '127.0.0.1',
+        'PORT': '',
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -108,12 +110,13 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
-MEDIA_URL = '/images/'
+MEDIA_URL = 'images/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/')
+    BASE_DIR, "static",
+    '/taskmanager/main/static',
 ]
 
 REST_FRAMEWORK = {
