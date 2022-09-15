@@ -1,42 +1,16 @@
-import React, { useState } from 'react'
-
 import { Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
-import AuthService from '../../services/AuthService';
-
 import { registration } from '../../http/userAPI';
 
 import "./_sign.scss"
 
 export default function SignUp () {
-    
-    const [register, setRegister] = useState(() => {
-        return {
-            username: "",
-            email: "",
-            password: ""
-        }
-    })
-
-     
-    const changeInput = event => {
-        event.persist()
-        setRegister(prev => {
-            return {
-                ...prev,
-                [event.target.name]: event.target.value,
-            }
-        })
-    }
 
     const signUp = async (values) => {
-
         const response = await registration(values)
-        console.log(response)
+        return response
     }
      
-    
-
     return (
 
         <Formik 
@@ -79,6 +53,7 @@ export default function SignUp () {
                     name="password"
                     id='password'
                     type="password"
+                    autoComplete="true"
                 />
                 <ErrorMessage className="sign__error" name='password' component='div'/>
                 <button 
