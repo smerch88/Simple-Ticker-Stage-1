@@ -1,5 +1,6 @@
+.catalog {
 
-    .catalog__wrapper {
+    &__wrapper {
         margin: 60px 0 125px;
         position: relative;
         overflow: hidden;
@@ -32,3 +33,4 @@
         background: linear-gradient(90.94deg, #AD97D1 -30.86%, #6840AB 83.14%);
         border-radius: 11px;
     }
+}

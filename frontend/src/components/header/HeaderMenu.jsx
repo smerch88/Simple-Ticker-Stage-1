@@ -56,7 +56,7 @@ const HeaderMenu = (props) => {
                 <nav className="nav">
                     <ul className="nav__list">
                         <li className="nav__item"><a href="#" className="nav__link">About the product</a></li>
-                        <li className="nav__item"><Link to='/catalog' className="nav__link">Catalog</Link></li>
+                        <li className="nav__item"><a href="#" className="nav__link">Catalog</a></li>
                         <li className="nav__item"><Link to='/custom' className="nav__link">Custom</Link></li>
                         <li className="nav__item"><a href="#" className="nav__link">News</a></li>
                     </ul>

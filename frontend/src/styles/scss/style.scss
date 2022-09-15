@@ -1,12 +1,7 @@
 @import "./mixins";
 @import "./variables";
 @import "./buttons";
-
 @import "../../components/header/header";
-@import "../../components/footer/footer";
-
-//Main-page
-
 @import "../../components/promo/promo";
 @import "../../components/aboutProduct/aboutProduct";
 @import "../../components/catalogList/catalogList";
@@ -14,19 +9,9 @@
 @import "../../components/catalogItem/catalogItem";
 @import "../../components/feedback/feedback";
 @import "../../components/news/news";
-
-//Custom
-
+@import "../../components/footer/footer";
 @import "../../components/custom/custom";
-
-//Modal
-
 @import "../../components/modal/modal";
-
-//CatalogPage
-
-@import "../../components/catalogPage/catalogPage";
-
 
 @import "./general";
 @import "./media";

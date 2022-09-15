@@ -11,7 +11,6 @@ import Header from '../header/HeaderMenu';
 import Footer from '../footer/Footer';
 import Modal from '../modal/Modal';
 import { MainPage, CustomPage, SignUpPage } from '../pages';
-import CatalogPage from '../catalogPage/CatalogPage';
 
 export default function App() {
 
@@ -36,7 +35,6 @@ export default function App() {
             <Route path='/' element={<MainPage/>}/>
             <Route path='/reg' element={<SignUpPage/>}/>
             <Route path='/custom' element={<CustomPage/>}/>
-            <Route path='/catalog' element={<CatalogPage/>}/>
           </Routes>
         </main>
         <footer>

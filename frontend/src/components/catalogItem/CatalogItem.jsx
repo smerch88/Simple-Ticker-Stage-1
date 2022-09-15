@@ -9,7 +9,7 @@ const CatalogItem = (props) => {
 
     const renderItem = () => {
 
-        const elements = props.data.slice(0, 3).map((element, i) => {
+        const elements = props.data.map((element, i) => {
 
             const { name, thumbnail, options } = element
 
@@ -25,6 +25,8 @@ const CatalogItem = (props) => {
                             <button className="btn">Buy</button>
                         </div>
                     </div>
+
+
                 </SwiperSlide>
             )
         });
@@ -40,8 +42,7 @@ const CatalogItem = (props) => {
                 centeredSlides={true}
                 breakpoints={{
                     1281: {
-                      centeredSlides: false,
-                      mousewheel: false
+                      centeredSlides: false
                     }
                 }}
             >

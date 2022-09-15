@@ -4,7 +4,7 @@ import axios from 'axios';
 import AuthService from '../../services/AuthService';
 
 import Alert from '../alert/Alert';
-import { registration, login } from '../../http/userAPI';
+import { registration } from '../../http/userAPI';
 
 export default function Register () {
     
@@ -28,7 +28,7 @@ export default function Register () {
     }
 
     const signIn = async () => {
-        const response = await login(register.username, register.password)
+        const response = await registration(register.username, register.email, register.password)
         console.log(response)
     }
      
