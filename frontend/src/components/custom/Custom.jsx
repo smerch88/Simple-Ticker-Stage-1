@@ -2,9 +2,9 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import Icon from "../../resourses/img/ticker.png"
-import CustomFunctional from "../customFunctional/CustomFunctional";
-import CustomProduct from "../customProduct/CustomProduct";
-import CustomTags from "../customTags/CustomTags";
+import CustomFunctional from "./customFunctional/CustomFunctional";
+import CustomProduct from "./customProduct/CustomProduct";
+import CustomTags from "./customTags/CustomTags";
 
 const Custom = () => {
 

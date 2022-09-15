@@ -1,4 +1,4 @@
-import Icon from "../../resourses/img/ticker.png"
+import Icon from "../../../resourses/img/ticker.png"
 
 export default function CustomProduct () {
 

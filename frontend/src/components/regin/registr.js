@@ -12,8 +12,7 @@ export default function Register () {
         return {
             username: "",
             email: "",
-            password: "",
-            password2: "",
+            password: ""
         }
     })
 

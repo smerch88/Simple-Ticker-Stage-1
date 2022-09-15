@@ -1,3 +1,4 @@
+from pathlib import Path
 import os
 import environ
 
@@ -6,18 +7,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Initialize environment variables
-env = environ.Env()
-environ.Env.read_env()
+env = environ.Env(
+    DEBUG=(bool, False),
+)
+env.read_env(Path(BASE_DIR) / '.env')
 
 SECRET_KEY = env('SECRET_KEY')
 
-
-DEBUG = True
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]', '0.0.0.0', 'simpleticker.online', 'www.simpleticker.online']
 
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -35,6 +38,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -47,6 +51,7 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
     'https://localhost:3000',
     'https://www.simpleticker.online'
 )
@@ -74,12 +79,12 @@ WSGI_APPLICATION = 'taskmanager.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.' + env('DB_DRIVER'),
         'NAME': env('DB_NAME'),
-        'USER': 'root',
-        'PASSWORD': 'NewPassword',
-        'HOST': '127.0.0.1',
-        'PORT': '',
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
     }
 }
 
@@ -109,15 +114,21 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATIC_URL = '/django-static/'
 
-STATIC_URL = 'static/'
+MEDIA_URL = '/images/'
 
-MEDIA_URL = 'images/'
+# https://docs.djangoproject.com/en/4.0/howto/static-files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    BASE_DIR, "static",
-    '/taskmanager/main/static',
+    os.path.join(BASE_DIR, 'django-static/')
 ]
+
+# Whitenoise config
+
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
