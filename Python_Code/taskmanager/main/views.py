@@ -103,7 +103,7 @@ TICKER_SETUP = {"crypto_section": {"profit_change": "10",
 def update_ticker_setup(request):
     global TICKER_SETUP
 
-    TICKER_SETUP = request.POST.get('TICKER_SETUP')
+    TICKER_SETUP = request.POST.get('crypto_section')
 
 
 def info_to_device(request):
