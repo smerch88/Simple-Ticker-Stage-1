@@ -1,0 +1,113 @@
+{
+    "product": [
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "Complete",
+            "color": "Black",
+            "housing": "Сustomized",
+            "size": "7x12x5",
+            "price": "60"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "noComplete",
+            "color": "Red",
+            "housing": "noСustomized",
+            "size": "17x34x8",
+            "price": "110"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "gaComplete",
+            "color": "White",
+            "housing": "gaСustomized",
+            "size": "24x13x9",
+            "price": "180"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "noComplete",
+            "color": "Yellow",
+            "housing": "peСustomized",
+            "size": "17x34x8",
+            "price": "130"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "Complete",
+            "color": "Black",
+            "housing": "Сustomized",
+            "size": "7x12x5",
+            "price": "60"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "noComplete",
+            "color": "Red",
+            "housing": "noСustomized",
+            "size": "17x34x8",
+            "price": "110"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "Complete",
+            "color": "Black",
+            "housing": "Сustomized",
+            "size": "7x12x5",
+            "price": "60"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "noComplete",
+            "color": "Red",
+            "housing": "noСustomized",
+            "size": "17x34x8",
+            "price": "110"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "gaComplete",
+            "color": "White",
+            "housing": "noСustomized",
+            "size": "17x34x8",
+            "price": "110"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "noComplete",
+            "color": "Yellow",
+            "color": "White",
+            "housing": "gaСustomized",
+            "size": "24x13x9",
+            "price": "180"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "Complete",
+            "color": "Black",
+            "housing": "noСustomized",
+            "size": "17x34x8",
+            "price": "110"
+        },
+        {
+            "name": "Crypto watch 'CoinTickr'",
+            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
+            "configuratio": "noComplete",
+            "color": "Red",
+            "housing": "noСustomized",
+            "size": "17x34x8",
+            "price": "110"
+        }
+    ]
+}
