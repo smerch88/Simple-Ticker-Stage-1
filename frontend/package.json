@@ -17,7 +17,8 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "sass": "^1.53.0",
-    "swiper": "^8.3.2"
+    "swiper": "^8.3.2",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "serve-production": "node server.js",
