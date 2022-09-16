@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import * as Yup from 'yup';
 import { registration, login } from '../../http/userAPI';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
-import { jwtDecode, jwtVerify, resignJwt } from 'jwt-js-decode';
+
 import {observer} from "mobx-react-lite";
 import jwt_decode from "jwt-decode";
 import "./_sign.scss"
@@ -24,11 +24,12 @@ const Auth = observer (() =>{
 
     const signIn = async (values) => {
         const response = await login(values)
-        const tok = await response.data.auth_token
-        console.log(tok)
-        console.log(jwt_decode(tok))
-        let jwt = jwtDecode(tok);
-        console.log(jwt.payload);
+        
+
+        console.log(response)
+        
+        
+
     }
      
     return (
