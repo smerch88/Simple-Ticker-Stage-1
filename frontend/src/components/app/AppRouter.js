@@ -1,16 +1,16 @@
-import { Route, Routes, Redirect } from "react-router-dom";
+import { useContext } from "react";
+import { Route, Routes} from "react-router-dom";
+import { Context } from "../..";
 import { publicRoutes } from "../../http/routes";
-import { MAIN_ROUTE } from "../../utils/consts";
+import { MainPage } from "../../pages";
 
 const AppRouter = () => {
-    const isAuth = false;
-
     return (
         <Routes>
             {publicRoutes.map(({path, Component}) => 
                 <Route key={path} path={path} element={<Component/>}/>
             )}
-            <Route path={MAIN_ROUTE} element={<Component/>}/>
+            <Route path='/*' element={<MainPage/>}/>
         </Routes>
     )
 }

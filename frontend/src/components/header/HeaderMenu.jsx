@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+
 import { Link } from 'react-router-dom';
-import Logo from '../../resourses/img/icons/logo.png'
+import { Context } from '../..';
+import Logo from '../../resourses/img/icons/logo.png';
+import UserIcon from '../../resourses/img/icons/user-solid.svg'
 import Modal from '../modal/Modal';
 
-
-
-
+import './_header.scss'
 
 const HeaderMenu = (props) => {
+    const {user} = useContext(Context)
+
     const [search, setSearch] = useState(false);
     const [hideSign, setHideSign] = useState(false)
     const [showModal, setShowModal] = useState(false)
@@ -57,13 +60,20 @@ const HeaderMenu = (props) => {
                     <ul className="nav__list">
                         <li className="nav__item"><a href="#" className="nav__link">About the product</a></li>
                         <li className="nav__item"><Link to='/catalog' className="nav__link">Catalog</Link></li>
-                        <li className="nav__item"><Link to='/custom' className="nav__link">Custom</Link></li>
                         <li className="nav__item"><a href="#" className="nav__link">News</a></li>
                     </ul>
-                    <div className="log-reg" style={{"display" : hideSign ? "none" : "flex"}}>
-                        <Link to='/login' className="log-reg__sign-in">Sign in</Link>
-                        <Link to='/registration' className="log-reg__sign-up">Sign up</Link>
-                    </div>
+                    {user.isAuth ?
+                    
+                        <Link to='/custom' className="nav__auth">
+                            <img src={UserIcon} alt="" />
+                            <p>Russel</p>
+                        </Link>
+                        :
+                        <div className="log-reg" style={{"display" : hideSign ? "none" : "flex"}}>
+                            <Link to='/login' className="log-reg__sign-in">Sign in</Link>
+                            <Link to='/registration' className="log-reg__sign-up">Sign up</Link>
+                        </div> 
+                    }
                     <form 
                     className={search ? 'header__search header__search_active' : 'header__search'}>
                         <input 

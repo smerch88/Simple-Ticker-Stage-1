@@ -1,28 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import { useContext, useState } from 'react';
+import { BrowserRouter as Router } from "react-router-dom";
 
-import ApiService from '../../services/ApiService';
 import Header from '../header/HeaderMenu';
 import Footer from '../footer/Footer';
 import Modal from '../modal/Modal';
-import { MainPage, CustomPage, Auth } from '../../pages';
-import CatalogPage from '../catalogPage/CatalogPage';
 import AppRouter from './AppRouter';
 
+
+
 export default function App() {
-
+  
   const [showModal, setShowModal] = useState(false)
-
+ 
   const onShowModal = (value) => {
       setShowModal(value)
   }
-
-  const modal = showModal ? <Modal onShowModal = {onShowModal}/> : null
 
   return (
     <>
@@ -38,7 +30,7 @@ export default function App() {
         <footer>
           <Footer/>
         </footer>
-        {modal}
+        {showModal ? <Modal onShowModal = {onShowModal}/> : null}
       </Router>
     </>
     

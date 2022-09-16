@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import * as Yup from 'yup';
 import { registration, login } from '../../http/userAPI';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
+import jwt_decode from "jwt-decode"
 
 import "./_sign.scss"
 
@@ -13,14 +14,15 @@ export default function Auth () {
 
     const signUp = async (values) => {
         const response = await registration(values)
-        return response
+        if (response.status === 200) {
+          return console.log('Успішно', response)
+        }
+        return console.log('Неуспішно', response)
     }
 
     const signIn = async (values) => {
-        const response = await login(values)
-        // if(response.status !== 200 || response.statusText === 'OK') {
-
-        // }
+        const {data} = await login(values)
+        console.log(jwt_decode(data.auth_token))
         
     }
      
