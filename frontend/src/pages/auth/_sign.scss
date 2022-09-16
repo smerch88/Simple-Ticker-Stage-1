@@ -46,6 +46,20 @@
         color: #cf4444;
     }
 
+    &__redirect {
+        margin-top: 15px;
+        @include WorkSans;
+        font-size: 14px;
+
+        a {
+            @include WorkSans;
+            font-weight: 500;
+            font-size: 18px;
+            color: $purple;
+            text-decoration: none; 
+        }
+    }
+
     .btn {
         margin: 30px auto 0;
         height: 64px;

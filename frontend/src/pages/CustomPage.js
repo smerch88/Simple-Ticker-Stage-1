@@ -1,4 +1,4 @@
-import Custom from "../custom/Custom"
+import Custom from "../components/custom/Custom"
 
 const CustomPage = () => {
     return (

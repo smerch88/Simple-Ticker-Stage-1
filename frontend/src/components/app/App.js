@@ -10,8 +10,9 @@ import ApiService from '../../services/ApiService';
 import Header from '../header/HeaderMenu';
 import Footer from '../footer/Footer';
 import Modal from '../modal/Modal';
-import { MainPage, CustomPage, SignUpPage, SignInPage } from '../pages';
+import { MainPage, CustomPage, Auth } from '../../pages';
 import CatalogPage from '../catalogPage/CatalogPage';
+import AppRouter from './AppRouter';
 
 export default function App() {
 
@@ -32,13 +33,7 @@ export default function App() {
           />
         </header>
         <main>
-          <Routes>
-            <Route path='/' element={<MainPage/>}/>
-            <Route path='/registration' element={<SignUpPage/>}/>
-            <Route path='/login' element={<SignInPage/>}/>
-            <Route path='/custom' element={<CustomPage/>}/>
-            <Route path='/catalog' element={<CatalogPage/>}/>
-          </Routes>
+          <AppRouter/>
         </main>
         <footer>
           <Footer/>
