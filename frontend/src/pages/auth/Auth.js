@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import * as Yup from 'yup';
 import { registration, login } from '../../http/userAPI';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
-import jwtDecode from 'jwt-decode';
+import { expressjwt } from "express-jwt";
 import {observer} from "mobx-react-lite";
 
 import "./_sign.scss"
@@ -25,7 +25,8 @@ const Auth = observer (() =>{
     const signIn = async (values) => {
         const response = await login(values)
         const tok = await response.data.auth_token
-        return console.log(jwtDecode(tok))
+        console.log(tok)
+        return console.log(expressjwt({ secret: tok, algorithms: ["HS256"] }))
     }
      
     return (
