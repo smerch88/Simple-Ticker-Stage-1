@@ -1,5 +1,8 @@
 Base url: http://127.0.0.1:8000
 
+* *Для всех эндпойнтов, которым необходима авторизация
+указать токен в headers:* **<u>Authorization: Token <auth_token></u>**
+
 1. Login
 - Endpoint: /auth/token/login/ (POST)
 - Payload: username, password

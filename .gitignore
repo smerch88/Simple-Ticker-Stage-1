@@ -127,3 +127,15 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# PhpStorm
+.idea
+
+# VSCode
+.vscode
+
+# Mac OS
+.DS_Store
+
+# collected static files for Django
+staticfiles

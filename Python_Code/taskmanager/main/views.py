@@ -22,8 +22,7 @@ def index(request):
     return render(request, 'main/index.html', {'title': 'Website main page', 'assets': crypto_asset})
 
 
-def device_info():
-    return {"crypto_section": {"profit_change": "10",
+TICKER_SETUP = {"crypto_section": {"profit_change": "10",
                                "profit": "11",
                                "fiat": "USD",
                                "crypto_list": [
@@ -101,9 +100,15 @@ def device_info():
     }
 
 
+def update_ticker_setup(request):
+    global TICKER_SETUP
+
+    TICKER_SETUP = request.POST.get('crypto_section')
+
+
 def info_to_device(request):
-    currencies = device_info()['crypto_section']['crypto_list']
-    data = device_info()['crypto_section']['crypto_price'] = \
+    currencies = TICKER_SETUP['crypto_section']['crypto_list']
+    data = TICKER_SETUP['crypto_section']['crypto_price'] = \
         [models.Crypto_Asset.objects.filter(symbol__startswith=x) for x in currencies]
     return JsonResponse(data)
 
