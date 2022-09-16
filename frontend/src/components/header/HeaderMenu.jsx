@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import React, {useState, useEffect, useContext} from 'react';
 
 import { Link } from 'react-router-dom';
@@ -8,7 +9,7 @@ import Modal from '../modal/Modal';
 
 import './_header.scss'
 
-const HeaderMenu = (props) => {
+const HeaderMenu = observer ((props) => {
     const {user} = useContext(Context)
 
     const [search, setSearch] = useState(false);
@@ -46,7 +47,7 @@ const HeaderMenu = (props) => {
     const offSign = () => {
         setHideSign(false)
     }
-
+    console.log(user.isAuth)
     return (
         <div className="container">
             <div className="header__wrapper">
@@ -66,7 +67,7 @@ const HeaderMenu = (props) => {
                     
                         <Link to='/custom' className="nav__auth">
                             <img src={UserIcon} alt="" />
-                            <p>Russel</p>
+                            <p>{user.user.name}</p>
                         </Link>
                         :
                         <div className="log-reg" style={{"display" : hideSign ? "none" : "flex"}}>
@@ -94,6 +95,6 @@ const HeaderMenu = (props) => {
             </div>
         </div>
     )
-};
+});
 
 export default HeaderMenu
