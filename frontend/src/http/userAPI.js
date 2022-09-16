@@ -13,8 +13,19 @@ export const login = async ({username,  password}) => {
     const r = atob(token)
     console.log(r)
     return r
+    
 }
 export const chek = async () => {
     const token = localStorage.getItem('token')
     return jwt_decode(token)
+}
+
+export const crypto = async (data) => {
+    const headers = `Token ${localStorage.getItem('token')}`
+    const response = await $host.post(
+        '/api/update_ticker_setup/',
+        data,
+        {headers: headers}
+    )
+    console.log(response)
 }
