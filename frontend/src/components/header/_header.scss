@@ -1,10 +1,13 @@
+@import "../../styles/scss/mixins";
+@import "../../styles/scss/variables";
+
 .header {
     margin-top: 36px;
     width: 100%;
     height: 117px;
     background: linear-gradient(180deg, rgba(105, 64, 172, 0) 2.08%, #6940AC 47.4%, rgba(67, 22, 140, 0) 100%);
 
-    
+
 
     &__wrapper {
         height: 117px;
@@ -52,6 +55,21 @@
 
             &:last-child {
                 margin: 0;
+            }
+        }
+
+        &__auth {
+            @include Quantico;
+            font-weight: 700;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+
+            img {
+                display: inline;
+                width: 25px;
+                margin-right: 15px;
             }
         }
 
@@ -162,7 +180,7 @@
 
     &__search {
         @include FlexBetween;
-        margin: 0 40px 0 60px;
+        margin: 0 40px 0 30px;
         transition: .5s ease-in-out;
         width: 36px;
         border-color: $wisteria;
@@ -260,6 +278,7 @@
 
         &__search {
             margin: 0px 8px 0 0px;
+
             svg {
                 width: 20px;
                 height: 20px;

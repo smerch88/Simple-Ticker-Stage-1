@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 
 import useProductService from "../../services/ProductService";
 import CatalogFilter from "./CatalogFilter"
