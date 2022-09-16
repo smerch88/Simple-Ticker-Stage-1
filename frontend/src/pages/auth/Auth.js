@@ -21,9 +21,9 @@ export default function Auth () {
     }
 
     const signIn = async (values) => {
-        const {data} = await login(values)
-        console.log(jwt_decode(data.auth_token))
-        
+        const response = await login(values)
+        const tok = await response.data.auth_token
+        return console.log(tok)
     }
      
     return (
@@ -38,9 +38,12 @@ export default function Auth () {
                 username: Yup.string()
                              .min(2, 'Minimum 2 symbols')
                              .required('Is required'),
-                email: Yup.string()
-                            .email('Invalid email')
-                            .required('Is required'),
+                email: isLogin ?
+                        Yup.string()
+                        .email('Invalid email')
+                        .required('Is required')
+                        :
+                        null,
                 password: Yup.string()
                              .min(4, 'Minimum 4 symbols')
                              .required('Is required'),
