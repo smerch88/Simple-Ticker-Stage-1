@@ -3,11 +3,13 @@ import { NavLink, useLocation } from 'react-router-dom';
 import * as Yup from 'yup';
 import { registration, login } from '../../http/userAPI';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
-import jwt_decode from "jwt-decode"
+import jwtDecode from 'jwt-decode';
+import {observer} from "mobx-react-lite";
 
 import "./_sign.scss"
 
-export default function Auth () {
+
+const Auth = observer (() =>{
 
     const location = useLocation()
     const isLogin = location.pathname === LOGIN_ROUTE
@@ -23,7 +25,7 @@ export default function Auth () {
     const signIn = async (values) => {
         const response = await login(values)
         const tok = await response.data.auth_token
-        return console.log(tok)
+        return console.log(jwtDecode(tok))
     }
      
     return (
@@ -38,7 +40,7 @@ export default function Auth () {
                 username: Yup.string()
                              .min(2, 'Minimum 2 symbols')
                              .required('Is required'),
-                email: isLogin ?
+                email: !isLogin ?
                         Yup.string()
                         .email('Invalid email')
                         .required('Is required')
@@ -96,4 +98,6 @@ export default function Auth () {
             </Form>
         </Formik> 
     )
-}
+})
+
+export default Auth;
