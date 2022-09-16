@@ -91,7 +91,8 @@ export default function CustomProduct () {
         "message_5": "My Test : "
         }
         }
-        console.log(data)
+        const jso = JSON.stringify(data)
+        console.log(jso)
         crypto(data)
         // const field = document.querySelector(".custom__ticker__field").childNodes;
         // console.log(field)
