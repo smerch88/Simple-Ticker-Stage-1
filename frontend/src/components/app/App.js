@@ -1,16 +1,28 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Header from '../header/HeaderMenu';
 import Footer from '../footer/Footer';
 import Modal from '../modal/Modal';
 import AppRouter from './AppRouter';
+import { observer } from 'mobx-react-lite';
+import { Context } from '../..';
+import { chek } from '../../http/userAPI';
 
 
 
-export default function App() {
-  
+const App = observer(() => {
+
+  const {user} = useContext(Context)
+  const [loading, setLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
+
+  useEffect(() => {
+      chek().then(data => {
+        user.setIsAuth(true)
+        user.setUser(data)
+      })
+  }, [])
  
   const onShowModal = (value) => {
       setShowModal(value)
@@ -35,7 +47,9 @@ export default function App() {
     </>
     
   )
-}
+})
+
+export default App;
 
 
 // export default function App() {

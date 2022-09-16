@@ -1,19 +1,35 @@
 import { Formik, Form, Field, ErrorMessage} from 'formik';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { registration, login } from '../../http/userAPI';
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
+import { LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
 
 import {observer} from "mobx-react-lite";
 import jwt_decode from "jwt-decode";
 import "./_sign.scss"
+import { useContext } from 'react';
+import { Context } from '../..';
 
 
 const Auth = observer (() =>{
-
+    const {user} = useContext(Context)
     const location = useLocation()
+    const navigate = useNavigate()
     const isLogin = location.pathname === LOGIN_ROUTE
 
+    const sign = async (values) => {
+        let data;
+        if (isLogin) {
+            data = await login(values)
+            user.setUser(data)
+            user.setIsAuth(true)
+            navigate(MAIN_ROUTE)
+        } else {
+            data = await login(values)
+        }
+
+    }
+    console.log(user.isAuth)
     const signUp = async (values) => {
         const response = await registration(values)
         if (response.status === 200) {
@@ -24,12 +40,7 @@ const Auth = observer (() =>{
 
     const signIn = async (values) => {
         const response = await login(values)
-        
-
-        console.log(response)
-        
-        
-
+        return jwt_decode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJpZCI6M30.OV1DmbT2EaO0rj5RKKeHif2TwZ6ANpF58lOuX5OMElg')
     }
      
     return (
@@ -54,7 +65,7 @@ const Auth = observer (() =>{
                              .min(4, 'Minimum 4 symbols')
                              .required('Is required'),
             })}
-            onSubmit={values => {isLogin ? signIn(values) : signUp(values)}}
+            onSubmit={values => {isLogin ? sign(values) : signUp(values)}}
         >
             <Form className="sign">
                 <div className="sign__name">{isLogin ? 'Log in' : 'Registration'}</div>
