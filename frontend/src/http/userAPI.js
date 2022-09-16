@@ -21,11 +21,13 @@ export const chek = async () => {
 }
 
 export const crypto = async (data) => {
-    const headers = `Token ${localStorage.getItem('token')}`
+    const headers = `Authorization: Token ${localStorage.getItem('token')}`
     const response = await $host.post(
         '/api/update_ticker_setup/',
         data,
-        {headers: headers}
+        {headers: {
+            Authorization: `Token ${localStorage.getItem('token')}`
+        }}
     )
     console.log(response)
 }
