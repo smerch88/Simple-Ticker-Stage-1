@@ -46,6 +46,18 @@
         color: #cf4444;
     }
 
+    &__focus {
+        margin-top: 5px;
+        @include Quantico;
+        font-size: 16px;
+    }
+
+    &__loading {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
     &__redirect {
         margin-top: 15px;
         @include WorkSans;

@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import { Route, Routes} from "react-router-dom";
-import { Context } from "../..";
 import { publicRoutes } from "../../http/routes";
 import { MainPage } from "../../pages";
 

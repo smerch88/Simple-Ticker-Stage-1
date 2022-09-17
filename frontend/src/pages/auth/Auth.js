@@ -7,40 +7,50 @@ import { LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts'
 import {observer} from "mobx-react-lite";
 import jwt_decode from "jwt-decode";
 import "./_sign.scss"
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Context } from '../..';
+
+import LoadingIcon from '../../resourses/img/icons/oval.svg'
 
 
 const Auth = observer (() =>{
     const {user} = useContext(Context)
     const location = useLocation()
     const navigate = useNavigate()
+    const [focus, setFocus] = useState(false)
+    const [loading, setLoading] = useState(false)
     const isLogin = location.pathname === LOGIN_ROUTE
 
     const sign = async (values) => {
-        let data;
-        if (isLogin) {
-            data = await login(values)
-            user.setUser(data)
-            user.setIsAuth(true)
-            navigate(MAIN_ROUTE)
-        } else {
-            data = await login(values)
+        try {
+            let data;
+            setLoading(true)
+            if (isLogin) {
+                data = await login(values)
+                user.setUser(user)
+                user.setIsAuth(true)
+                setLoading(false)
+                navigate(MAIN_ROUTE)
+            } else {
+                data = await registration(values)
+                setLoading(false)
+                alert('Your account created successfully!')
+            }
+
+        } catch (e) {
+            setLoading(false)
+            if (e.response.status !== 200 && isLogin) {
+                alert('Invalid password or login')
+            }
+            if (e.response.status !== 201 && !isLogin) {
+                alert('Invalid format password, login or email')
+            }
         }
 
     }
-    console.log(user.isAuth)
-    const signUp = async (values) => {
-        const response = await registration(values)
-        if (response.status === 200) {
-          return console.log('Успішно', response)
-        }
-        return console.log('Неуспішно', response)
-    }
 
-    const signIn = async (values) => {
-        const response = await login(values)
-        return jwt_decode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiBEb2UiLCJpZCI6M30.OV1DmbT2EaO0rj5RKKeHif2TwZ6ANpF58lOuX5OMElg')
+    const isFocus = () => {
+        setFocus(!focus)
     }
      
     return (
@@ -62,10 +72,10 @@ const Auth = observer (() =>{
                         :
                         null,
                 password: Yup.string()
-                             .min(4, 'Minimum 4 symbols')
+                             .min(8, 'Minimum 8 symbols')
                              .required('Is required'),
             })}
-            onSubmit={values => {isLogin ? sign(values) : signUp(values)}}
+            onSubmit={values => {isLogin ? sign(values) : sign(values)}}
         >
             <Form className="sign">
                 <div className="sign__name">{isLogin ? 'Log in' : 'Registration'}</div>
@@ -95,7 +105,15 @@ const Auth = observer (() =>{
                     id='password'
                     type="password"
                     autoComplete="true"
+                    onFocus={isFocus}
+                    onBlur={isFocus}
                 />
+                {focus ? 
+                    <div className="sign__focus">
+                        Please do not use your login or email and only numbers
+                    </div>
+                    : null
+                }
                 <ErrorMessage className="sign__error" name='password' component='div'/>
                 {isLogin ?
                     <div className="sign__redirect">
@@ -110,6 +128,12 @@ const Auth = observer (() =>{
                     type='submit'
                     className="btn"
                 >{isLogin ? 'Log in' : 'Register'}</button>
+                {loading ?
+                    <div className='sign__loading'>
+                        <img src={LoadingIcon} alt="" />
+                    </div>
+                    : null
+                }
             </Form>
         </Formik> 
     )

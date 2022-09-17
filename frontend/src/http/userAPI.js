@@ -10,24 +10,29 @@ export const login = async ({username,  password}) => {
     console.log(response)
     const token = response.data.auth_token
     localStorage.setItem('token', token)
-    const r = atob(token)
-    console.log(r)
-    return r
-    
 }
 export const chek = async () => {
     const token = localStorage.getItem('token')
+    return token
 }
 
-export const crypto = async (data) => {
-    const headers = `Authorization: Token ${localStorage.getItem('token')}`
-    const token = localStorage.getItem('token')
-    const response = await $host.post(
-        '/api/update_ticker_setup/',
-        data,
+export const logout = async () => {
+    const response = await $host.post('/auth/token/logout/', 
         {headers: {
             Authorization: `Token ${localStorage.getItem('token')}`
-        }}
-    )
+        }});
     console.log(response)
 }
+
+// export const crypto = async (data) => {
+//     const headers = `Authorization: Token ${localStorage.getItem('token')}`
+//     const token = localStorage.getItem('token')
+//     const response = await $host.post(
+//         '/api/update_ticker_setup/',
+//         data,
+//         {headers: {
+//             Authorization: `Token ${localStorage.getItem('token')}`
+//         }}
+//     )
+//     console.log(response)
+// }
