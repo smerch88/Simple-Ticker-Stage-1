@@ -25,12 +25,6 @@ export const logout = async () => {
 export const crypto = async (data) => {
     const headers = `Authorization: Token ${localStorage.getItem('token')}`
     const token = localStorage.getItem('token')
-    const response = await $host.post(
-        '/api/update_ticker_setup/',
-        data,
-        {headers: {
-            Authorization: `Token ${localStorage.getItem('token')}`
-        }}
-    )
+    const response = await $host.post('/api/update_ticker_setup/', data)
     console.log(response)
 }
