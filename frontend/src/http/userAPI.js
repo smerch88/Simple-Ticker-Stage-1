@@ -18,12 +18,17 @@ export const chek = async () => {
 }
 
 export const logout = async () => {
+    const response = await axios.post('/auth/token/logout/', {}, 
+    {headers:{
+        Authorization: `Token ${localStorage.getItem('token')}`
+    }})
     localStorage.removeItem('token')
+    console.log(response)
 }
 
 export const crypto = async (data) => {
     const headers = `Authorization: Token ${localStorage.getItem('token')}`
     const token = localStorage.getItem('token')
-    const response = await axios.post('/api/update_ticker_setup/', data)
+    const response = await $host.post('/api/update_ticker_setup/', {data})
     console.log(response)
 }

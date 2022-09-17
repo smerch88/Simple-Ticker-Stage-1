@@ -48,7 +48,8 @@ const HeaderMenu = observer ((props) => {
     }
 
     const logOut = async () => {
-        logout()
+        logout().then(data => user.setIsAuth(false))
+        
     }
 
     return (
