@@ -104,6 +104,7 @@ def update_ticker_setup(request):
     global TICKER_SETUP
 
     TICKER_SETUP = request.POST.get('crypto_section')
+    return HttpResponse(status=200)
 
 
 def info_to_device(request):
