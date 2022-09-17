@@ -3,6 +3,7 @@
     min-height: 796px;
     border: 1px solid $main;
     border-radius: 20px;
+    transition: background .3s ease-in;
 
     &:hover {
         background: rgba(114, 81, 174, 0.4);
@@ -32,7 +33,7 @@
             .ticker__config {
                 z-index: 15;
             }
-            
+
             .ticker__arrow {
                 transition: all .3s ease;
                 transform: rotateZ(180deg);
@@ -44,6 +45,28 @@
                 z-index: 14;
             }
         }
+
+        &:hover {
+            .ticker__arrow {
+                transition: .3s all;
+                filter: drop-shadow(0px 0px 3px $wisteria);
+
+                svg,
+                path {
+                    stroke: $wisteria;
+                }
+            }
+        }
+
+        &:active {
+            .ticker__arrow {
+
+                svg,
+                path {
+                    stroke: $purple;
+                }
+            }
+        }
     }
 
     &__config {
@@ -51,6 +74,7 @@
         display: flex;
         align-items: center;
         z-index: 12;
+        cursor: pointer;
     }
 
     &__custom {
@@ -95,6 +119,17 @@
             font-weight: 700;
             font-size: 18px;
             color: $wisteria;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+
+            &:hover {
+                color: $main;
+            }
+
+            &:active {
+                transition: all .1s ease-in-out;
+                color: $dark;
+            }
         }
 
         .active {
@@ -112,23 +147,7 @@
         right: 13px;
         transition: all .3s ease;
 
-        &:hover {
-            transition: .3s all;
-            filter: drop-shadow(0px 0px 3px $wisteria);
 
-            svg,
-            path {
-                stroke: $wisteria;
-            }
-        }
-
-        &:active {
-
-            svg,
-            path {
-                stroke: $purple;
-            }
-        }
     }
 
     &__btn {
@@ -171,7 +190,7 @@
 
             .btn {
                 width: 100%;
-                
+
             }
         }
     }

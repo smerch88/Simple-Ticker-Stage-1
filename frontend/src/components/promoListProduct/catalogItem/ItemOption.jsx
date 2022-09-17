@@ -16,8 +16,19 @@ const ItemOption = (props) => {
         
     }
 
-    const changeProperty = (e) => {
-        setSelected(e.target.textContent)
+    const changeProperty = (e, id) => {
+        myRefs.current.forEach((item, i) => {
+            const list =  myRefs.current[i].querySelectorAll('li')
+            if (id === i) {
+                const targetElem = myRefs.current[i].querySelector('.ticker__selected-property')
+                targetElem.textContent = e.target.textContent
+                
+                list.forEach(n => n !== e.target ? 
+                    n.classList.remove('active') : n.classList.add('active'))
+                
+            } 
+            
+        })
     }
 
     const renderOptions = () => {
@@ -46,18 +57,13 @@ const ItemOption = (props) => {
                     </div>
                     <hr />
                     <div className="ticker__list-property" onClick={e => e.stopPropagation()}>
-                        <ul onClick={(e) => changeProperty(e)}>
+                        <ul onClick={(e) => changeProperty(e, i)}>
                             {
                                 property.map((elem, i) => {
-                                    if(i === 0) {
-                                        return (
-                                            <li key={i} className="active">{elem}</li>
-                                        )
-                                    }
-                
-                                    return (
-                                            <li key={i}>{elem}</li>
-                                    )
+                                   return i === 0 ?
+                                    <li key={i}  className="active">{elem}</li>
+                                    :
+                                    <li key={i}>{elem}</li>  
                                 })
                             }
                         </ul>

@@ -2,6 +2,11 @@
     "cryptoList": [
         "BTC",
         "ETH",
-        "BNB"
+        "BNB",
+        "ADA",
+        "DOT",
+        "SOL",
+        "TWT",
+        "DYDX"
     ]
 }

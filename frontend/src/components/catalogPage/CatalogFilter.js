@@ -21,6 +21,7 @@ const CatalogFilter = (props) => {
                                                 id={elem} 
                                                 name={elem} 
                                                 onChange={(e) => props.onChange(e, name)}
+                                                checked={false}
                                                 className="catalog__filter-property__checkbox"/>
                                             <label htmlFor={elem}className="catalog__filter-property__name">{elem}</label>
                                         </div> 
