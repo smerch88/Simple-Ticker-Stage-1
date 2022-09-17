@@ -1,4 +1,4 @@
-import { crypto } from "../../../http/userAPI";
+// import { crypto } from "../../../http/userAPI";
 import Icon from "../../../resourses/img/ticker.png"
 
 export default function CustomProduct () {
@@ -91,9 +91,9 @@ export default function CustomProduct () {
         "message_5": "My Test : "
         }
         }
-        const jso = JSON.stringify(data)
-        console.log(jso)
-        crypto(data)
+        // const jso = JSON.stringify(data)
+        // console.log(jso)
+        // crypto(data)
         // const field = document.querySelector(".custom__ticker__field").childNodes;
         // console.log(field)
         // let obj = {};

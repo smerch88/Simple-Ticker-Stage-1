@@ -14,15 +14,18 @@ import { chek } from '../../http/userAPI';
 const App = observer(() => {
 
   const {user} = useContext(Context)
-  const [loading, setLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
       chek().then(data => {
+       if(data !== null) {
         user.setIsAuth(true)
-        // user.setUser(data)
+        user.setUser(user)
+       }
       })
   }, [])
+
+  console.log(user.isAuth)
  
   const onShowModal = (value) => {
       setShowModal(value)

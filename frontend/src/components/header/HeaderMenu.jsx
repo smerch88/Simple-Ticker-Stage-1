@@ -3,6 +3,7 @@ import React, {useState, useEffect, useContext} from 'react';
 
 import { Link } from 'react-router-dom';
 import { Context } from '../..';
+import { logout } from '../../http/userAPI';
 import Logo from '../../resourses/img/icons/logo.png';
 import UserIcon from '../../resourses/img/icons/user-solid.svg'
 import Modal from '../modal/Modal';
@@ -27,7 +28,6 @@ const HeaderMenu = observer ((props) => {
         setShowModal(false)
     }, [showModal])
 
-
     const onSearch = (e) => {
 
         if (window.matchMedia('(max-width: 768px)').matches) {
@@ -36,7 +36,6 @@ const HeaderMenu = observer ((props) => {
         e.preventDefault()
         e.stopPropagation()
         setSearch(true)
-        console.log(321)
     }
     
     const offSearch = () => {
@@ -47,7 +46,11 @@ const HeaderMenu = observer ((props) => {
     const offSign = () => {
         setHideSign(false)
     }
-    console.log(user.isAuth)
+
+    const logOut = async () => {
+        logout()
+    }
+
     return (
         <div className="container">
             <div className="header__wrapper">
@@ -67,7 +70,9 @@ const HeaderMenu = observer ((props) => {
                     
                         <Link to='/custom' className="nav__auth">
                             <img src={UserIcon} alt="" />
-                            <p>{user.user.name}</p>
+                            <div
+                            onClick={logOut}
+                            className="div">Log out</div>
                         </Link>
                         :
                         <div className="log-reg" style={{"display" : hideSign ? "none" : "flex"}}>
