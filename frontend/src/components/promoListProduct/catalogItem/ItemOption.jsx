@@ -1,6 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const ItemOption = (props) => {
+
+    const [selected, setSelected] = useState(false)
 
     const myRefs = useRef([])
  
@@ -11,9 +13,12 @@ const ItemOption = (props) => {
             }
         })
         myRefs.current[id].classList.toggle("ticker__option_active")
+        
     }
 
-
+    const changeProperty = (e) => {
+        setSelected(e.target.textContent)
+    }
 
     const renderOptions = () => {
 
@@ -25,12 +30,14 @@ const ItemOption = (props) => {
                 key={i} 
                 className="ticker__option" 
                 ref={e => myRefs.current[i] = e}  
-                onClick={() => showProperty(i)}>
+                onClick={(e) => showProperty(i)}>
                     <div className="ticker__config">
                         <span className="ticker__name-property">
                             {name}:  
                         </span>
-                        <span className="ticker__selected-property">{property[0]}</span>
+                        <span className="ticker__selected-property">
+                            {selected ? selected : property[0]}
+                            </span>
                         <span className="ticker__arrow">
                             <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1 1L9 8M16.3415 1L8.3415 8" stroke="white"/>
@@ -38,8 +45,8 @@ const ItemOption = (props) => {
                         </span>
                     </div>
                     <hr />
-                    <div className="ticker__list-property">
-                        <ul>
+                    <div className="ticker__list-property" onClick={e => e.stopPropagation()}>
+                        <ul onClick={(e) => changeProperty(e)}>
                             {
                                 property.map((elem, i) => {
                                     if(i === 0) {

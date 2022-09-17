@@ -24,8 +24,6 @@ const App = observer(() => {
        }
       })
   }, [])
-
-  console.log(user.isAuth)
  
   const onShowModal = (value) => {
       setShowModal(value)

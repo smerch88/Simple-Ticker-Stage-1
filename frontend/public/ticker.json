@@ -18,10 +18,6 @@
                         "Black",
                         "Red",
                         "White",
-                        "Yellow",
-                        "Black",
-                        "Red",
-                        "White",
                         "Yellow"
                     ]
                 },
@@ -65,10 +61,6 @@
                         "Black",
                         "Red",
                         "White",
-                        "Yellow",
-                        "Black",
-                        "Red",
-                        "White",
                         "Yellow"
                     ]
                 },
@@ -109,10 +101,6 @@
                 {
                     "name": "Color",
                     "property": [
-                        "Black",
-                        "Red",
-                        "White",
-                        "Yellow",
                         "Black",
                         "Red",
                         "White",

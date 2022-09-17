@@ -28,6 +28,10 @@ const HeaderMenu = observer ((props) => {
         setShowModal(false)
     }, [showModal])
 
+    const logOut = async () => {
+        logout().then(data => user.setIsAuth(false))
+    }
+
     const onSearch = (e) => {
 
         if (window.matchMedia('(max-width: 768px)').matches) {
@@ -47,11 +51,6 @@ const HeaderMenu = observer ((props) => {
         setHideSign(false)
     }
 
-    const logOut = async () => {
-        logout().then(data => user.setIsAuth(false))
-        
-    }
-
     return (
         <div className="container">
             <div className="header__wrapper">
@@ -63,18 +62,25 @@ const HeaderMenu = observer ((props) => {
                 </div>
                 <nav className="nav">
                     <ul className="nav__list">
-                        <li className="nav__item"><a href="#" className="nav__link">About the product</a></li>
-                        <li className="nav__item"><Link to='/catalog' className="nav__link">Catalog</Link></li>
-                        <li className="nav__item"><a href="#" className="nav__link">News</a></li>
+                        <li className="nav__item"><a href="#" className="nav__link">About us</a></li>
+                        <li className="nav__item">
+                            <Link to='/catalog' className="nav__link">Catalog</Link>
+                        </li>
+                        {user.isAuth ?
+                            <li className="nav__item">
+                                <Link to='/custom' className="nav__link">Custom</Link>
+                            </li>
+                            : null
+                        }
                     </ul>
                     {user.isAuth ?
                     
-                        <div className="nav__auth">
+                        <Link to='/custom' className="nav__auth">
                             <img src={UserIcon} alt="" />
                             <div
                             onClick={logOut}
-                            className="div">Log out</div>
-                        </div>
+                            className="nav__logout">Log out</div>
+                        </Link>
                         :
                         <div className="log-reg" style={{"display" : hideSign ? "none" : "flex"}}>
                             <Link to='/login' className="log-reg__sign-in">Sign in</Link>

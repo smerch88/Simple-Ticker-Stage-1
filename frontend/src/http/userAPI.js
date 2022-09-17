@@ -1,5 +1,4 @@
-import { $authHost, $host } from ".";
-import jwt_decode from "jwt-decode";
+import { $host } from ".";
 import axios from "axios";
 
 export const registration = async ({username, password, email}) => {
@@ -8,7 +7,6 @@ export const registration = async ({username, password, email}) => {
 }
 export const login = async ({username,  password}) => {
     const response = await $host.post('/auth/token/login/', {username,  password})
-    console.log(response)
     const token = response.data.auth_token
     localStorage.setItem('token', token)
 }
@@ -23,12 +21,9 @@ export const logout = async () => {
         Authorization: `Token ${localStorage.getItem('token')}`
     }})
     localStorage.removeItem('token')
-    console.log(response)
 }
 
 export const crypto = async (data) => {
-    const headers = `Authorization: Token ${localStorage.getItem('token')}`
-    const token = localStorage.getItem('token')
-    const response = await $host.post('/api/update_ticker_setup/', {data})
+    const response = await axios.post('/api/update_ticker_setup/', data)
     console.log(response)
 }

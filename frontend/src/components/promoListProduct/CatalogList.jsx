@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import useProductService from "../../services/ProductService";
-import CatalogItem from "../catalogItem/CatalogItem";
+import CatalogItem from "./catalogItem/CatalogItem";
 
 
 const Catalog = () => {
