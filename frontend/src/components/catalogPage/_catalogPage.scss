@@ -1,0 +1,180 @@
+.catalog {
+
+    &__wrap {
+        display: flex;
+        flex-grow: 22% 78%;
+        column-gap: 120px;
+        margin-top: 84px;
+    }
+
+    ul {
+        margin: 0;
+    }
+
+    &__filter {
+        width: 264px;
+        margin-bottom: 50px;
+
+        &-wrap {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            column-gap: 25px;
+
+        }
+
+        &-name {
+            text-align: center;
+            @include WorkSans;
+            font-size: 30px;
+            color: $wisteria;
+        }
+
+        hr {
+            margin: 3px 0 43px;
+            height: 1px;
+            border-color: $wisteria;
+        }
+
+        &-property {
+            flex: 1 1;
+
+            &__checkbox {
+                position: absolute;
+                z-index: -1;
+                opacity: 0;
+
+
+                &+label {
+                    display: inline-flex;
+                    align-items: center;
+                    user-select: none;
+                }
+
+                &+label::before {
+                    content: '';
+                    display: inline-block;
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 27px;
+                    flex-shrink: 0;
+                    flex-grow: 0;
+                    border: 2px solid $wisteria;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: 75% 75%;
+                    transition: all .2s ease-out;
+                }
+
+                &:checked+label::before {
+                    border-color: $wisteria;
+                    background-color: $purple;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3e%3cpath fill='%23C1B1DC' d='M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/%3e%3c/svg%3e");
+                }
+
+                &:not(:disabled):not(:checked)+label:hover::before {
+                    border-color: $purple;
+                }
+
+                &:not(:disabled):active+label::before {
+                    background-color: $wisteria;
+                    border-color: $wisteria;
+                }
+
+                &:focus+label::before {
+                    box-shadow: 0 0 0 4px rgba(114, 81, 174, 0.5);
+                }
+
+                &:disabled+label::before {
+                    background-size: 75% 75%;
+                    border-color: $purple;
+                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3e%3cpath fill='%23C1B1DC' d='M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z'/%3e%3c/svg%3e");
+                }
+            }
+
+            &__name {
+                @include WorkSans;
+                font-size: 20px;
+                color: $main;
+            }
+        }
+    }
+
+    &__filters__reset {
+        position: relative;
+        padding: 0;
+        padding-left: 48px;
+        @include WorkSans;
+        font-size: 18px;
+        color: $wisteria;
+        background: none;
+        border: none;
+        transition: all .2s ease-out;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: block;
+            width: 24px;
+            height: 24px;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3e%3cpath fill='%23C1B1DC' d='M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+        }
+
+        &:hover {
+            color: $purple;
+
+            &::before {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3e%3cpath fill='%237251AE' d='M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z'/%3e%3c/svg%3e");
+            }
+        }
+    }
+
+    &__list {
+        margin-top: 48px;
+        display: flex;
+        column-gap: 23px;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        margin-bottom: 89px;
+        width: 270px;
+
+        &__thumbnail {
+            margin: 0 auto;
+            max-width: 265px;
+            max-height: 258px;
+
+            img {
+                border-radius: 14px;
+            }
+        }
+
+        &__name {
+            margin-top: 16px;
+            @include Quantico;
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 150%;
+            text-align: center;
+        }
+
+        &__price {
+            @include Quantico;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        &__btn {
+
+            .btn {
+                margin: 22px auto 0;
+            }
+        }
+    }
+}

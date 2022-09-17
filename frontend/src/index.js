@@ -5,11 +5,21 @@ import './styles/style-reset.css'
 import './styles/style.min.css';
 
 import App from './components/app/App';
+import { createContext } from 'react';
+import UserStore from './store/UserStore';
+
+export const Context = createContext(null)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
-    <App />
+    <Context.Provider
+        value={{
+            user: new UserStore()
+        }}
+    >
+        <App />
+    </Context.Provider>
   
 );
 

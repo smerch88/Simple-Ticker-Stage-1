@@ -1,26 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import { useContext, useState, useEffect } from 'react';
+import { BrowserRouter as Router } from "react-router-dom";
 
-import ApiService from '../../services/ApiService';
 import Header from '../header/HeaderMenu';
 import Footer from '../footer/Footer';
 import Modal from '../modal/Modal';
-import { MainPage, CustomPage, SignUpPage } from '../pages';
+import AppRouter from './AppRouter';
+import { observer } from 'mobx-react-lite';
+import { Context } from '../..';
+import { chek } from '../../http/userAPI';
 
-export default function App() {
 
+
+const App = observer(() => {
+
+  const {user} = useContext(Context)
+  const [loading, setLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
 
+  useEffect(() => {
+      chek().then(data => {
+        user.setIsAuth(true)
+        // user.setUser(data)
+      })
+  }, [])
+ 
   const onShowModal = (value) => {
       setShowModal(value)
   }
-
-  const modal = showModal ? <Modal onShowModal = {onShowModal}/> : null
 
   return (
     <>
@@ -31,21 +37,19 @@ export default function App() {
           />
         </header>
         <main>
-          <Routes>
-            <Route path='/' element={<MainPage/>}/>
-            <Route path='/reg' element={<SignUpPage/>}/>
-            <Route path='/custom' element={<CustomPage/>}/>
-          </Routes>
+          <AppRouter/>
         </main>
         <footer>
           <Footer/>
         </footer>
-        {modal}
+        {showModal ? <Modal onShowModal = {onShowModal}/> : null}
       </Router>
     </>
     
   )
-}
+})
+
+export default App;
 
 
 // export default function App() {
