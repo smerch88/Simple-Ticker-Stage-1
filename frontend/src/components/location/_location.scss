@@ -1,5 +1,5 @@
 .location {
-    margin: 36px 0 83px;
+    margin: 36px 0 50px;
     
 
     a {
@@ -8,5 +8,22 @@
         font-weight: 500;
         font-size: 20px;
         color: #C1B1DC;
+        transition: color .3s ease;
+
+        &:hover {
+            color: $main;
+        }
+
+        &:active {
+            color: $purple;
+        }
+    }
+
+    &__border {
+        @include WorkSans;
+        font-weight: 500;
+        font-size: 20px;
+        color: #C1B1DC;
+        margin: 0 10px;
     }
 }

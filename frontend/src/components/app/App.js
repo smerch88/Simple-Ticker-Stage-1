@@ -8,15 +8,11 @@ import AppRouter from './AppRouter';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
 import { chek } from '../../http/userAPI';
-import Location from '../location/Location';
-
-
 
 const App = observer(() => {
 
   const {user} = useContext(Context)
   const [showModal, setShowModal] = useState(false)
-  const [location, setLocation] = useState('')
 
   useEffect(() => {
       chek().then(data => {
@@ -38,7 +34,6 @@ const App = observer(() => {
           <Header
             onShowModal = {onShowModal}
           />
-          <Location location={location}/>
         </header>
         <main>
           <AppRouter/>

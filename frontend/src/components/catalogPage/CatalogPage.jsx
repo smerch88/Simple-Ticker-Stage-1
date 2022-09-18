@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import useProductService from "../../services/ProductService";
+import Location from "../location/Location";
 import CatalogFilter from "./CatalogFilter"
 import CatalogPageList from "./CatalogPageList";
 
 
 const CatalogPage = () => {
+    const location = useLocation()
+    console.log(location)
 
     const [filterList, setFilterList] = useState([]); // USE MEMO
     const [productList, setProductList] = useState([]);
@@ -100,6 +104,9 @@ const CatalogPage = () => {
 
     return (
         <div className="catalog">
+            <Location
+                location={['/catalog']}
+            />
             <h2 className="title">Catalog</h2>
             <div className="container">
                 
