@@ -1,5 +1,5 @@
 
-const CatalogFilter = ({data, value, onChange, visible}) => {
+const CatalogFilter = ({data, value, onChange, visibleProducts, reset}) => {
 
     function renderProperty() {
 
@@ -8,7 +8,7 @@ const CatalogFilter = ({data, value, onChange, visible}) => {
         const filters = data.map((item, i) => {
             const {name, property} = item;
               
-            visible.forEach(el => {
+            visibleProducts.forEach(el => {
                 const nameFilter = el[name.toLowerCase()]
                  
                 if (!suitableFilter.includes(nameFilter)) {
@@ -65,7 +65,10 @@ const CatalogFilter = ({data, value, onChange, visible}) => {
             <ul>
                 {elements}
             </ul>
-            <button className="catalog__filters__reset">Reset</button>
+            <button 
+            className="catalog__filters__reset"
+            onClick={reset}
+            >Reset</button>
         </div>
     )
 }

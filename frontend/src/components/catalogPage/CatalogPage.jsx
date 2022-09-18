@@ -7,15 +7,10 @@ import CatalogPageList from "./CatalogPageList";
 
 const CatalogPage = () => {
 
-    const [filterList, setFilterList] = useState([]);
+    const [filterList, setFilterList] = useState([]); // USE MEMO
     const [productList, setProductList] = useState([]);
-
-    const [filter, setFilter] = useState([])
-
-    const [configuratio, setСonfiguratio] = useState([]);
-    const [color, setСolor] = useState([]);
-    const [communication, setCommunication] = useState([]);
-    const [size, setSize] = useState([]);
+    const [selectedFilter, setSelectedFilter] = useState([]);
+    const [sortTarget, setSortTarget] = useState(false);
 
     const {getAllFilters, getProducts} = useProductService();
     
@@ -44,13 +39,13 @@ const CatalogPage = () => {
         const nameGroup = name.toLowerCase();
 
         let index = null;
-        let isFilter = filter.some((elem, i) => {
+        let isFilter = selectedFilter.some((elem, i) => {
             index = i
            return Object.keys(elem)[0].includes(nameGroup)
         })
         
         isFilter ?
-            setFilter(filter => {
+        setSelectedFilter(filter => {
                 const arr = filter.splice(index, 1)
                 const prevArr = Object.values(arr[0])[0]
                 return [
@@ -61,21 +56,29 @@ const CatalogPage = () => {
                     }
                 ]
             })
-        : setFilter([...filter, {[nameGroup]: [value]}])
+        : setSelectedFilter([...selectedFilter, {[nameGroup]: [value]}])
     }
 
+    const filteredPrice = (list, target) => {
+        switch (target) {
+            case 'low':
+                return list.sort((a, b) => a.price - b.price);
+            case 'high':
+                return list.sort((a, b) => b.price - a.price);
+            default:
+                return list
+        }       
+    }
 
-
+    console.log(filteredPrice(productList))
     const filteredProducts = (productList) => { 
-        const b = productList.filter(t => {
+        return productList.filter(t => {
 
-            const v = filter.map(n => {
+            const isSuitable = selectedFilter.map(n => {
                 let suitable = false
                 let key = Object.keys(n)[0]
-                
                 const arr = Object.values(n)[0]
   
-
                 if (arr.includes(t[key]) || arr.length === 0) {
                     suitable = true
                 } else {
@@ -85,43 +88,56 @@ const CatalogPage = () => {
                 return suitable
             })
 
-            if (v.every(el => el === true)) {
+            if (isSuitable.every(el => el === true)) {
                 return true
             } else {
                 return false
             }
-            // (!size.length || size.includes(n.size)) &&
-            // (!color.length || color.includes(n.color)) &&
-            // (!communication.length || communication.includes(n.communication)) &&
-            // (!configuratio.length || configuratio.includes(n.configuratio)) 
         })
-
-        return b
     };
 
-    const visible = filteredProducts(productList)
-    // const filteredProducts = productList.filter(n => (
-    //     (!size.length || size.includes(n.size)) &&
-    //     (!color.length || color.includes(n.color)) &&
-    //     (!communication.length || communication.includes(n.communication)) &&
-    //     (!configuratio.length || configuratio.includes(n.configuratio)) 
-    // ));
+    const visibleProducts = filteredPrice(filteredProducts(productList), sortTarget)
 
     return (
         <div className="catalog">
             <h2 className="title">Catalog</h2>
             <div className="container">
+                
                 <div className="catalog__wrap">
                     <CatalogFilter 
                         onChange={onFilterChange}
                         data={filterList}
-                        value={filter}
-                        visible={visible}
+                        value={selectedFilter}
+                        visibleProducts={visibleProducts}
+                        reset={() => setSelectedFilter([])}
                     />
-                    <CatalogPageList
-                        data={visible}
-                    />
+                    <div>
+                        <div className="catalog__sort">
+                            <span className="catalog__sort__name">Show:</span>
+                            
+                                <span>
+                                    <span 
+                                        className={sortTarget === 'low' ?
+                                        "catalog__sort__targets active" : "catalog__sort__targets"
+                                        }
+                                        onClick={() => setSortTarget('low')}
+                                    >lowest to highest price</span>
+                                    <span 
+                                        className={sortTarget === 'high' ?
+                                            "catalog__sort__targets active" : "catalog__sort__targets"
+                                        }
+                                        onClick={() => setSortTarget('high')}
+                                    >highest to lowest price</span>
+                                </span>
+                                <button onClick={() => setSortTarget(false)} className="catalog__filters__reset catalog__sort__reset">Reset</button>
+                            
+                        </div>
+                        <CatalogPageList
+                            data={visibleProducts}
+                        />
+                    </div>
                 </div>
+                
             </div>
         </div>
     )
