@@ -99,6 +99,7 @@ const CatalogPage = () => {
             }
         })
     };
+    
 
     const visibleProducts = filteredPrice(filteredProducts(productList), sortTarget)
 
@@ -118,7 +119,7 @@ const CatalogPage = () => {
                         visibleProducts={visibleProducts}
                         reset={() => setSelectedFilter([])}
                     />
-                    <div>
+                    <div className="catalog__wrap-list">
                         <div className="catalog__sort">
                             <span className="catalog__sort__name">Show:</span>
                             
@@ -137,11 +138,10 @@ const CatalogPage = () => {
                                     >highest to lowest price</span>
                                 </span>
                                 <button onClick={() => setSortTarget(false)} className="catalog__filters__reset catalog__sort__reset">Reset</button>
-                            
                         </div>
-                        <CatalogPageList
-                            data={visibleProducts}
-                        />
+                            <CatalogPageList
+                                data={visibleProducts}
+                            />
                     </div>
                 </div>
                 

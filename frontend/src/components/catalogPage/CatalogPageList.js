@@ -1,3 +1,8 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Grid, Pagination } from "swiper";
+
+
+
 import Ticker from "../../resourses/img/thumbnail.jpg";
 
 const CatalogPageList = (props) => {
@@ -10,20 +15,20 @@ const CatalogPageList = (props) => {
             const {name, price,configuratio, color, communication, size} = item
 
             return (
-                <div key={i} className="catalog__item">
-                    <div className="catalog__item__thumbnail">
-                        <img src={Ticker} alt="Ticker" />
+                    <div key={i} className="catalog__item">
+                        <div className="catalog__item__thumbnail">
+                            <img src={Ticker} alt="Ticker" />
+                        </div>
+                        <div className="catalog__item__name">{name}</div>
+                        <div className="catalog__item__price">${price}</div>
+                        <div className="catalog__item__price">{configuratio}</div>
+                        <div className="catalog__item__price">{color}</div>
+                        <div className="catalog__item__price">{communication}</div>
+                        <div className="catalog__item__price">{size}</div>
+                        <div className="catalog__item__btn">
+                            <button className="btn">Buy</button>
+                        </div>
                     </div>
-                    <div className="catalog__item__name">{name}</div>
-                    <div className="catalog__item__price">${price}</div>
-                    <div className="catalog__item__price">{configuratio}</div>
-                    <div className="catalog__item__price">{color}</div>
-                    <div className="catalog__item__price">{communication}</div>
-                    <div className="catalog__item__price">{size}</div>
-                    <div className="catalog__item__btn">
-                        <button className="btn">Buy</button>
-                    </div>
-                </div>
             )
         })
 

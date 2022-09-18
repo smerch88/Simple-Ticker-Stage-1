@@ -2,7 +2,6 @@
 
     &__wrap {
         display: flex;
-        flex-grow: 22% 78%;
         column-gap: 120px;
         margin-top: 84px;
     }
@@ -190,11 +189,17 @@
         }
     }
 
+    &__wrap-list {
+        max-width: 856px; 
+    }
+
     &__list {
         margin-top: 48px;
         display: flex;
         column-gap: 23px;
         flex-wrap: wrap;
+        position: relative;
+        overflow: hidden;
     }
 
     &__item {
@@ -232,5 +237,23 @@
                 margin: 22px auto 0;
             }
         }
+    }
+
+    .swiper {
+        max-width: 100%;
+        
+    }
+    
+    .swiper-wrapper {
+        justify-content: start;
+        flex-wrap: wrap;
+        flex-direction: unset;
+        min-width: 0;
+        margin-bottom: 67px;
+    }
+
+    .swiper-slide {
+        width: 270px;
+        flex-shrink: 0;
     }
 }
