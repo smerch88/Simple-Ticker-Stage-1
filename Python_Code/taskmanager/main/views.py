@@ -1,3 +1,5 @@
+import json
+
 from django.shortcuts import render
 
 from . import models
@@ -103,7 +105,7 @@ TICKER_SETUP = {"crypto_section": {"profit_change": "10",
 def update_ticker_setup(request):
     global TICKER_SETUP
 
-    TICKER_SETUP = request.POST.get('crypto_section')
+    TICKER_SETUP = json.loads(str(request.POST.get('crypto_section')))
     return HttpResponse(status=200)
 
 
