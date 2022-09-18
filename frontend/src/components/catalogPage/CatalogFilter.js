@@ -1,11 +1,24 @@
 
-const CatalogFilter = (props) => {
+const CatalogFilter = ({data, value, onChange, visible}) => {
 
     function renderProperty() {
 
-        const filters = props.data.map((item, i) => {
+        let suitableFilter = [];
+        
+        const filters = data.map((item, i) => {
             const {name, property} = item;
-
+              
+            visible.forEach(el => {
+                const nameFilter = el[name.toLowerCase()]
+                 
+                if (!suitableFilter.includes(nameFilter)) {
+                    return suitableFilter = [
+                        ...suitableFilter,
+                        nameFilter
+                    ]
+                }
+            });
+            
             return (
                 <li key={i} className="catalog__filter">
                     <fieldset>
@@ -20,8 +33,12 @@ const CatalogFilter = (props) => {
                                                 type="checkbox" 
                                                 id={elem} 
                                                 name={elem} 
-                                                onChange={(e) => props.onChange(e, name)}
-                                                checked={false}
+                                                disabled={!suitableFilter.includes(elem)}
+                                                onChange={(e) => onChange(e, name)}
+                                                checked={
+                                                    value.some(el => 
+                                                    Object.values(el)[0].includes(elem))
+                                                }
                                                 className="catalog__filter-property__checkbox"/>
                                             <label htmlFor={elem}className="catalog__filter-property__name">{elem}</label>
                                         </div> 

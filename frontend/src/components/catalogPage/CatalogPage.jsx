@@ -62,44 +62,9 @@ const CatalogPage = () => {
                 ]
             })
         : setFilter([...filter, {[nameGroup]: [value]}])
-        
-        
-    
-          
-        // switch (name) {
-        //     case 'Size':
-        //         setSize((!size.includes(value))
-        //         ? [ ...size, value ]
-        //         : size.filter(n => n !== value));
-        //         break;
-
-        //     case 'Color':
-        //         setСolor((!color.includes(value))
-        //         ? [ ...color, value ]
-        //         : color.filter(n => n !== value));
-        //         break;
-        //     case 'Communication':
-        //         setCommunication((!communication.includes(value))
-        //         ? [ ...communication, value ]
-        //         : communication.filter(n => n !== value));
-        //         break;
-        //     case 'Configuratio':
-        //         setСonfiguratio((!configuratio.includes(value))
-        //         ? [ ...configuratio, value ]
-        //         : configuratio.filter(n => n !== value));
-        //         break;
-
-        //     default:
-        //         break;
-        // }
     }
 
 
-    // filter.map(n => {
-    //     const key = Object.keys(n)[0]
-    //     console.log(key)
-    //     console.log(Object.values(n)[0])
-    // })
 
     const filteredProducts = (productList) => { 
         const b = productList.filter(t => {
@@ -150,6 +115,8 @@ const CatalogPage = () => {
                     <CatalogFilter 
                         onChange={onFilterChange}
                         data={filterList}
+                        value={filter}
+                        visible={visible}
                     />
                     <CatalogPageList
                         data={visible}
