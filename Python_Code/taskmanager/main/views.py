@@ -105,8 +105,10 @@ TICKER_SETUP = {"crypto_section": {"profit_change": "10",
 def update_ticker_setup(request):
     global TICKER_SETUP
 
-    TICKER_SETUP = json.loads(str(request.POST.get('crypto_section')))
-    return HttpResponse(status=200)
+    if request.method == 'POST':
+        TICKER_SETUP = json.loads(str(request.POST.get('crypto_section')))
+        return HttpResponse(status=200)
+    return HttpResponse('Request method should be POST')
 
 
 def info_to_device(request):
