@@ -1,3 +1,5 @@
+import json
+
 from django.shortcuts import render
 
 from . import models
@@ -11,7 +13,7 @@ from .serializers import CryptoAssetsSerializer
 class CryptoAssetsList(generics.ListAPIView):
     queryset = models.Crypto_Asset.objects.all()
     serializer_class = CryptoAssetsSerializer
-    permission_classes = (permissions.IsAuthenticated, )
+    # permission_classes = (permissions.IsAuthenticated, )
 
 
 def index(request):
@@ -103,14 +105,22 @@ TICKER_SETUP = {"crypto_section": {"profit_change": "10",
 def update_ticker_setup(request):
     global TICKER_SETUP
 
-    TICKER_SETUP = request.POST.get('crypto_section')
+    if request.method == 'POST':
+        TICKER_SETUP = json.loads(str(request.POST.get('crypto_section')))
+        return HttpResponse(status=200)
+    return HttpResponse('Request method should be POST')
 
 
 def info_to_device(request):
-    currencies = TICKER_SETUP['crypto_section']['crypto_list']
-    data = TICKER_SETUP['crypto_section']['crypto_price'] = \
-        [models.Crypto_Asset.objects.filter(symbol__startswith=x) for x in currencies]
-    return JsonResponse(data)
+    global TICKER_SETUP
+
+    if request.method == 'GET':
+        currencies = TICKER_SETUP['crypto_section']['crypto_list']
+        update_prices = [models.Crypto_Asset.objects.filter(symbol__startswith=x).values() for x in currencies]
+        the_prices = [x[0]['avg_price'] for x in update_prices]
+        TICKER_SETUP['crypto_section']['crypto_price'] = the_prices
+
+        return JsonResponse(TICKER_SETUP, content_type="application/json")
 
 
 def refresh_prices():
