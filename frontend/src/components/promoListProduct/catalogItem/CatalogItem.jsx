@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Scrollbar, FreeMode, Mousewheel } from 'swiper';
 
-import Ticker from "../../resourses/img/thumbnail.jpg"
+import Ticker from "../../../resourses/img/thumbnail.jpg"
 import ItemOption from "./ItemOption"
 
 

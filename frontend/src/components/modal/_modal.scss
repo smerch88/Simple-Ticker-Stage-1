@@ -24,6 +24,8 @@
     backdrop-filter: blur(15px);
 
     &__close {
+        position: relative;
+        right: -30px;
         margin-bottom: 52px;
         text-align: right;
         font-size: 60px;

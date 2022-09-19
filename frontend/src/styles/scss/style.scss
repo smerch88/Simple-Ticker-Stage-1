@@ -3,15 +3,16 @@
 @import "./buttons";
 
 @import "../../components/header/header";
+@import "../../components/location/location";
 @import "../../components/footer/footer";
 
 //Main-page
 
 @import "../../components/promo/promo";
 @import "../../components/aboutProduct/aboutProduct";
-@import "../../components/catalogList/catalogList";
+@import "../../components/promoListProduct/catalogList";
 @import "../../components/marquee/marquee";
-@import "../../components/catalogItem/catalogItem";
+@import "../../components/promoListProduct/catalogItem/catalogItem";
 @import "../../components/feedback/feedback";
 @import "../../components/news/news";
 

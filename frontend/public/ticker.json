@@ -7,9 +7,9 @@
                 {
                     "name": "Configuratio",
                     "property": [
-                        "Complete",
-                        "noComplete",
-                        "gaComplete"
+                        "Basic",
+                        "Advanced",
+                        "Lux"
                     ]
                 },
                 {
@@ -18,20 +18,16 @@
                         "Black",
                         "Red",
                         "White",
-                        "Yellow",
-                        "Black",
-                        "Red",
-                        "White",
                         "Yellow"
                     ]
                 },
                 {
-                    "name": "Housing",
+                    "name": "Communication",
                     "property": [
-                        "Сustomized",
-                        "noСustomized",
-                        "gaСustomized",
-                        "gaСustomized"
+                        "Bluetooth",
+                        "Wifi",
+                        "LTE",
+                        "5g"
                     ]
                 },
                 {
@@ -43,10 +39,8 @@
                     ]
                 }
             ],
-
             "price": "110"
         },
-
         {
             "name": "Crypto watch 'CoinTickr'",
             "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
@@ -54,9 +48,9 @@
                 {
                     "name": "Configuratio",
                     "property": [
-                        "Complete",
-                        "noComplete",
-                        "gaComplete"
+                        "Basic",
+                        "Advanced",
+                        "Lux"
                     ]
                 },
                 {
@@ -65,20 +59,16 @@
                         "Black",
                         "Red",
                         "White",
-                        "Yellow",
-                        "Black",
-                        "Red",
-                        "White",
                         "Yellow"
                     ]
                 },
                 {
-                    "name": "Housing",
+                    "name": "Communication",
                     "property": [
-                        "Сustomized",
-                        "noСustomized",
-                        "gaСustomized",
-                        "gaСustomized"
+                        "Bluetooth",
+                        "Wifi",
+                        "LTE",
+                        "5g"
                     ]
                 },
                 {
@@ -90,10 +80,8 @@
                     ]
                 }
             ],
-
             "price": "110"
         },
-
         {
             "name": "Crypto watch 'CoinTickr'",
             "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
@@ -101,9 +89,9 @@
                 {
                     "name": "Configuratio",
                     "property": [
-                        "Complete",
-                        "noComplete",
-                        "gaComplete"
+                        "Basic",
+                        "Advanced",
+                        "Lux"
                     ]
                 },
                 {
@@ -112,20 +100,16 @@
                         "Black",
                         "Red",
                         "White",
-                        "Yellow",
-                        "Black",
-                        "Red",
-                        "White",
                         "Yellow"
                     ]
                 },
                 {
-                    "name": "Housing",
+                    "name": "Communication",
                     "property": [
-                        "Сustomized",
-                        "noСustomized",
-                        "gaСustomized",
-                        "gaСustomized"
+                        "Bluetooth",
+                        "Wifi",
+                        "LTE",
+                        "5g"
                     ]
                 },
                 {
@@ -137,7 +121,6 @@
                     ]
                 }
             ],
-
             "price": "110"
         }
     ]

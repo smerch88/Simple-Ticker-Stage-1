@@ -1,6 +1,7 @@
 import json
 
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
 from . import models
 from django.http import HttpResponse, JsonResponse
@@ -101,7 +102,7 @@ TICKER_SETUP = {"crypto_section": {"profit_change": "10",
         }
     }
 
-
+@csrf_exempt
 def update_ticker_setup(request):
     global TICKER_SETUP
 
@@ -110,7 +111,7 @@ def update_ticker_setup(request):
         return HttpResponse(status=200)
     return HttpResponse('Request method should be POST')
 
-
+@csrf_exempt
 def info_to_device(request):
     global TICKER_SETUP
 

@@ -9,8 +9,6 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
 import { chek } from '../../http/userAPI';
 
-
-
 const App = observer(() => {
 
   const {user} = useContext(Context)
@@ -24,8 +22,6 @@ const App = observer(() => {
        }
       })
   }, [])
-
-  console.log(user.isAuth)
  
   const onShowModal = (value) => {
       setShowModal(value)

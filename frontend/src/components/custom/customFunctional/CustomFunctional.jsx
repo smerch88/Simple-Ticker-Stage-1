@@ -9,7 +9,7 @@ const CustomFunctional = () => {
     const [visible, setVisible] = useState(true)
     const [allListCoins, setAllListCoins] = useState(() => {
         return [
-            
+     
         ]
     })
 
@@ -18,7 +18,6 @@ const CustomFunctional = () => {
     useEffect(() => {
         Request();
         
-        
     }, [search])
 
 
@@ -26,6 +25,9 @@ const CustomFunctional = () => {
     useEffect(() => {
         document.addEventListener('click', visibleSuitable)
         
+        return () => {
+            document.removeEventListener('click', visibleSuitable);
+          }; 
     }, [])
 
     const myRefs = useRef([]);

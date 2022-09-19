@@ -47,6 +47,7 @@
     }
 
     &__focus {
+        position: relative;
         margin-top: 5px;
         @include Quantico;
         font-size: 16px;
