@@ -77,12 +77,12 @@ const HeaderMenu = observer ((props) => {
                     </ul>
                     {user.isAuth ?
                     
-                        <Link to='/custom' className="nav__auth">
+                        <div className="nav__auth">
                             <img src={UserIcon} alt="" />
                             <div
                             onClick={logOut}
                             className="nav__logout">Log out</div>
-                        </Link>
+                        </div>
                         :
                         <div className="log-reg" style={{"display" : hideSign ? "none" : "flex"}}>
                             <Link to='/login' className="log-reg__sign-in">Sign in</Link>
