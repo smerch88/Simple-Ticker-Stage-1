@@ -102,14 +102,14 @@ TICKER_SETUP = {"crypto_section": {"profit_change": "10",
         }
     }
 
-@csrf_exempt
-def update_ticker_setup(request):
-    global TICKER_SETUP
+# @csrf_exempt
+# def update_ticker_setup(request):
+#     global TICKER_SETUP
 
-    if request.method == 'POST':
-        TICKER_SETUP['crypto_section'] = json.loads(request.body.decode())['crypto_section']
-        return HttpResponse(status=200)
-    return HttpResponse('Request method should be POST')
+#     if request.method == 'POST':
+#         TICKER_SETUP['crypto_section'] = json.loads(request.body.decode())['crypto_section']
+#         return HttpResponse(status=200)
+#     return HttpResponse('Request method should be POST')
 
 @csrf_exempt
 def update_ticker_setup(request):
@@ -121,18 +121,18 @@ def update_ticker_setup(request):
         return HttpResponse(status=200)
     except ValueError:
         return HttpResponse('Decoding JSON has failed')
-        
-# @csrf_exempt
-# def info_to_device(request):
-#     global TICKER_SETUP
 
-#     if request.method == 'GET':
-#         currencies = TICKER_SETUP['crypto_section']['crypto_list']
-#         update_prices = [models.Crypto_Asset.objects.filter(symbol__startswith=x).values() for x in currencies]
-#         the_prices = [x[0]['avg_price'] for x in update_prices]
-#         TICKER_SETUP['crypto_section']['crypto_price'] = the_prices
+@csrf_exempt
+def info_to_device(request):
+    global TICKER_SETUP
 
-#         return JsonResponse(TICKER_SETUP, content_type="application/json")
+    if request.method == 'GET':
+        currencies = TICKER_SETUP['crypto_section']['crypto_list']
+        update_prices = [models.Crypto_Asset.objects.filter(symbol__startswith=x).values() for x in currencies]
+        the_prices = [x[0]['avg_price'] for x in update_prices]
+        TICKER_SETUP['crypto_section']['crypto_price'] = the_prices
+
+        return JsonResponse(TICKER_SETUP, content_type="application/json")
 
 
 def refresh_prices():
