@@ -8,9 +8,6 @@ import CatalogPageList from "./CatalogPageList";
 
 
 const CatalogPage = () => {
-    const location = useLocation()
-    console.log(location)
-
     const [filterList, setFilterList] = useState([]); // USE MEMO
     const [productList, setProductList] = useState([]);
     const [selectedFilter, setSelectedFilter] = useState([]);
@@ -19,10 +16,10 @@ const CatalogPage = () => {
     const {getAllFilters, getProducts} = useProductService();
     
     useEffect(() => {
-        Request()
+        request()
     }, [])
 
-    const Request = () => {
+    const request = () => {
         getAllFilters()
         .then(res => onLoadedFilters(res));
 
@@ -74,7 +71,6 @@ const CatalogPage = () => {
         }       
     }
 
-    console.log(filteredPrice(productList))
     const filteredProducts = (productList) => { 
         return productList.filter(t => {
 
