@@ -192,7 +192,7 @@
 
     &__wrap-list {
         max-width: 856px;
-        margin: 0 auto;
+
     }
 
     &__list {
@@ -370,12 +370,18 @@
             flex-direction: column;
             align-items: center;
         }
+
+        &__wrap-list {
+            margin: 0 auto;
+        }
+
         &__filter {
             width: 100%;
         }
 
         &__btn-filter {
             width: 205px;
+
             &::before {
                 background-image: none;
             }
