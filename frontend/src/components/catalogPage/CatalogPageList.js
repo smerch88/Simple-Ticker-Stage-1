@@ -4,6 +4,7 @@ import { Grid, Pagination } from "swiper";
 
 
 import Ticker from "../../resourses/img/thumbnail.jpg";
+import { Link } from 'react-router-dom';
 
 const CatalogPageList = (props) => {
 
@@ -12,22 +13,24 @@ const CatalogPageList = (props) => {
 
         const items = props.data.map((item, i) => {
 
-            const {name, price,configuratio, color, communication, size} = item
+            const {name, price,configuratio, color, communication, size, id} = item
 
             return (
                     <div key={i} className="catalog__item">
-                        <div className="catalog__item__thumbnail">
-                            <img src={Ticker} alt="Ticker" />
-                        </div>
-                        <div className="catalog__item__name">{name}</div>
-                        <div className="catalog__item__price">${price}</div>
-                        <div className="catalog__item__price">{configuratio}</div>
-                        <div className="catalog__item__price">{color}</div>
-                        <div className="catalog__item__price">{communication}</div>
-                        <div className="catalog__item__price">{size}</div>
-                        <div className="catalog__item__btn">
-                            <button className="btn">Buy</button>
-                        </div>
+                        <Link to={`/catalog/${id}`}>
+                            <div className="catalog__item__thumbnail">
+                                <img src={Ticker} alt="Ticker" />
+                            </div>
+                            <div className="catalog__item__name">{name}</div>
+                            <div className="catalog__item__price">${price}</div>
+                            <div className="catalog__item__price">{configuratio}</div>
+                            <div className="catalog__item__price">{color}</div>
+                            <div className="catalog__item__price">{communication}</div>
+                            <div className="catalog__item__price">{size}</div>
+                            <div className="catalog__item__btn">
+                                <button className="btn">Buy</button>
+                            </div>
+                        </Link>
                     </div>
             )
         })

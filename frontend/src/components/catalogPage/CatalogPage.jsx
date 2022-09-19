@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 import useProductService from "../../services/ProductService";
 import Location from "../location/Location";
@@ -8,10 +7,11 @@ import CatalogPageList from "./CatalogPageList";
 
 
 const CatalogPage = () => {
-    const [filterList, setFilterList] = useState([]); // USE MEMO
+    const [filterList, setFilterList] = useState([]);
     const [productList, setProductList] = useState([]);
     const [selectedFilter, setSelectedFilter] = useState([]);
     const [sortTarget, setSortTarget] = useState(false);
+    const [showModal, setShowModal] = useState(false)
 
     const {getAllFilters, getProducts} = useProductService();
     
@@ -32,7 +32,8 @@ const CatalogPage = () => {
     }
 
     const onLoadedProduct = (list) => {
-        setProductList([...list])
+        const idList = list.map((el, i) => ({...el, id: i+1}))
+        setProductList(idList)
     }
 
     const onFilterChange = ({ target }, name) => {
@@ -95,6 +96,8 @@ const CatalogPage = () => {
             }
         })
     };
+
+
     
 
     const visibleProducts = filteredPrice(filteredProducts(productList), sortTarget)
@@ -106,15 +109,32 @@ const CatalogPage = () => {
             />
             <h2 className="title">Catalog</h2>
             <div className="container">
-                
                 <div className="catalog__wrap">
-                    <CatalogFilter 
-                        onChange={onFilterChange}
-                        data={filterList}
-                        value={selectedFilter}
-                        visibleProducts={visibleProducts}
-                        reset={() => setSelectedFilter([])}
-                    />
+                        {showModal ?
+                            <div className="catalog__bg-modal">
+                                <div className="catalog__modal-filter">
+                                <div 
+                                onClick={() => setShowModal(false)} 
+                                className="modal__close">&times;</div>
+                                <CatalogFilter 
+                                    onChange={onFilterChange}
+                                    data={filterList}
+                                    value={selectedFilter}
+                                    visibleProducts={visibleProducts}
+                                    reset={() => setSelectedFilter([])}
+                                />
+                                </div>
+                            </div>
+
+                            : <CatalogFilter 
+                                onChange={onFilterChange}
+                                data={filterList}
+                                value={selectedFilter}
+                                visibleProducts={visibleProducts}
+                                reset={() => setSelectedFilter([])}
+                            />
+                            
+                        }
                     <div className="catalog__wrap-list">
                         <div className="catalog__sort">
                             <span className="catalog__sort__name">Show:</span>
@@ -135,9 +155,10 @@ const CatalogPage = () => {
                                 </span>
                                 <button onClick={() => setSortTarget(false)} className="catalog__filters__reset catalog__sort__reset">Reset</button>
                         </div>
-                            <CatalogPageList
-                                data={visibleProducts}
-                            />
+                        <button className="catalog__btn-filter" onClick={() => setShowModal(true)}>
+                            Filters
+                        </button>
+                        <CatalogPageList data={visibleProducts}/>                   
                     </div>
                 </div>
                 

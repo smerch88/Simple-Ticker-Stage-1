@@ -9,10 +9,10 @@ const Catalog = () => {
     const {getAllProducts} = useProductService();
     
     useEffect(() => {
-        Request()
+        request()
     }, [])
 
-    const Request = () => {
+    const request = () => {
         getAllProducts()
         .then(res => onLoadedList(res))
     }

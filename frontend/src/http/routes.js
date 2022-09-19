@@ -1,5 +1,5 @@
-import { Auth, CatalogPage, CustomPage, MainPage } from "../pages"
-import { CATALOG_ROUTE, CUSTOM_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE } from "../utils/consts"
+import { Auth, CatalogPage, CustomPage, ProductPage, MainPage } from "../pages"
+import { CATALOG_ROUTE, CUSTOM_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE, PRODUCT_ROUTE } from "../utils/consts"
 
 export const authRoutes = [
 
@@ -25,5 +25,9 @@ export const publicRoutes = [
     {
         path: CATALOG_ROUTE,
         Component: CatalogPage
+    },
+    {
+        path: PRODUCT_ROUTE,
+        Component: ProductPage
     }
 ]

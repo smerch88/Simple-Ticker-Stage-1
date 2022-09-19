@@ -13,6 +13,7 @@ const Location = ({ location }) => {
                             <span key={i}>
                                 <span className="location__border">/</span>
                                 <NavLink 
+                                    end
                                     to={el}
                                     style={({ isActive }) => ({'color': isActive ? '#7251AE' : "#C1B1DC"})}
                                 >

@@ -140,6 +140,7 @@
 
         &:active {
             color: $purple;
+
             &::before {
                 background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3e%3cpath fill='%237251AE' d='M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z'/%3e%3c/svg%3e");
             }
@@ -150,22 +151,22 @@
         column-gap: 20px;
         margin-top: 8px;
         @include WorkSans;
-        
+
         &__name {
             width: 197px;
-            
+
             color: $wisteria;
             font-size: 22px;
         }
 
         &__targets {
-            
+
             margin: 0 10px;
             padding: 10px;
             width: 205px;
             border: 2px $main solid;
             border-radius: 25px;
-           
+
             transition: all .2s ease;
             cursor: pointer;
 
@@ -184,13 +185,14 @@
         }
 
         &__reset {
-            
+
             padding-left: 25px;
         }
     }
 
     &__wrap-list {
-        max-width: 856px; 
+        max-width: 856px;
+        margin: 0 auto;
     }
 
     &__list {
@@ -205,6 +207,10 @@
     &__item {
         margin-bottom: 89px;
         width: 270px;
+
+        a {
+            text-decoration: none;
+        }
 
         &__thumbnail {
             margin: 0 auto;
@@ -239,11 +245,64 @@
         }
     }
 
+    &__btn-filter {
+        display: none;
+        position: relative;
+        width: 378px;
+        height: 60px;
+        border-radius: 88px;
+        background: transparent;
+        border-color: #7251AE;
+        @include WorkSans;
+        font-weight: 500;
+        font-size: 25px;
+
+        &::before {
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            transform: translateY(-50%);
+            content: '';
+            display: block;
+            width: 32px;
+            height: 25px;
+            background-image: url('../resourses/img/icons/filter.png');
+        }
+    }
+
+    &__bg-modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1050;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    &__modal-filter {
+        padding: 30px 54px;
+        transition: all .3s ease;
+        position: relative;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 378px;
+        height: auto;
+        background: linear-gradient(180deg, rgba(15, 24, 42, 0.65) 0%, rgba(15, 24, 42, 0.65) 100%);
+        box-shadow: 0px 0px 22px rgba(193, 177, 220, 0.5);
+        backdrop-filter: blur(15px);
+
+        .catalog__filters {
+            display: block;
+        }
+    }
+
     .swiper {
         max-width: 100%;
-        
+
     }
-    
+
     .swiper-wrapper {
         justify-content: start;
         flex-wrap: wrap;
@@ -255,5 +314,71 @@
     .swiper-slide {
         width: 270px;
         flex-shrink: 0;
+    }
+
+    @media (max-width: 1024px) {
+        &__filters {
+            display: none;
+        }
+
+        &__btn-filter {
+            margin: 25px auto 0;
+            display: block;
+        }
+    }
+
+    @media (max-width: 906px) {
+        &__list {
+            justify-content: center;
+        }
+
+
+    }
+
+    @media (max-width: 613px) {
+
+        &__wrap {
+            margin-top: 15px;
+        }
+
+        &__sort__targets {
+            display: block;
+            margin: 10px auto;
+        }
+
+        &__filters__reset {
+            display: block;
+            margin: 0 auto;
+        }
+
+        &__item {
+            width: 171px;
+
+        }
+
+        &__sort__name {
+            display: none;
+        }
+
+        .btn {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 400px) {
+        &__list {
+            flex-direction: column;
+            align-items: center;
+        }
+        &__filter {
+            width: 100%;
+        }
+
+        &__btn-filter {
+            width: 205px;
+            &::before {
+                background-image: none;
+            }
+        }
     }
 }

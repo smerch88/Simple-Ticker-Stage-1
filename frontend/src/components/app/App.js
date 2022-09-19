@@ -8,6 +8,7 @@ import AppRouter from './AppRouter';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
 import { chek } from '../../http/userAPI';
+import ScrollToTop from '../scrollToTop/ScrollToTop';
 
 const App = observer(() => {
 
@@ -36,6 +37,7 @@ const App = observer(() => {
           />
         </header>
         <main>
+          <ScrollToTop/>
           <AppRouter/>
         </main>
         <footer>

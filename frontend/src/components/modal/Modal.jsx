@@ -3,6 +3,7 @@ import uaIcon from "../../resourses/img/icons/ua.png"
 import ukIcon from "../../resourses/img/icons/uk.png"
 import deIcon from "../../resourses/img/icons/de.png"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 const Modal = (props) => {
 
@@ -29,7 +30,11 @@ const Modal = (props) => {
                     onClick={e => e.stopPropagation()}>
                     <div onClick={() => setShowModal(false)} className="modal__close">&times;</div>
                     <ul className="modal__list">
-                        <li className="modal__list-item"><a href="">Lorem ipsum</a></li>
+                        <li className="modal__list-item">
+                            <Link 
+                            to={'/catalog'} 
+                            onClick={() => setShowModal(false)}
+                            >Catalog</Link></li>
                         <li className="modal__list-item"><a href="">Lorem ipsum</a></li>
                         <li className="modal__list-item"><a href="">Lorem ipsum</a></li>     
                     </ul>

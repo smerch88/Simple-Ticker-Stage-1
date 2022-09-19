@@ -3,6 +3,7 @@ import { Scrollbar, FreeMode, Mousewheel } from 'swiper';
 
 import Ticker from "../../../resourses/img/thumbnail.jpg"
 import ItemOption from "./ItemOption"
+import { Link } from 'react-router-dom';
 
 
 const CatalogItem = (props) => {
@@ -21,10 +22,15 @@ const CatalogItem = (props) => {
                         <ItemOption
                             options={options}
                         />
-                        <div className="ticker__btn">
+                        
+                            <Link to={'/catalog'}>
+                            <div className="ticker__btn">
                             <button className="btn">Buy</button>
-                        </div>
-                    </div>
+                            </div>
+
+                            </Link>
+                        </div> 
+                   
                 </SwiperSlide>
             )
         });

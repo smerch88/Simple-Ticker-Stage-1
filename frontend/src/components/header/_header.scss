@@ -193,6 +193,13 @@
             border: none;
             background: transparent;
             cursor: pointer;
+            width: 30px;
+
+        }
+
+        &__pic {
+            width: 26px;
+            height: 26px;
         }
 
         &__field {
@@ -218,7 +225,7 @@
 
             &_active,
             &:hover {
-                width: 150px;
+                width: 115px;
             }
         }
     }
@@ -279,7 +286,7 @@
         &__search {
             margin: 0px 8px 0 0px;
 
-            svg {
+            img {
                 width: 20px;
                 height: 20px;
             }
