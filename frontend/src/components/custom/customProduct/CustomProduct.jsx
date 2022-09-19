@@ -19,7 +19,7 @@ export default function CustomProduct() {
         profit: "11",
         fiat: "USD",
         crypto_list: [
-          "XRP",
+          "DOGE",
           "DOGE",
           "BTC",
           "ETH",
