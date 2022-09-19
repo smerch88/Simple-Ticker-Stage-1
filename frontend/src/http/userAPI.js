@@ -24,6 +24,6 @@ export const logout = async () => {
 }
 
 export const crypto = async (data) => {
-    const response = await axios.post('backend/api/update_ticker_setup/', data)
+    const response = await axios.post('backend/api/update_ticker_setup', data)
     console.log(response)
 }
