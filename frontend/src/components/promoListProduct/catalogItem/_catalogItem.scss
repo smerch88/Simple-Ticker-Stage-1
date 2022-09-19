@@ -4,6 +4,7 @@
     border: 1px solid $main;
     border-radius: 20px;
     transition: background .3s ease-in;
+    text-decoration: none;
 
     &:hover {
         background: rgba(114, 81, 174, 0.4);

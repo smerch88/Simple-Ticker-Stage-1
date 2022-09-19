@@ -4,9 +4,11 @@ import React, {useState, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../..';
 import { logout } from '../../http/userAPI';
+
+
 import Logo from '../../resourses/img/icons/logo.png';
 import UserIcon from '../../resourses/img/icons/user-solid.svg'
-import Modal from '../modal/Modal';
+import SearchIcon from '../../resourses/img/icons/search.svg'
 
 import './_header.scss'
 
@@ -95,9 +97,7 @@ const HeaderMenu = observer ((props) => {
                         onClick={(e) => onSearch(e)}
                         />
                         <button onClick={e => onSearch(e)} type="submit" className='header__search__btn'>
-                            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M18.582 16.3522H17.4077L16.9914 15.9508C18.4483 14.2561 19.3253 12.056 19.3253 9.66266C19.3253 4.3259 14.9994 0 9.66266 0C4.3259 0 0 4.3259 0 9.66266C0 14.9994 4.3259 19.3253 9.66266 19.3253C12.056 19.3253 14.2561 18.4483 15.9508 16.9914L16.3522 17.4077V18.582L23.785 26L26 23.785L18.582 16.3522ZM9.66266 16.3522C5.96112 16.3522 2.97313 13.3642 2.97313 9.66266C2.97313 5.96112 5.96112 2.97313 9.66266 2.97313C13.3642 2.97313 16.3522 5.96112 16.3522 9.66266C16.3522 13.3642 13.3642 16.3522 9.66266 16.3522Z" fill="white"/>
-                            </svg>
+                            <img className='header__search__pic' src={SearchIcon} alt="" />
                         </button>
                     </form>
                     <div className="burger"

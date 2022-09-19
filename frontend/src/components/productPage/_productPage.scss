@@ -1,0 +1,99 @@
+.product-page {
+
+    &__wrapper {
+        margin-top: 70px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        column-gap: 20px;
+    }
+
+    &__thumbnail {
+        width: 487px;
+        height: 474px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 14px;
+        }
+    }
+
+    &__descr {
+        width: 545px;
+        @include WorkSans;
+        font-weight: 500;
+        font-size: 18px;
+
+        .btn {
+            width: 287px;
+        }
+    }
+
+    &__inner {
+        margin-top: 56px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap
+    }
+
+    &__price {
+        @include Quantico;
+        font-size: 50px;
+    }
+
+    .characteristic {
+        margin-top: 60px;
+
+        &__inner {
+            margin-bottom: 20px;
+        }
+
+        &__property {
+            margin-left: 20px;
+            font-weight: 700;
+            font-size: 20px;
+            color: #C1B1DC;
+        }
+
+        &__name {
+            @include WorkSans;
+            font-weight: 700;
+            font-size: 22px;
+        }
+    }
+
+    &__description {
+        margin: 85px 0 100px;
+
+        &__title {
+            @include Quantico;
+            font-weight: 700;
+            font-size: 40px;
+            color: #C1B1DC;
+        }
+
+        &__inner {
+            margin-top: 15px;
+            @include WorkSans;
+            font-weight: 500;
+            font-size: 33.9336px;
+
+            span {
+                margin-left: 10px;
+                font-weight: 300;
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+
+        .title {
+            font-size: 25px;
+        }
+
+        &__thumbnail {
+            height: auto;
+        }
+    }
+}

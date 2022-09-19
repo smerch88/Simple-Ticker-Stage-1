@@ -13,11 +13,11 @@ const NewsList = () => {
     const { getAllNews } = useNewsService();
     
     useEffect(() => {
-        Request()
+        request()
         
     }, [])
 
-    const Request = () => {
+    const request = () => {
         getAllNews()
         .then(res => setNewsList([...res]))
     }
