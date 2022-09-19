@@ -123,10 +123,19 @@ def update_ticker_setup(request):
         return HttpResponse('Decoding JSON has failed')
 
 @csrf_exempt
-def info_to_device(request):
-    global TICKER_SETUP
+# def info_to_device(request):
+#     global TICKER_SETUP
 
+#     if request.method == 'GET':
+#         currencies = TICKER_SETUP['crypto_section']['crypto_list']
+#         update_prices = [models.Crypto_Asset.objects.filter(symbol__startswith=x).values() for x in currencies]
+#         the_prices = [x[0]['avg_price'] for x in update_prices]
+#         TICKER_SETUP['crypto_section']['crypto_price'] = the_prices
+
+#         return JsonResponse(TICKER_SETUP, content_type="application/json")
+def info_to_device(request):
     if request.method == 'GET':
+        global TICKER_SETUP
         currencies = TICKER_SETUP['crypto_section']['crypto_list']
         update_prices = [models.Crypto_Asset.objects.filter(symbol__startswith=x).values() for x in currencies]
         the_prices = [x[0]['avg_price'] for x in update_prices]
