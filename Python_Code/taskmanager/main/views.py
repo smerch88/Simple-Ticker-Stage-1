@@ -106,10 +106,12 @@ TICKER_SETUP = {"crypto_section": {"profit_change": "10",
 def update_ticker_setup(request):
     global TICKER_SETUP
 
-    if request.method == 'POST':
-        TICKER_SETUP['crypto_section'] = json.loads(request.body.decode())['crypto_section']
+    try:
+        data = json.loads(str(request.body.decode('utf-8')))
+        TICKER_SETUP['crypto_section'] = data
         return HttpResponse(status=200)
-    return HttpResponse('Request method should be POST')
+    except ValueError:
+        return HttpResponse('Decoding JSON has failed')
 
 @csrf_exempt
 def info_to_device(request):
