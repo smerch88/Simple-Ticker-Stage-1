@@ -1,6 +1,6 @@
 import Promo from '../components/promo/Promo';
 import AboutProduct from '../components/aboutProduct/AboutProduct';
-import CatalogList from '../components/catalogList/CatalogList';
+import CatalogList from '../components/promoListProduct/CatalogList';
 import FeedBack from '../components/feedback/FeedBack';
 import News from '../components/news/News';
 import Marquee from '../components/marquee/Marquee';

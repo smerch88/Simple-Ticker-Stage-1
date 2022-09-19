@@ -3,9 +3,9 @@
         {
             "name": "Configuratio",
             "property": [
-                "Complete",
-                "noComplete",
-                "gaComplete"
+                "Basic",
+                "Advanced",
+                "Lux"
             ]
         },
         {
@@ -14,24 +14,19 @@
                 "Black",
                 "Red",
                 "White",
-                "Yellow",
-                "Black",
-                "Red",
-                "White",
                 "Yellow"
             ]
         },
-
         {
-            "name": "Housing",
+            "name": "Communication",
             "property": [
-                "Сustomized",
-                "noСustomized",
-                "gaСustomized",
-                "peСustomized"
+                "Wifi",
+                "Bluetooth",
+                "LTE",
+                "5g"
+                
             ]
         },
-        
         {
             "name": "Size",
             "property": [

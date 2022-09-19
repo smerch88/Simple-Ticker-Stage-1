@@ -5,7 +5,7 @@
             "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
             "configuratio": "Basic",
             "color": "Black",
-            "communication": "LTE",
+            "communication": "5g",
             "size": "7x12x5",
             "price": "60"
         },
@@ -22,7 +22,7 @@
             "name": "Crypto watch 'CoinTickr'",
             "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
             "configuratio": "Lux",
-            "color": "Black",
+            "color": "White",
             "communication": "LTE",
             "size": "24x13x9",
             "price": "180"
@@ -33,53 +33,17 @@
             "configuratio": "Advanced",
             "color": "Yellow",
             "communication": "Wifi",
-            "size": "24x13x9",
+            "size": "17x34x8",
             "price": "130"
         },
         {
             "name": "Crypto watch 'CoinTickr'",
             "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
             "configuratio": "Basic",
-            "color": "Red",
-            "communication": "Bluetooth",
+            "color": "Black",
+            "communication": "5g",
             "size": "7x12x5",
             "price": "60"
-        },
-        {
-            "name": "Crypto watch 'CoinTickr'",
-            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
-            "configuratio": "Advanced",
-            "color": "Black",
-            "communication": "LTE",
-            "size": "17x34x8",
-            "price": "130"
-        },
-        {
-            "name": "Crypto watch 'CoinTickr'",
-            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
-            "configuratio": "Lux",
-            "color": "Yellow",
-            "communication": "5g",
-            "size": "17x34x8",
-            "price": "160"
-        },
-        {
-            "name": "Crypto watch 'CoinTickr'",
-            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
-            "configuratio": "Advanced",
-            "color": "White",
-            "communication": "Wifi",
-            "size": "24x13x9",
-            "price": "110"
-        },
-        {
-            "name": "Crypto watch 'CoinTickr'",
-            "thumbnail": "http://localhost:3000/Python-Pet-Project/frontend/src/resourses/img/thumbnail.jpg",
-            "configuratio": "Lux",
-            "color": "Red",
-            "communication": "Wifi",
-            "size": "7x12x5",
-            "price": "140"
         }
     ]
 }

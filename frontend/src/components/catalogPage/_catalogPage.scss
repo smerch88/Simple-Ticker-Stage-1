@@ -2,7 +2,6 @@
 
     &__wrap {
         display: flex;
-        flex-grow: 22% 78%;
         column-gap: 120px;
         margin-top: 84px;
     }
@@ -85,10 +84,16 @@
                     box-shadow: 0 0 0 4px rgba(114, 81, 174, 0.5);
                 }
 
-                &:disabled+label::before {
-                    background-size: 75% 75%;
-                    border-color: $purple;
-                    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3e%3cpath fill='%23C1B1DC' d='M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z'/%3e%3c/svg%3e");
+                &:disabled {
+                    &+label {
+                        color: gray;
+                    }
+
+                    &+label::before {
+                        background-size: 75% 75%;
+                        border-color: #412a57;
+                        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3e%3cpath fill='%23C1B1DC' d='M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z'/%3e%3c/svg%3e");
+                    }
                 }
             }
 
@@ -126,12 +131,66 @@
         }
 
         &:hover {
-            color: $purple;
+            color: $main;
 
+            &::before {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3e%3cpath fill='%23FFFFFF' d='M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z'/%3e%3c/svg%3e");
+            }
+        }
+
+        &:active {
+            color: $purple;
             &::before {
                 background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3e%3cpath fill='%237251AE' d='M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z'/%3e%3c/svg%3e");
             }
         }
+    }
+
+    &__sort {
+        column-gap: 20px;
+        margin-top: 8px;
+        @include WorkSans;
+        
+        &__name {
+            width: 197px;
+            
+            color: $wisteria;
+            font-size: 22px;
+        }
+
+        &__targets {
+            
+            margin: 0 10px;
+            padding: 10px;
+            width: 205px;
+            border: 2px $main solid;
+            border-radius: 25px;
+           
+            transition: all .2s ease;
+            cursor: pointer;
+
+            &:hover {
+                background: #64469c;
+            }
+
+            &:active {
+                color: $wisteria;
+                border-color: $wisteria;
+            }
+        }
+
+        .active {
+            background: $purple;
+        }
+
+        &__reset {
+            
+            padding-left: 25px;
+        }
+    }
+
+    &__wrap-list {
+        max-width: 856px; 
     }
 
     &__list {
@@ -139,6 +198,8 @@
         display: flex;
         column-gap: 23px;
         flex-wrap: wrap;
+        position: relative;
+        overflow: hidden;
     }
 
     &__item {
@@ -176,5 +237,23 @@
                 margin: 22px auto 0;
             }
         }
+    }
+
+    .swiper {
+        max-width: 100%;
+        
+    }
+    
+    .swiper-wrapper {
+        justify-content: start;
+        flex-wrap: wrap;
+        flex-direction: unset;
+        min-width: 0;
+        margin-bottom: 67px;
+    }
+
+    .swiper-slide {
+        width: 270px;
+        flex-shrink: 0;
     }
 }

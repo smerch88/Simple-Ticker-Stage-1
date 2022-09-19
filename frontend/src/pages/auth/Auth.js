@@ -1,15 +1,14 @@
+import { useContext, useState } from 'react';
+
 import { Formik, Form, Field, ErrorMessage} from 'formik';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { registration, login } from '../../http/userAPI';
 import { LOGIN_ROUTE, MAIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
-
 import {observer} from "mobx-react-lite";
-import jwt_decode from "jwt-decode";
-import "./_sign.scss"
-import { useContext, useState } from 'react';
 import { Context } from '../..';
 
+import "./_sign.scss"
 import LoadingIcon from '../../resourses/img/icons/oval.svg'
 
 
@@ -17,7 +16,6 @@ const Auth = observer (() =>{
     const {user} = useContext(Context)
     const location = useLocation()
     const navigate = useNavigate()
-    const [focus, setFocus] = useState(false)
     const [loading, setLoading] = useState(false)
     const isLogin = location.pathname === LOGIN_ROUTE
 
@@ -34,7 +32,7 @@ const Auth = observer (() =>{
             } else {
                 data = await registration(values)
                 setLoading(false)
-                alert('Your account created successfully!')
+                alert('Your account created successfully! Please sign in')
             }
 
         } catch (e) {
@@ -47,10 +45,6 @@ const Auth = observer (() =>{
             }
         }
 
-    }
-
-    const isFocus = () => {
-        setFocus(!focus)
     }
      
     return (
@@ -105,10 +99,8 @@ const Auth = observer (() =>{
                     id='password'
                     type="password"
                     autoComplete="true"
-                    onFocus={isFocus}
-                    onBlur={isFocus}
                 />
-                {focus ? 
+                {!isLogin ? 
                     <div className="sign__focus">
                         Please do not use your login or email and only numbers
                     </div>
