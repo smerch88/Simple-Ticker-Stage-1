@@ -13,7 +13,7 @@ from .serializers import CryptoAssetsSerializer
 class CryptoAssetsList(generics.ListAPIView):
     queryset = models.Crypto_Asset.objects.all()
     serializer_class = CryptoAssetsSerializer
-    permission_classes = (permissions.IsAuthenticated, )
+    # permission_classes = (permissions.IsAuthenticated, )
 
 
 def index(request):
