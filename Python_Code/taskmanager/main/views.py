@@ -25,123 +25,105 @@ def index(request):
     return render(request, 'main/index.html', {'title': 'Website main page', 'assets': crypto_asset})
 
 
-TICKER_SETUP = {"crypto_section": {"profit_change": "10",
-                               "profit": "11",
-                               "fiat": "USD",
-                               "crypto_list": [
-                                                "XRP",
-                                                "DOGE",
-                                                "BTC",
-                                                "ETH",
-                                                "ETC",
-                                                "LUNA",
-                                                "BNB",
-                                                "SOL",
-                                                "RVN",
-                                                "DOT"
-                                                ],
-                                "number_to_display": 10,
-                                "crypto_price": [
-                                                0.343970,
-                                                0.067,
-                                                20000,
-                                                1400,
-                                                22.73,
-                                                0.000104,
-                                                260.73,
-                                                41.92,
-                                                0.02730,
-                                                7.59
-                                            ],
-                                "crypto_price_round": [6, 4, 2, 2, 2, 2, 6, 2, 6, 2]
-                                },
-        "display_section": {
-            "position_x1": 0.5,
-            "position_y1": 0.1,
-            "color_1": "ST7735_GREEN",
-            "textsize_1": 1,
-            "position_x2": 0.5,
-            "position_y2": 0.2,
-            "color_2": "ST7735_GREEN",
-            "textsize_2": 1,
-            "position_x3": 0.3,
-            "position_y3": 0.3,
-            "color_3": "ST7735_GREEN",
-            "textsize_3": 1,
-            "position_x4": 0.4,
-            "position_y4": 0.4,
-            "color_4": "ST7735_GREEN",
-            "textsize_4": 1,
-            "position_x5": 0.1,
-            "position_y5": 0.5,
-            "color_5": "ST7735_YELLOW",
-            "textsize_5": 1,
-            "position_x51": 0.1,
-            "position_y51": 0.6,
-            "color_51": "ST7735_MAGENTA ",
-            "textsize_51": 1,
-            "position_x52": 0.1,
-            "position_y52": 0.7,
-            "color_52": "ST7735_CYAN",
-            "textsize_52": 1,
-            "position_x53": 0.1,
-            "position_y53": 0.8,
-            "color_53": "ST7735_BLUE",
-            "textsize_53": 1,
-            "position_logo_x": 0.1,
-            "position_logo_y": 0.1,
-            "color_logo": "ST7735_ORANGE"
-        },
+# TICKER_SETUP = {"crypto_section": {"profit_change": "10",
+#                                "profit": "11",
+#                                "fiat": "USD",
+#                                "crypto_list": [
+#                                                 "XRP",
+#                                                 "DOGE",
+#                                                 "BTC",
+#                                                 "ETH",
+#                                                 "ETC",
+#                                                 "LUNA",
+#                                                 "BNB",
+#                                                 "SOL",
+#                                                 "RVN",
+#                                                 "DOT"
+#                                                 ],
+#                                 "number_to_display": 10,
+#                                 "crypto_price": [
+#                                                 0.343970,
+#                                                 0.067,
+#                                                 20000,
+#                                                 1400,
+#                                                 22.73,
+#                                                 0.000104,
+#                                                 260.73,
+#                                                 41.92,
+#                                                 0.02730,
+#                                                 7.59
+#                                             ],
+#                                 "crypto_price_round": [6, 4, 2, 2, 2, 2, 6, 2, 6, 2]
+#                                 },
+#         "display_section": {
+#             "position_x1": 0.5,
+#             "position_y1": 0.1,
+#             "color_1": "ST7735_GREEN",
+#             "textsize_1": 1,
+#             "position_x2": 0.5,
+#             "position_y2": 0.2,
+#             "color_2": "ST7735_GREEN",
+#             "textsize_2": 1,
+#             "position_x3": 0.3,
+#             "position_y3": 0.3,
+#             "color_3": "ST7735_GREEN",
+#             "textsize_3": 1,
+#             "position_x4": 0.4,
+#             "position_y4": 0.4,
+#             "color_4": "ST7735_GREEN",
+#             "textsize_4": 1,
+#             "position_x5": 0.1,
+#             "position_y5": 0.5,
+#             "color_5": "ST7735_YELLOW",
+#             "textsize_5": 1,
+#             "position_x51": 0.1,
+#             "position_y51": 0.6,
+#             "color_51": "ST7735_MAGENTA ",
+#             "textsize_51": 1,
+#             "position_x52": 0.1,
+#             "position_y52": 0.7,
+#             "color_52": "ST7735_CYAN",
+#             "textsize_52": 1,
+#             "position_x53": 0.1,
+#             "position_y53": 0.8,
+#             "color_53": "ST7735_BLUE",
+#             "textsize_53": 1,
+#             "position_logo_x": 0.1,
+#             "position_logo_y": 0.1,
+#             "color_logo": "ST7735_ORANGE"
+#         },
 
-        "messages_section": {
-            "message_1": "My Profit:",
-            "message_2": "120$",
-            "message_3": "",
-            "message_4": "",
-            "message_5": "My Test : "
-        }
-    }
+#         "messages_section": {
+#             "message_1": "My Profit:",
+#             "message_2": "120$",
+#             "message_3": "",
+#             "message_4": "",
+#             "message_5": "My Test : "
+#         }
+#     }
 
-# @csrf_exempt
-# def update_ticker_setup(request):
-#     global TICKER_SETUP
-
-#     if request.method == 'POST':
-#         TICKER_SETUP['crypto_section'] = json.loads(request.body.decode())['crypto_section']
-#         return HttpResponse(status=200)
-#     return HttpResponse('Request method should be POST')
 
 @csrf_exempt
 def update_ticker_setup(request):
-    global TICKER_SETUP
-
+    data = json.loads(str(request.body.decode('utf-8')))
     try:
-        data = json.loads(str(request.body.decode('utf-8')))
-        TICKER_SETUP = data
+        with open('ticker_setup.json', mode='w', encoding='utf-8') as file:
+            json.dump(data, file)
         return HttpResponse(status=200)
     except ValueError:
         return HttpResponse('Decoding JSON has failed')
 
 @csrf_exempt
-# def info_to_device(request):
-#     global TICKER_SETUP
-
-#     if request.method == 'GET':
-#         currencies = TICKER_SETUP['crypto_section']['crypto_list']
-#         update_prices = [models.Crypto_Asset.objects.filter(symbol__startswith=x).values() for x in currencies]
-#         the_prices = [x[0]['avg_price'] for x in update_prices]
-#         TICKER_SETUP['crypto_section']['crypto_price'] = the_prices
-
-#         return JsonResponse(TICKER_SETUP, content_type="application/json")
 def info_to_device(request):
     if request.method == 'GET':
-        global TICKER_SETUP
-        currencies = TICKER_SETUP['crypto_section']['crypto_list']
+        with open('ticker_setup.json', mode='r', encoding='utf-8') as file:
+            ticker_s = json.load(file)
+        currencies = ticker_s['crypto_section']['crypto_list']
         update_prices = [models.Crypto_Asset.objects.filter(symbol__startswith=x).values() for x in currencies]
         the_prices = [x[0]['avg_price'] for x in update_prices]
-        TICKER_SETUP['crypto_section']['crypto_price'] = the_prices
+        ticker_s['crypto_section']['crypto_price'] = the_prices
 
-        return JsonResponse(TICKER_SETUP, content_type="application/json")
+        return JsonResponse(ticker_s, content_type="application/json")
 
 
 def refresh_prices():
