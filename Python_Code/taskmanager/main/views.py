@@ -109,7 +109,7 @@ def update_ticker_setup(request):
     if request.method == 'POST':
         TICKER_SETUP = json.loads(str(request.POST.get('crypto_section')))
         return HttpResponse(status=200)
-    return HttpResponse(request.POST)
+    return HttpResponse(request.POST.get('crypto_section'))
 
 @csrf_exempt
 def info_to_device(request):
