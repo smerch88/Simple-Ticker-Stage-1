@@ -110,10 +110,15 @@ def update_ticker_setup(request):
 
 
 def info_to_device(request):
-    currencies = TICKER_SETUP['crypto_section']['crypto_list']
-    data = TICKER_SETUP['crypto_section']['crypto_price'] = \
-        [models.Crypto_Asset.objects.filter(symbol__startswith=x) for x in currencies]
-    return JsonResponse(data)
+    global TICKER_SETUP
+
+    if request.method == 'GET':
+        currencies = TICKER_SETUP['crypto_section']['crypto_list']
+        update_prices = [models.Crypto_Asset.objects.filter(symbol__startswith=x).values() for x in currencies]
+        the_prices = [x[0]['avg_price'] for x in update_prices]
+        TICKER_SETUP['crypto_section']['crypto_price'] = the_prices
+
+        return JsonResponse(TICKER_SETUP, content_type="application/json")
 
 
 def refresh_prices():
