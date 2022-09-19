@@ -107,7 +107,7 @@ def update_ticker_setup(request):
     global TICKER_SETUP
 
     if request.method == 'POST':
-        TICKER_SETUP = json.loads(request.body.decode())['crypto_section']
+        TICKER_SETUP['crypto_section'] = json.loads(request.body.decode())['crypto_section']
         return HttpResponse(status=200)
     return HttpResponse('Request method should be POST')
 
